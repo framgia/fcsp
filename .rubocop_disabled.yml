@@ -1,0 +1,203 @@
+# These are all the cops that are disabled in the default configuration.
+
+Style/InlineComment:
+  Description: "Avoid inline comments."
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Description: "Avoid chaining a method call on a do...end block."
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Description: "Avoid multi-line chains of blocks."
+  Enabled: false
+
+Style/SymbolArray:
+  Description: "Use %i or %I for arrays of symbols."
+  Enabled: false
+
+Style/Documentation:
+  Description: "Document classes and non-namespace modules."
+  Enabled: false
+
+Style/EmptyLinesAroundAccessModifier:
+  Description: "Keep blank lines around access modifiers."
+  Enabled: false
+
+Style/EmptyLiteral:
+  Description: "Prefer literals to Array.new/Hash.new/String.new."
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Description: "Checks style of children classes and modules."
+  Enabled: false
+
+Metrics/ClassLength:
+  Description: "Avoid classes longer than 100 lines of code."
+  Enabled: false
+
+Metrics/ModuleLength:
+  Description: "Avoid modules longer than 100 lines of code."
+  Enabled: false
+
+Style/AlignHash:
+  Description: "Align the elements of a hash literal if they span more than one line."
+  Enabled: false
+
+Metrics/MethodLength:
+  Description: "Avoid methods longer than 10 lines of code."
+  Enabled: false
+
+Metrics/ParameterLists:
+  Description: "Avoid parameter lists longer than three or four parameters."
+  Enabled: false
+
+Style/EmptyMethod:
+  Description: 'Checks the formatting of empty method definitions.'
+  StyleGuide: '#no-single-line-methods'
+  Enabled: false
+
+Style/GuardClause:
+  Description: 'Check for conditionals that can be replaced with guard clauses'
+  StyleGuide: '#no-nested-conditionals'
+  Enabled: false
+
+Style/DoubleNegation:
+  Description: "Checks for uses of double negation (!!)."
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Description: "Avoid complex methods."
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/AlignArray:
+  Description: >-
+                 Align the elements of an array literal if they span more than
+                 one line.
+  Enabled: false
+
+Style/UnneededPercentQ:
+  Description: "Checks for %q/%Q when single quotes or double quotes would do."
+  Enabled: false
+
+Style/AccessorMethodName:
+  Description: Check the naming of accessor methods for get_/set_.
+  Enabled: false
+
+Style/Encoding:
+  Description: "Use UTF-8 as the source file encoding."
+  Enabled: false
+
+Style/NestedParenthesizedCalls:
+  Description: >-
+                 Parenthesize method calls which are nested inside the
+                 argument list of another parenthesized method call.
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Description: "Do not use parallel assignment"
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Description: >-
+                 Use the return value of `if` and `case` statements for
+                 assignment to a variable and variable comparison instead
+                 of assigning that variable inside of each branch.
+  Enabled: false
+  SingleLineConditionsOnly: false
+
+Style/Lambda:
+  Description: "Use the new lambda literal syntax for single-line blocks."
+  Enabled: false
+
+Style/StabbyLambdaParentheses:
+  Description: 'Check for the usage of parentheses around stabby lambda arguments.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#stabby-lambda-with-args'
+  Enabled: false
+
+Style/ElseAlignment:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Description: >-
+                 Use %r for regular expressions matching more than
+                 `MaxSlashes` '/' characters.
+                 Use %r only for regular expressions matching more than
+                 `MaxSlashes` '/' character.
+  Enabled: false
+
+Style/FormatString:
+  Description: 'Favor format over String#%'
+  Enabled: false
+
+#################### Lint ################################
+### Warnings
+Lint/AssignmentInCondition:
+  Description: "Don't use assignment in conditions."
+  Enabled: false
+
+Lint/HandleExceptions:
+  Enabled: false
+
+Lint/AmbiguousOperator:
+  Enabled: false
+
+Lint/ShadowingOuterLocalVariable:
+  Description: 'Shadowing outer local variable'
+  Enabled: false
+
+Style/RedundantSelf:
+  Description: "Don't use self where it's not needed."
+  Enabled: false
+
+Rails/FindBy:
+  Description: 'Prefer find_by over where.first.'
+  Enabled: false
+
+Rails/Output:
+  Description: 'Do not write to stdout. Use Rails logger if you want to log.'
+  Enabled: false
+
+Rails/Date:
+  Enabled: false
+  Description: >-
+                  Do not use to_time on Date objects, because they know
+                  nothing about the time zone in use
+Rails/TimeZone:
+  Enabled: false
+  Description: >-
+                  Do not use Time.at without zone. Use one of Time.zone.at,
+                  Time.current, Time.at.in_time_zone, Time.at.utc,
+                  Time.at.getlocal, Time.at.iso8601, Time.at.jisx0301,
+                  Time.at.rfc3339, Time.at.to_i, Time.at.to_f instead
+Lint/EndAlignment:
+  Description: "Align ends correctly."
+  Enabled: false
+
+Performance/StringReplacement:
+  Description: >-
+                  Use `tr` instead of `gsub` when you are replacing the same
+                  number of characters. Use `delete` instead of `gsub` when
+                  you are deleting characters.
+  Reference: 'https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code'
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+    Enabled: false
+
+Bundler/OrderedGems:
+  Description: >-
+                 Sort alphabetically gems appearing within a contiguous set
+                 of lines in the Gemfile
+  Enabled: false
+  Include:
+    - '**/Gemfile'

@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails", "~> 5.0.1"
-gem "mysql2", ">= 0.3.18", "< 0.5"
 gem "puma", "~> 3.0"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -34,6 +33,22 @@ group :development do
   gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+end
+
+group :test do
+  gem "rspec-rails", "~> 3.4"
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers", "~> 3.0"
+  gem "database_cleaner", "~> 1.5"
+  gem "rubocop", require: false
+  gem "rubocop-checkstyle_formatter", require: false
+  gem "scss_lint", require: false
+  gem "scss_lint_reporter_checkstyle", require: false
+  gem "rails_best_practices"
+  gem "brakeman", require: false
+  gem "eslint-rails"
+  gem "bundler-audit"
+  gem "reek"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
