@@ -1,0 +1,57 @@
+<section id="content">
+  <div class="content-wrap nopadding">
+    <div class="section nopadding nomargin bg-login">
+      <div class="section nobg full-screen nopadding nomargin">
+        <div class="container-fluid vertical-middle divcenter clearfix pnl-bounder">
+          <div class="panel panel-default divcenter noradius noborder pnl-login">
+            <div class="panel-title">
+              <h3 class="text-center"><%= t ".employer_registration" %></h3>
+            </div>
+            <div class="panel-body text-center employer-form">
+              <%= form_for @company_form, class: "nobottommargin" do |f| %>
+                <div class="col_one_third form-item">
+                  <%= f.label :company_name, class: "login-form-username" %>
+                  <span class="label-danger box-danger">
+                    <%= t ".required" %>
+                  </span> <br />
+                  <%= f.text_field :name,
+                    class: "form-control not-dark", autofocus: true %>
+                </div>
+
+                <div class="col_one_third form-item">
+                  <%= f.label :website, class: "login-form-username" %>
+                  <span class="label-danger box-danger">
+                    <%= t ".required" %>
+                  </span> <br />
+                  <%= f.text_field :website,
+                    class: "form-control not-dark", autocomplete: "off" %>
+                </div>
+
+                <div class="col_one_third form-item">
+                  <%= f.label :country, t(".country") ,
+                    class: "login-form-username" %>
+                  <span class="label-danger box-danger">
+                    <%= t ".required" %>
+                  </span> <br />
+                  <%= select_tag :country, options_for_select(
+                    Settings.country), class: "form-control" %>
+                </div>
+
+                <%= f.fields_for :employees do |builder| %>
+                  <%= builder.hidden_field :user_id %>
+                  <%= render "user_fields", f: builder %>
+                <% end %>
+
+                <div class="col_full nobottommargin">
+                  <%= f.submit t(".next"),
+                    class: "button button-3d button-green nomargin" %>
+                </div>
+              <% end %>
+              <%= t ".term" %>
+              <div class="line line-sm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

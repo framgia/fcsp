@@ -19,3 +19,4 @@ education:
 home:
   limit: 8
 home_trainings_limit: 8
+country: ["United States", "Japan", "Germany", "Korea"]

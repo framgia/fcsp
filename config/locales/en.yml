@@ -126,3 +126,6 @@ en:
       learning_program: "Learning Programs"
   copy: "Copyright by Framgia"
   error: "error"
+  form:
+    inform_error: "Error(s) occurred"
+    error: "Error"
