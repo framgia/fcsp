@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :companies, only: [:new, :create]
   get "/pages/*page" => "pages#show"
   root "pages#home"
 

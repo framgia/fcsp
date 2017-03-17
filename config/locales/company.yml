@@ -1,0 +1,11 @@
+en:
+  companies:
+    new:
+      next: "Next"
+      employer_registration: "Employer registration"
+      required: "Required"
+      optional: "Optional"
+      term: "By signing up you agree to our Enterprise Terms of Service,
+        Terms of Use and Policy"
+    create:
+      created: "Create company successfully!"

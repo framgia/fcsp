@@ -1,0 +1,26 @@
+<div class="col_one_third form-item">
+  <%= f.label :name, class: "login-form-username" %>
+  <span class="label-danger box-danger">
+    <%= t ".required" %>
+  </span> <br />
+  <%= f.text_field :name,
+    class: "form-control not-dark", autocomplete: "off" %>
+</div>
+
+<div class="col_one_third form-item">
+  <%= f.label :email_address, class: "login-form-username" %>
+  <span class="label-danger box-danger">
+    <%= t ".required" %>
+  </span> <br />
+  <%= f.text_field :email,
+    class: "form-control not-dark", autocomplete: "off" %>
+</div>
+
+<div class="col_one_third form-item">
+  <%= f.label :phone_number, class: "login-form-username" %>
+  <span class="label-primary box-danger">
+    <%= t ".optional" %>
+  </span> <br />
+  <%= f.text_field :phone,
+    class: "form-control not-dark", autocomplete: "off" %>
+</div>
