@@ -28,6 +28,13 @@ education:
     min_subject_length: 3
     min_content_length: 10
     max_content_length: 255
+  post:
+    title_max_length: 255
+    title_min_length: 10
+    content_min_length: 10
+    content_max_length: 255
+  category:
+    name_max_length: 255
 home:
   limit: 8
 home_trainings_limit: 8
