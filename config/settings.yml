@@ -60,6 +60,11 @@ education:
     title_min_length: 10
     content_min_length: 10
     comment_item_avatar_size: "60x60"
+employer:
+  controller:
+    team_introductions:
+      images:
+        number_images: 2
 home:
   limit: 8
 home_trainings_limit: 8
