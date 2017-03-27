@@ -56,7 +56,26 @@ en:
         update_company_info: "Update Company"
         required: "(required)"
         article: "Add article"
-    layouts:
+    team_introductions:
+      form:
+        title: "Title"
+        contents: "Content"
+        images: "Image"
+        submit: "Save"
+      image_fields:
+        caption: "write caption"
+        team_introduction: "Team Introduction"
+      new:
+        team_introduction: "Team Introduction"
+        team_introduction_1: "Team Introduction 1"
+        team_introduction_2: "Team Introduction 2"
+        team_introduction_3: "Team Introduction 3"
+        team_introduction_recruitment: "Team Introduction Recruiment"
+        submit: "Submit"
+      not_found: "Team Introduction not found"
+    dashboards:
+      index:
+        title: "Company"
       dashboard:
         menu: "Menu"
         manager_postings: "Manager Postings"
@@ -71,6 +90,7 @@ en:
         mail: "Mail"
         help: "Help"
         company_info: "Company Info"
+    layouts:
       header:
         dashboard: "Dashboard"
         jobs: "Jobs"
@@ -81,6 +101,9 @@ en:
         company_info: "Company Info"
         setting: "Setting"
         logout: "Logout"
+  jobs:
+    job_form:
+      next: "Next"
   companies:
     show:
       info: "Info"
