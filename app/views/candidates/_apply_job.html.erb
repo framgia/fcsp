@@ -1,4 +1,4 @@
-<%= form_for candidate, url: candidates_path do |f| %>
+<%= form_for @candidate, url: candidates_path do |f| %>
   <%= hidden_field_tag :job_id, @job.id %>
   <%= hidden_field_tag :user_id, current_user.id %>
   <%= f.submit t(".apply_job"), class: "btn btn-primary" %>

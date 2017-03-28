@@ -16,6 +16,12 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def destroy
+    @candidate.destroy
+    flash[:success] = t ".delete_apply"
+    redirect_to jobs_path
+  end
+
   private
 
   def candidate_params
