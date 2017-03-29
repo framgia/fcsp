@@ -19,6 +19,13 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def show
+    respond_to do |format|
+      if request.xhr?
+        format.html{render partial: "candidate_by_job", locals: {job: @job}}
+      else
+        format.html
+      end
+    end
   end
 
   def create

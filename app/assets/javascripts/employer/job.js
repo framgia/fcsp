@@ -1,6 +1,26 @@
 $(document).ready(function() {
   draftjob.initialize();
+  showCandidateByjob();
 });
+
+function showCandidateByjob() {
+  $('.show-candidates').on('click', function() {
+    var job_id = this.id;
+    var company_id = $('#company-id').val();
+    $.ajax({
+      dataType: 'html',
+      url: '/employer/companies/' + company_id + '/jobs/' + job_id,
+      method: 'get',
+      success: function(data) {
+        $('.modal-show-candidates').html(data);
+        $('#show-candidates-modal').modal('show');
+      },
+      error: function() {
+        alert(I18n.t('employer.candidates.not_found'));
+      }
+    })
+  });
+}
 
 var draftjob = {
   initialize: function() {

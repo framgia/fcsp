@@ -14,5 +14,8 @@
   </td>
   <td>
     <%= button_tag t(".close"), id: "#{job.id}", class: "draft btn btn-warning test" %>
+    <%= button_tag t(".show-candidate"), id: "#{job.id}",
+      class: "show-candidates btn btn-success" %>
   </td>
+  <input type="hidden" id="company-id" value="<%= @company.id %>">
 </tr>

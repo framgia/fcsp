@@ -1,0 +1,42 @@
+<% provide :title, t(".title") %>
+<h1 class="text-center"><%= t ".title" %></h1>
+<div class="postcontent nobottommargin col_last clearfix">
+  <div class="content">
+    <div class="col-md-4 form-group">
+      <p class="candidate-select-box"><%= t ".filter_candidate" %></p>
+      <%= select(:job, :job_id, @jobs.collect {|p| [ p.title, p.id ] },
+        {include_blank: t(".all_jobs")}, class: "form-control", id: "select-job") %>
+    </div>
+    <div class="candidate-by-job">
+    </div>
+    <div class="all-jobs">
+      <% if @candidates.any? %>
+        <div class="container">
+          <div class="row col-md-10">
+            <table class="table table-striped custab">
+              <thead>
+                <tr>
+                  <th class="col-id"><%= t ".id" %></th>
+                  <th class="col-user"><%= t ".user" %></th>
+                  <th class="col-job"><%= t ".job" %></th>
+                  <th class="col-interested"><%= t ".interested_in" %></th>
+                </tr>
+              </thead>
+              <% @candidates.each do |candidates_by_job| %>
+                <% candidates_by_job.each do |candidate| %>
+                  <tr>
+                    <td><%= @index += 1 %></td>
+                    <td><%= candidate.user.email %></td>
+                    <td><%= candidate.job.title %></td>
+                    <td><%= candidate.interested_in %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <input type="hidden" id="company-id" value="<%= @company.id %>">
+  </div>
+</div>

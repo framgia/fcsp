@@ -3,6 +3,136 @@ en:
     jobs:
       show:
         error: "Show job error!"
+  jobs:
+    candidate:
+      apply_job: "Job"
+    show:
+      apply_job: "Apply Job"
+    index:
+      table:
+        thead:
+          id: "Id"
+          title: "Title"
+          describe: "Describe"
+      title: "List jobs"
+    job_title:
+      sales: "Sales"
+      show:
+        job_type: "Job type"
+        total_views: "Total views"
+    members_of_company:
+      members: "members"
+      views_all: "All members( "
+      views_all_close: ")"
+      edit_posting: "Edit posting"
+    introduction_company:
+      what_we_do: "What we do"
+      message_team_introduc_null: "Team introduction null"
+      edit_posting: "Edit posting"
+    job_description:
+      description: "Description"
+      edit_posting: "Edit posting"
+    basic_infor:
+      sales: "Sales"
+      basic_info_job: "Basic Info"
+      look_for: "Looking for"
+      job_type: "Job Type"
+      posting_feature: "Posting Features"
+      company_info: "Company Info"
+      founded: "Founded"
+      industries: "Industries"
+      learn_more_info: "Learn more about the company"
+      comma: ", "
+      benefit_null: "Benefit null"
+      indus_info: "IT / Automobiles / Industrial Machinery/ Industrial Supplies"
+  employer:
+    dashboards:
+      index:
+        title: "Company"
+    companies:
+      edit:
+        company_info: "Company Info"
+        edit_company_info: "Edit company info"
+        manage_members: "Manage members"
+        manage_images: "Manage images"
+        manage_accounts: "Manage accounts on social network"
+      edit_company_info:
+        update_company_info: "Update Company"
+        required: "(required)"
+        article: "Add article"
+    team_introductions:
+      form:
+        title: "Title"
+        contents: "Content"
+        images: "Image"
+        submit: "Save"
+      image_fields:
+        caption: "write caption"
+        team_introduction: "Team Introduction"
+      new:
+        team_introduction: "Team Introduction"
+        team_introduction_1: "Team Introduction 1"
+        team_introduction_2: "Team Introduction 2"
+        team_introduction_3: "Team Introduction 3"
+        team_introduction_recruitment: "Team Introduction Recruiment"
+        submit: "Submit"
+      not_found: "Team Introduction not found"
+      success: "Successfully added team introduction"
+      create_confirm: "Are you sure to set up this company introduction?"
+    dashboards:
+      index:
+        title: "Company"
+      dashboard:
+        menu: "Menu"
+        manager_postings: "Manager Postings"
+        candidates: "Candidates"
+        messages: "Messages"
+        recommendations: "Recommendations"
+        view_mores: "View mores"
+        current_plans: "Current Plans"
+        contact: "Contact Us"
+        trial: "Trial"
+        view_candidates: "Current viewable candidates"
+        mail: "Mail"
+        help: "Help"
+        company_info: "Company Info"
+    layouts:
+      header:
+        dashboard: "Dashboard"
+        jobs: "Jobs"
+        feed: "Feed"
+        tools: "Tools"
+        edit_profile: "Edit Profile"
+        account_info: "Account Info"
+        company_info: "Company Info"
+        setting: "Setting"
+        logout: "Logout"
+    candidates:
+      not_found: "Candidate not found"
+  jobs:
+    job_form:
+      next: "Next"
+  companies:
+    show:
+      info: "Info"
+      news: "News"
+      jobs: "Jobs"
+      members: "Members"
+      stats: "Stats"
+      founder: "Founder"
+      founded: "Founded on"
+      no_of_members: "# of Members"
+      about_us: "About us"
+      social_profiles: "Social Profiles"
+      follow: "Follow"
+  layouts:
+    base_title: "FCSP"
+    header:
+      home: "Home"
+      help: "Help"
+      about: "About"
+      login: "Login"
+      logout: "Logout"
   pages:
     index:
       title: "Home"

@@ -1,0 +1,23 @@
+<% provide :title, t(".title") %>
+<div class="container">
+  <div class="row col-md-10">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th class="col-id"><%= t ".id" %></th>
+          <th class="col-user"><%= t ".user" %></th>
+          <th class="col-job"><%= t ".job" %></th>
+          <th class="col-interested"><%= t ".interested_in" %></th>
+        </tr>
+      </thead>
+      <% candidates.each_with_index do |candidate, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= candidate.user_email %></td>
+          <td><%= candidate.job_title %></td>
+          <td><%= candidate.interested_in %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
