@@ -1,0 +1,13 @@
+<div class="col-xs-12 form-group">
+  <div class="col-xs-6 wrapper">
+    <div>
+      <%= f.file_field :picture, class: "fileUpload", id: "upload-#{n}-#{f.index}" %>
+      <div id="image_holder_<%= n %>"></div>
+    </div>
+  </div>
+  <br>
+  <div class="col-xs-6">
+    <%= f.text_field :caption, placeholder: t(".caption"),
+      class: "form-control", autofocus: true %>
+  </div>
+</div>

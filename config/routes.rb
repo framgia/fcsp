@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :companies do
       resources :jobs
       resources :dashboards, only: :index
+      resources :team_introductions, only: [:create, :new]
     end
   end
 

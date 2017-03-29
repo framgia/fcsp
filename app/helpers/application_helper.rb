@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def not_found
-    render file: "public/404.html.erb", layout: false, status: 404
+    render file: "public/404.html", layout: false, status: 404
   end
 
   def check_paginator? page

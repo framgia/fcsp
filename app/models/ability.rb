@@ -8,6 +8,7 @@ class Ability
       can :manage, Company
       can :manage, User
       can :manage, Job
+      can :manage, TeamIntroduction
     else
       can :read, Company
       can :read, Job

@@ -42,6 +42,7 @@ gem "dropzonejs-rails"
 gem "paranoia"
 gem "geocoder"
 gem "public_activity"
+gem "i18n-js", ">= 3.0.0.rc11"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 3.0"
 # Use ActiveModel has_secure_password
@@ -72,7 +73,7 @@ group :test do
   gem "rspec-collection_matchers"
   gem "shoulda-matchers", "~> 3.0"
   gem "database_cleaner", "~> 1.5"
-  gem "rubocop", require: false
+  gem "rubocop", "0.47.1", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "scss_lint", require: false
   gem "scss_lint_reporter_checkstyle", require: false

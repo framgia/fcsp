@@ -13,5 +13,9 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require bootstrap-sprockets
 //= require employer/job
+//= require team_introduction

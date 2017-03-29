@@ -26,6 +26,7 @@ AllCops:
     - config/environments/**
     - db/migrate/**
     - spec/controllers/education/**
+    - spec/controllers/employer/**
     - spec/**
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:

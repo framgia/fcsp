@@ -267,3 +267,18 @@
 .location-padding {
   padding-bottom: 20px;
 }
+
+.team-introduction-2,
+.team-introduction-3 {
+  display: none;
+}
+
+.team-introduction-1,
+.team-introduction-2,
+.team-introduction-3 {
+  border-bottom: 1px solid $silver;
+}
+
+.list-team-introduction {
+  border-bottom: 1px solid $silver;
+}

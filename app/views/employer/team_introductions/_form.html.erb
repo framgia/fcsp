@@ -1,0 +1,27 @@
+<div class="team_introduction">
+  <%= form_for @team_introduction, url: employer_company_team_introductions_path,
+    html: {id: "new_team_introduction_#{n}"} do |f| %>
+    <div class="col-md-4 form-group">
+      <%= f.label :title, t(".title") %>
+      <%= label_tag "*", nil, class: "field-compulsory" %>
+      <%= f.text_field :title, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="col-md-10 form-group">
+      <%= f.label :content, t(".contents") %>
+      <%= label_tag "*", nil, class: "field-compulsory" %>
+      <%= f.text_area :content, autocomplete: "off", class: "form-control" %>
+    </div>
+
+    <div class="col-xs-12 form-group">
+      <%= label_tag :image, t(".images") %><br>
+        <%= f.fields_for :images do |t| %>
+          <%= render "image_fields", f: t, n: n %>
+        <% end %>
+      </div>
+      <br>
+    <div class="col-md-12 form-group">
+      <%= submit_tag t(".submit"), class: "btn btn-success pull-right submit-upload", id: "submit-#{n}-form" %>
+    </div>
+  <% end %>
+</div>

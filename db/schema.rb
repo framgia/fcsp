@@ -443,14 +443,12 @@ ActiveRecord::Schema.define(version: 20170324024653) do
   end
 
   create_table "team_introductions", force: :cascade do |t|
-    t.integer  "team_id"
     t.integer  "team_target_id"
     t.string   "team_target_type"
     t.string   "title"
     t.text     "content"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["team_id"], name: "index_team_introductions_on_team_id", using: :btree
     t.index ["team_target_id"], name: "index_team_introductions_on_team_target_id", using: :btree
     t.index ["team_target_type"], name: "index_team_introductions_on_team_target_type", using: :btree
   end
