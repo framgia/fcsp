@@ -3,6 +3,8 @@ en:
     apply_job:
       apply_job: "Apply Job"
     unapply_job:
+      cancel_request: "Destroy request Apply Job"
+      delete_apply: "Cancel Apply Request"
       unapply_job: "Cancel Apply Request"
   models:
     jobs:

@@ -1,2 +1,5 @@
-<input type="submit" name="commit" value="Canel apply request"
-  class="btn btn-danger cancel_apply">
+<div class="cancel_apply_job">
+  <%= link_to t(".delete_apply"), @candidate, method: :delete,
+    data: {confirm: t(".cancel_request")},
+    class: "btn btn-danger cancel_request_apply" %>
+</div>
