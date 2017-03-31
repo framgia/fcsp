@@ -13,9 +13,8 @@ class Ability
       can :manage, TeamIntroduction
       can :manage, Candidate
     else
-      can :read, Company
-      can :read, Job
-      can :read, Candidate
+      can :read, :all
+      can :update, User, id: user.id
     end
 
     user.employer_groups.each do |group|

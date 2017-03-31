@@ -147,6 +147,8 @@ courses:
   new_course_image: "/assets/default.jpg"
 user:
   max_length_name: 50
+  cover_profile_image: "/assets/images/cover-profile.jpeg"
+  img_avatar_profile: 140x200
 max_length_title: 50
 hiring_type:
   max_length_name: 50
@@ -168,3 +170,6 @@ employer:
 truncate_job_describe: 150
 home:
   max_job: 24
+users:
+  show:
+    limit_view_project: 5

@@ -1,0 +1,61 @@
+<div class="profile-header-wrapper">
+  <div class="fb-profile">
+    <%= image_tag "cover-profile.jpeg", align: "left", class: "fb-image-lg",
+      alt: t(".profile_img_example") %>
+    <% if @user.avatar? %>
+      <%= link_to image_tag(current_user.avatar.url,
+        class: "fb-image-profile thumbnail", align: "left",
+        size: Settings.user.img_avatar_profile), user_path(@user) %>
+    <% else %>
+      <%= image_tag "default_user_avatar.png", align: "left",
+        size: Settings.user.img_avatar_profile,
+        class: "fb-image-profile thumbnail", alt: t(".default_ava") %>
+    <% end %>
+    <div class="fb-profile-text">
+      <h3><%= @user.email %></h3>
+      <p>
+        <% if @user.info_user.present? %>
+          <% if @user.info_user_quote.blank? %>
+            <%= t ".it_make_awesome" %>
+          <% else %>
+            <%= @user.info_user_quote %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="container">
+  <div class="user-profile-wrapper">
+    <div class="profile-info-main">
+      <div class="row two-column-profile">
+        <div class="col-sm-8 column-main-profile">
+          <div class="column-main-inner">
+            <%= render "user_info_main" %>
+            </br>
+          </div>
+        </div>
+        <div class="col-md-4 column-side-profile">
+          <section class="info-user-profile user-contact">
+            <header>
+              <div class="row">
+                <h4 class="col-md-8 contact-info"><%= t ".contact_info" %></h4>
+                <% if can? :update, @user %>
+                  <span>
+                    <a class="btn btn-default glyphicon glyphicon-pencil
+                      edit-profile-contact" href="#">
+                      <%= t ".edit" %>
+                    </a>
+                  </span>
+                <% end %>
+              </div>
+            </header>
+            <%= render "info_contact" %>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

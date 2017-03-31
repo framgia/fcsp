@@ -29,8 +29,10 @@ class User < ApplicationRecord
   has_many :jobs, through: :candidates
   has_many :bookmarks, dependent: :destroy
   has_one :info_user
+  has_many :employees
+  has_many :companies, through: :employees
 
-  delegate :introduce, to: :info_user, prefix: true
+  delegate :introduce, :ambition, :quote, to: :info_user, prefix: true
 
   mount_uploader :avatar, AvatarUploader
   enum role: [:user, :admin]

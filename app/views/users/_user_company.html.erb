@@ -1,0 +1,29 @@
+<% if @user.companies.present? %>
+  <% @user.companies.each_with_index do |company, index| %>
+    <tr>
+      <td><%= index +1 %></td>
+      <td><%= company.name %></td>
+      <td>
+        <% if @user_object.employee_info(company).start_time.blank? %>
+          <%= t ".n/a" %>
+        <% else %>
+          <%= @user_object.employee_info(company).start_time %>
+        <% end %>
+      </td>
+      <td>
+        <% if @user_object.employee_info(company).description.blank? %>
+          <%= t ".n/a" %>
+        <% else %>
+          <%= @user_object.employee_info(company).description %>
+        <% end %>
+      </td>
+      <td>
+        <% if @user_object.employee_info(company).role.blank? %>
+          <%= t ".n/a" %>
+        <% else %>
+          <%= @user_object.employee_info(company).role %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

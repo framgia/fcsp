@@ -572,6 +572,8 @@ ActiveRecord::Schema.define(version: 20170405061421) do
   add_foreign_key "education_training_techniques", "education_trainings", column: "training_id"
   add_foreign_key "education_user_groups", "education_groups", column: "group_id"
   add_foreign_key "education_user_groups", "users"
+  add_foreign_key "employees", "companies"
+  add_foreign_key "employees", "users"
   add_foreign_key "groups", "companies"
   add_foreign_key "info_users", "users"
   add_foreign_key "job_hiring_types", "hiring_types"
