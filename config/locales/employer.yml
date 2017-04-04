@@ -28,7 +28,34 @@ en:
         company_info: "Company Info"
         setting: "Setting"
         logout: "Logout"
+    candidates:
+      index:
+        all_jobs: "All jobs"
+        title: "Candidates"
+        filter_candidate: "Filter candidate by select job"
+        user: "User"
+        id: "ID"
+        job: "Job"
+        interested_in: "Interested in"
+        show: "Show"
+      candidate_by_select_job:
+        user: "User"
+        id: "ID"
+        job: "Job"
+        email: "Email"
+        interested_in: "Interested in"
     jobs:
+      candidate_by_job:
+        user: "User"
+        id: "ID"
+        job: "Job"
+        email: "Email"
+        interested_in: "Interested in"
+        have: " have "
+        candidates: " candidates"
+      show_candidates:
+        all_candidates: "All candidates"
+        close: Close
       form:
         submit: "Post"
         question_des_job: "Who is neccesary to your company?"

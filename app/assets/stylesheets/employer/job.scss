@@ -80,3 +80,29 @@
   top: 15%;
   z-index: 999;
 }
+
+.panel .title-image {
+  color: $orange;
+}
+
+.candidate-select-box {
+  color: $gray;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.col-id {
+  width: 10%;
+}
+
+.col-user {
+  width: 25%;
+}
+
+.col-job {
+  width: 25%;
+}
+
+.col-interested {
+  width: 40%;
+}
