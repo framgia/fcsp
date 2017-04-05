@@ -189,3 +189,22 @@ en:
         statuses:
           preview: "Preview"
           community: "Community"
+  users:
+    show:
+      it_make_awesome: "IT make awesome"
+      contact_info: "Contact information"
+      profile_img_example: "Profile image example"
+      default_ava: "Default user avatar"
+    user_info_main:
+      introduction: "Introduction"
+      ambition: "Ambition"
+      work: "Work"
+      n/a: "N/A"
+      project: "Project"
+      view_more: "View more"
+      index: "Index"
+      project_name: "Project name"
+      company_name: "Company name"
+      start_time: "Start time"
+      description: "Description"
+      position: "Position"

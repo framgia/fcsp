@@ -15,8 +15,9 @@
  *= require_tree ./education
  *= require sweetalert2
  *= require_self
- *= require custom.scss
- *= require company_info.scss
+ *= require custom
+ *= require company_info
+ *= require user
  */
 
 @import 'bootstrap-sprockets';

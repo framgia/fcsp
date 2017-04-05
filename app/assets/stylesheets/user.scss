@@ -1,0 +1,82 @@
+@import 'variables/color';
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.user-profile-wrapper {
+  height: auto;
+  width: 100%;
+}
+
+.profile-header-wrapper {
+  height: 500px;
+}
+
+.clear {
+  height: 10px;
+}
+
+.profile-info-main {
+  border: 1px solid $gray-ddd;
+  height: auto;
+  margin-top: 0;
+  width: 100%;
+}
+
+.two-column-profile {
+  .column-main-profile {
+    border-right: 1px solid $gray-ddd;
+    margin-top: 0;
+    width: 70%;
+  }
+
+  .column-side-profile {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    width: 30%;
+  }
+
+  .edit-more {
+    margin-top: 15px;
+  }
+}
+
+.title-user-info {
+  color: $orange;
+}
+
+.info-user-profile {
+  padding-left: 20px;
+}
+
+.edit-profile-contact {
+  float: left;
+}
+
+.fb-profile .fb-image-lg {
+  height: 100%;
+  margin-bottom: 10px;
+  width: 100%;
+  z-index: 0;
+}
+
+.fb-image-profile {
+  margin: -120px 10px 0 80px;
+  width: 17%;
+  z-index: 9;
+}
+
+@media (max-width:768px) {
+
+  .fb-profile-text > h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .fb-image-profile {
+    margin: -45px 10px 0 25px;
+    width: 20%;
+    z-index: 9;
+  }
+}

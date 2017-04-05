@@ -1,0 +1,107 @@
+<section class="info-user-profile user-introduction">
+  <header>
+    <div class="row">
+      <h3 class="col-md-10 title-user-info"><%= t ".introduction" %></h3>
+      <% if can? :update, @user %>
+        <span>
+          <a class="btn btn-default glyphicon glyphicon-pencil
+            edit-profile edit-more" href="#">
+            <%= t ".edit" %>
+          </a>
+        </span>
+      <% end %>
+    </div>
+  </header>
+  <div class="section-body">
+    <% if @user.info_user.present? %>
+      <p id="introduce"><%= @user.info_user_introduce %></p>
+    <% end %>
+  </div>
+</section>
+</br>
+<section class="info-user-profile user-ambition">
+  <header>
+    <div class="row">
+      <h3 class="col-md-10 title-user-info"><%= t ".ambition" %></h3>
+      <% if can? :update, @user %>
+        <span>
+          <a class="btn btn-default glyphicon glyphicon-pencil
+            edit-profile edit-more" href="#">
+            <%= t ".edit" %>
+          </a>
+        </span>
+      <% end %>
+    </div>
+  </header>
+  <div class="section-body">
+    <% if @user.info_user.present? %>
+      <p><%= @user.info_user_ambition %></p>
+    <% end %>
+  </div>
+</section>
+</br>
+<section class="info-user-profile user-work">
+  <header>
+    <div class="row">
+      <h3 class="col-md-10 title-user-info"><%= t ".work" %></h3>
+      <% if can? :update, @user %>
+        <span>
+          <a class="btn btn-default glyphicon glyphicon-pencil
+            edit-profile edit-more" href="#">
+            <%= t ".edit" %>
+          </a>
+        </span>
+      <% end %>
+    </div>
+  </header>
+  <div class="section-body">
+    <table class="table table-striped">
+      <tr>
+        <th><%= t ".index" %></th>
+        <th><%= t ".company_name" %></th>
+        <th><%= t ".start_time" %></th>
+        <th><%= t ".description" %></th>
+        <th><%= t ".position" %></th>
+      </tr>
+      <%= render "user_company" %>
+    </table>
+  </div>
+</section>
+</br>
+<section class="info-user-profile user-project">
+  <header>
+    <div class="row">
+      <h3 class="col-md-8 title-user-info"><%= t ".project" %></h3>
+      <span>
+        <a class="btn btn-info glyphicon glyphicon-eye-open
+          view-more edit-more" href="#">
+          <%= t ".view_more" %>(<%= @user_object.count_user_projects %>)
+        </a>
+      </span>
+      <% if can? :update, @user %>
+        <span>
+          <a class="btn btn-default glyphicon glyphicon-pencil
+            edit-profile edit-more" href="#">
+            <%= t ".edit" %>
+          </a>
+        </span>
+      <% end %>
+    </div>
+  </header>
+  <div class="section-body">
+    <table class="table table-striped">
+      <tr>
+        <th><%= t ".index" %></th>
+        <th><%= t ".project_name" %></th>
+      </tr>
+      <% if @user_object.user_projects.present? %>
+        <% @user_object.user_projects.each_with_index do |project, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= project.name %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</section>
