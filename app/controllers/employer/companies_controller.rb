@@ -5,6 +5,15 @@ class Employer::CompaniesController < Employer::BaseController
   def edit
   end
 
+  def update
+    if @company.update_attributes company_params
+      flash[:success] = t ".company_updated"
+    else
+      flash[:danger] = t ".company_updated_failed"
+    end
+    redirect_to edit_employer_company_path
+  end
+
   private
 
   def company_params
