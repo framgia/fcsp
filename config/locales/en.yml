@@ -1,4 +1,10 @@
 en:
+  activerecord:
+    attributes:
+      job:
+        statuses:
+          active: "Active"
+          close: "Close"
   models:
     jobs:
       show:
@@ -55,6 +61,11 @@ en:
     popular_job:
       comments: "35 comments"
   employer:
+    jobs:
+      job:
+        candidates: "Candidates"
+      index:
+        job_recruitment: "Job Recruiment"
     companies:
       edit:
         company_info: "Company Info"

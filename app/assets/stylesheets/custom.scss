@@ -197,11 +197,11 @@
   }
 
   .header-btn .hr-edit {
-    margin-top: 15px;
+    margin-top: 13px;
   }
 
   .header-btn {
-    margin-right: 38px;
+    padding-right: 100px;
   }
 
   .edit-team-intro {
@@ -218,7 +218,6 @@
     .wanted-info {
       margin-top: 50px;
     }
-
     .section-body {
       margin-top: 15px;
     }
@@ -419,4 +418,8 @@
 .job-posting-title {
   font-size: 16px;
   font-weight: 550;
+}
+
+.action__with_jobs {
+  padding-top: 15px;
 }

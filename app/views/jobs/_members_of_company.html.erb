@@ -4,7 +4,7 @@
       <div class="website-company col-md-7">
         <%= @job.company_name %>
         <%= t ".members" %>
-        <a class="btn btn-info" href="#">
+        <a class="btn btn-info btn-xs" href="#">
           <%= t ".views_all" %>
           <% if @job_object.members.present? %>
             <%= @job_object.members.size %>
