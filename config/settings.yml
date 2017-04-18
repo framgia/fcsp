@@ -164,6 +164,7 @@ jobs:
   image_member_url: "/assets/avatar.jpg"
   posting_job_default: "/assets/posting_job_default.jpg"
   team_intro_default: "/assets/team_intro.png"
+  limit_candadate_consist: 12
 industries:
   max_length_name: 50
 activity:
@@ -193,3 +194,4 @@ friend_ship:
   decline: "decline"
 mailer:
   sent_mail: "fcsp.info@gmail.com"
+number_skill_level: 0

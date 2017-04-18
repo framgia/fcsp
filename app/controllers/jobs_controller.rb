@@ -15,7 +15,10 @@ class JobsController < ApplicationController
 
   def show
     @job_object = Supports::ShowJob.new @job, current_user
-
+    @users = User.includes(:skills, :skill_users, :avatar)
+    @job_support = UserSkill.new @job, @users
+    @users = @job_support.user_sort_skill
+      .take(Settings.jobs.limit_candadate_consist)
     if request.xhr?
       render json: {
         addresses: @job_object.company_address,

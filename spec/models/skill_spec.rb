@@ -10,7 +10,6 @@ RSpec.describe Skill, type: :model do
     context "column_specifications" do
       it{expect have_db_column(:name).of_type(:string)}
       it{expect have_db_column(:description).of_type(:text)}
-      it{expect have_db_column(:level).of_type(:integer)}
     end
   end
 end

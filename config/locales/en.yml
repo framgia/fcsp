@@ -45,6 +45,8 @@ en:
       members: "members"
       views_all: "All members"
       edit_posting: "Edit posting"
+    user_candidate:
+      candidate_ consist: "Candidates consist"
     introduction_company:
       what_we_do: "What we do"
       message_team_introduc_null: "Team introduction null"

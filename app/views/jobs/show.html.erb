@@ -7,6 +7,7 @@
         <aside class="col-md-8 column-main">
           <div class="column-main-inner">
             <%= render "members_of_company" %>
+            <%= render "user_candidate", users: @users %>
             <div class="job-description">
               <% if @job_object.team_introduction.any? %>
                 <%= render "introduction_company" %>

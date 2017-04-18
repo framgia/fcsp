@@ -45,6 +45,8 @@ vi:
       views_all: "All members( "
       views_all_close: ")"
       edit_posting: "Edit posting"
+    user_candidate:
+      candidate_ consist: "ứng viên phù hợp"
     introduction_company:
       what_we_do: "What we do"
       message_team_introduc_null: "Team introduction null"

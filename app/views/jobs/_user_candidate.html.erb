@@ -1,0 +1,19 @@
+<div class="row">
+  <h3 class="title-section col-md-9"><%= t ".candidate_ consist" %></h3>
+</div>
+<div class="job-show-member-wrapper">
+  <% if users.present? %>
+    <ul class="members cf">
+      <% users.each do |member| %>
+        <li>
+          <a data-ref="staffing">
+            <div class="member-photo">
+              <%= load_user_avatar member.first, "img-thumbnail img-avatar my-img-avatar" %>
+            </div>
+            <h5><%= member.first.name %></h5>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
