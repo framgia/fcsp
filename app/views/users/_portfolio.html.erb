@@ -1,0 +1,29 @@
+<% portfolios.each do |portfolio| %>
+  <div class="col-xs-12 bottommargin-sm">
+    <div class="ipost clearfix">
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="entry-title">
+            <h3><%= portfolio.title %></h3>
+          </div>
+          <ul class="entry-meta clearfix">
+            <li>
+              <i class="icon-calendar3"></i>
+              <%= load_time portfolio, :time %>
+            </li>
+          </ul>
+          <div class="entry-content">
+            <p>
+              <%= truncate portfolio.description,
+                length: Settings.portfolio.desciption_character_display %>
+            </p>
+            <i>
+              <%= t ".open" %><a href="<%= portfolio.url %>">
+                <%= portfolio.url %></a>
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

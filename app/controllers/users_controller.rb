@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @job_active = Job.active.includes :images, :skills, :job_skills
     @job_skill = ArrayJob.get_job @job_active, @user
+    @user_object = Supports::ShowUser.new @user, params[:page]
   end
 
   def edit

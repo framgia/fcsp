@@ -19,18 +19,28 @@
                     </a>
                   </li>
                 <% end %>
-                <li>
-                  <a href="#tab-information">
-                    <i class="icon-info-sign"></i><%= t ".information" %>
-                  </a>
-                </li>
-                <li>
-                  <a href="#tab-posts">
-                    <i class="icon-pencil2"></i><%= t ".posts" %>
-                  </a>
-                </li>
-              </ul>
-              <div class="tab-container">
+                  <li>
+                    <a href="#tab-user-info">
+                      <i class="icon-pencil2"></i><%= t ".basic_infor_user" %>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tab-user-portfolio">
+                      <i class="icon-pencil2"></i><%= t ".portfolios" %>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tab-user-clubs">
+                      <i class="icon-pencil2"></i><%= t ".clubs" %>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tab-suggest-job">
+                      <i class="icon-lightbulb"></i><%= t ".job_suggest" %>
+                    </a>
+                  </li>
+                </ul>
+                <div class="tab-container">
                 <% if @user.is_user? current_user %>
                   <div class="tab-content clearfix" id="tab-suggest-job">
                     <div id="job-show-wrapper">
@@ -49,10 +59,30 @@
                   </div>
                 <% end %>
               </div>
+                <div class="tab-container">
+                  <div class="tab-content clearfix" id="tab-new-feed">
+                    <div class="table-responsive">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-container">
+                  <div class="tab-content clearfix" id="tab-user-info">
+                    <div class="table-responsive">
+                      <%= render "basic_infor_user", user_object: @user_object %>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-container">
+                  <%= render "portfolios", portfolios: @user_object.portfolios %>
+                </div>
+                <div class="tab-container">
+                  <%= render "clubs", clubs:
+                    @user_object.clubs %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <div class="col-sm-3">
         <%= render "social_network" %>
       </div>

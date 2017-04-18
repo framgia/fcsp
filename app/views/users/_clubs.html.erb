@@ -1,0 +1,6 @@
+<div class="tab-content clearfix" id="tab-user-clubs">
+  <%= render "club", clubs: clubs %>
+  <div class="center custom-paginate">
+    <%= paginate clubs, remote: true, params: {tab: "tab-user-clubs"} %>
+  </div>
+</div>

@@ -172,6 +172,34 @@ namespace :db do
           friend_id: user_id, status: 1
       end
 
+      puts "Create Social user"
+      10.times do |i|
+        Social.create! name: "Facebook ", url: "facebook.com/framgia",
+          target_id: i+1, target_type: "User", social_type:"framgia"
+        Social.create! name: "Github ", url: "github.com/framgia",
+          target_id: i+1, target_type: "User", social_type: "framgia"
+        Social.create! name: "Twitter ", url: "twitter.com/framgia", social_type: "framgia"
+      end
+
+      puts "Create portfolio user"
+      10.times do |i|
+        Portfolio.create! title: "Portfolio1", url: "https://github.com/framgia/fcsp", description: "description portfolio2", time: FFaker::Time.date, user_id: i+1
+        Portfolio.create! title: "Portfolio1", url: "https://github.com/framgia/fcsp", description: "description portfolio2", time: FFaker::Time.date, user_id: i+1
+      end
+
+      puts "Create clubs user"
+      5.times do |i|
+        club_params = {
+          name: Faker::Name.name,
+          description: "Club description",
+          begin_time: FFaker::Time.date,
+          end_time: FFaker::Time.date,
+          user_id: i+1,
+          image: ImageUploader.new.default_url
+        }
+        club = Club.create! club_params
+      end
+
       puts "Create Education informations"
       Rake::Task["education:education_seeding"].invoke
 
