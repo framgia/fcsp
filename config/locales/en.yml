@@ -413,6 +413,23 @@ en:
       not_found: "User not found"
       blocked: "This user is blocked!"
       job_suggest: "Suggest job"
+      basic_infor_user: "User information"
+      portfolios: "Portfolio of user"
+      clubs: "Clubs"
+    basic_infor_user:
+      basic_info_user: "User information"
+      more_info: "More information"
+      email: "Email"
+      introduce: "Introduce"
+      quote: "Quote"
+      ambition: "Ambition"
+      skills: "Skills"
+      knowledge: "have knowledge of :"
+    portfolio:
+      open: "Open: "
+    club:
+      begin_time: "Begin time :"
+      end_time: "End time :"
     header:
       add_friend: "Add friend"
       message: "Message"

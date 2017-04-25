@@ -1,0 +1,14 @@
+<% socials.each do |social| %>
+  <tr>
+    <td class="head">
+      <span class="glyphicon glyphicon-globe">
+        <%= social.name %>
+      </span>
+    </td>
+    <td>
+      <p>
+        <%= social.url %>
+      </p>
+    </td>
+  </tr>
+<% end %>

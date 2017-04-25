@@ -1,0 +1,6 @@
+<div class="tab-content clearfix" id="tab-user-portfolio">
+  <%= render "portfolio", portfolios: portfolios %>
+  <div class="center custom-paginate">
+    <%= paginate portfolios, remote: true, params: {tab: "tab-user-portfolio"} %>
+  </div>
+</div>

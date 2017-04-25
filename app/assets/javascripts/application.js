@@ -29,3 +29,4 @@
 //= require social-share-button
 //= require friend_ships
 //= require friend_ship
+//= require users

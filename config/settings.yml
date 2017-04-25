@@ -202,3 +202,17 @@ info_users:
   quote_form_rows: 2
   max_length_ambition: 255
   max_length_quote: 255
+resources:
+  per_page: 4
+club:
+  description: 50
+  max_name_length: 50
+  max_description_length: 255
+portfolio:
+  desciption_character_display: 50
+  max_title_length: 50
+  max_url_length: 100
+  max_desciption_length: 255
+social:
+  max_name_length: 50
+  max_url_length: 255

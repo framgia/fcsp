@@ -1,0 +1,36 @@
+<% clubs.each do |club| %>
+  <div class="col-xs-12 bottommargin-sm">
+    <div class="ipost clearfix">
+      <div class="row clearfix">
+        <div class="col-sm-4">
+          <div class="entry-image">
+            <%= load_an_image club %>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="entry-title">
+            <h3><%= club.name %></h3>
+          </div>
+          <ul class="entry-meta clearfix">
+            <li>
+              <i class="icon-calendar3"></i>
+              <%= t ".begin_time" %>
+              <%= load_time club, :begin_time %>
+            </li>
+            <li>
+              <i class="icon-calendar3"></i>
+              <%= t ".end_time" %>
+              <%= load_time club, :end_time %>
+            </li>
+          </ul>
+          <div class="entry-content">
+            <p>
+              <%= truncate club.description,
+                length: Settings.club.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

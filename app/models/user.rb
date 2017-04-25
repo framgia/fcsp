@@ -35,6 +35,9 @@ class User < ApplicationRecord
   has_many :skills, through: :skill_users
   has_many :user_portfolios, dependent: :destroy
   has_many :user_educations, dependent: :destroy
+  has_many :socials, as: :target, dependent: :destroy
+  has_many :portfolios, dependent: :destroy
+  has_many :clubs, dependent: :destroy
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,
@@ -48,6 +51,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :info_user
 
   delegate :introduce, to: :info_user, prefix: true
+  delegate :quote, to: :info_user, prefix: true
+  delegate :ambition, to: :info_user, prefix: true
 
   enum role: [:user, :admin]
   enum education_status: [:blocked, :active], _prefix: true

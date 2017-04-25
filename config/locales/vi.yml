@@ -463,6 +463,23 @@ vi:
       blocked: "Người dùng này đã bị khóa!"
       not_found: "Không tìm thấy người dùng"
       job_suggest: "Gợi ý công việc"
+      basic_infor_user: "Thông tin người dùng"
+      portfolios: "danh mục người dùng"
+      clubs: "Các câu lạc bộ"
+    basic_infor_user:
+      basic_info_user: "Thông tin người dùng"
+      more_info: "Nhiều thông tin hơn"
+      email: "thư điện tử"
+      introduce: "giới thiệu"
+      quote: "Trích dẫn"
+      ambition: "Tham vọng"
+      skills: "Các kỹ năng"
+      knowledge: "Có hiểu biết về :"
+    portfolio:
+      open: "Mở: "
+    club:
+      begin_time: "Thời gian bắt đầu :"
+      end_time: "Thời gian kết thúc :"
     header:
       add_friend: "Thêm bạn"
       message: "Tin nhắn"

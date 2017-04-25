@@ -1,0 +1,61 @@
+<div class="tab-content clearfix">
+  <div class="table-responsive">
+    <section class="job-show-main-section">
+      <table class="table table-striped custab wanted-info user-show-infor">
+        <tbody>
+          <tr>
+            <th colspan="2"><%= t ".basic_info_user" %></th>
+          </tr>
+          <tr>
+            <td class="head"><%= t ".email" %></td>
+            <td>
+              <p>
+                <%= user_object.user.email %>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="head"><%= t ".introduce" %>
+            <td>
+              <p>
+                <%= user_object.user.info_user_introduce %>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="head"><%= t ".quote" %></td>
+            <td>
+              <p>
+                <%= user_object.user.info_user_quote %>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="head"><%= t ".ambition" %></td>
+            <td>
+              <p>
+                <%= user_object.user.info_user_ambition %>
+              </p>
+            </td>
+          </tr>
+          <tr class="request-more-info-row">
+            <th colspan="2">
+              <a class=""><i class="icon-question-sign"></i>
+                <%= t ".more_info" %>
+              </a>
+            </th>
+          </tr>
+          <tr>
+            <td class="head"><span class="glyphicon glyphicon-ok-circle"><%= t ".skills" %></td>
+            <td>
+              <p><i class="glyphicon glyphicon-ok" aria-hidden="true"></i><%= t ".knowledge" %>
+              <%= render "skills", skills: user_object.skills %>
+              </p>
+            </td>
+          </tr>
+          <%= render "socials", socials: user_object.socials %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

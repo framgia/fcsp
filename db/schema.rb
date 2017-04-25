@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(version: 20170421044233) do
     t.index ["user_id"], name: "index_candidates_on_user_id", using: :btree
   end
 
+  create_table "clubs", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "begin_time"
+    t.datetime "end_time"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_clubs_on_user_id", using: :btree
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "website"
@@ -502,6 +514,17 @@ ActiveRecord::Schema.define(version: 20170421044233) do
     t.index ["group_id"], name: "index_permissions_on_group_id", using: :btree
   end
 
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "time"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
@@ -523,6 +546,16 @@ ActiveRecord::Schema.define(version: 20170421044233) do
   create_table "skills", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "socials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "social_type"
+    t.integer  "target_id"
+    t.string   "target_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -628,6 +661,7 @@ ActiveRecord::Schema.define(version: 20170421044233) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "clubs", "users"
   add_foreign_key "company_industries", "companies"
   add_foreign_key "company_industries", "industries"
   add_foreign_key "education_comments", "users"
@@ -655,6 +689,7 @@ ActiveRecord::Schema.define(version: 20170421044233) do
   add_foreign_key "job_hiring_types", "jobs"
   add_foreign_key "jobs", "teams"
   add_foreign_key "permissions", "groups"
+  add_foreign_key "portfolios", "users"
   add_foreign_key "positions", "companies"
   add_foreign_key "user_educations", "users"
   add_foreign_key "user_groups", "groups"
