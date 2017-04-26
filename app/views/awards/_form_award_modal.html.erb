@@ -1,0 +1,32 @@
+<div id="award-modal" class="modal fade course-member" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content modal-content-info-user"> 
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t ".award_header" %></h4>
+      </div>
+      <div> 
+        <%= simple_form_for [@user, @award], remote: :true do |f| %>
+          <div class="modal-body">
+            <%= f.label :award_year %>
+            <% year = Date.today.year %>
+            <%= f.select :time,
+              options_for_select((year-Settings.award.min_year)..year, @award.time),
+              {}, {class: "form-control option-year"} %>
+            <br>
+            <%= f.label :title %>
+            <%= f.text_field :name, placeholder: t(".award_placeholder"), 
+              class: "sm-form-control modal-txta" %>
+          </div>
+          <div class="modal-footer modal-footer-info-user">
+            <%= button_tag type: :submit, class: "btn btn-primary" do %>
+              <%= button_text %>
+            <% end %>
+            <%= button_tag t(".cancel_btn"), class:"btn btn-default",
+               data: {dismiss:"modal"} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

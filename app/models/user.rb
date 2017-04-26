@@ -35,6 +35,7 @@ class User < ApplicationRecord
   has_many :skills, through: :skill_users
   has_many :user_portfolios, dependent: :destroy
   has_many :user_educations, dependent: :destroy
+  has_many :awards, dependent: :destroy
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,

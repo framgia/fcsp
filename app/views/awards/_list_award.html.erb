@@ -1,0 +1,23 @@
+<% if awards.any? %>
+  <% awards.each do |award| %>
+    <% unless award.blank? %>
+    <div class="info-award">
+      <div class="award-title"><%= award.name %></div>
+      <% if @user.is_user? current_user %>
+        <div class="full-right award-button">
+          <%= link_to edit_user_award_path(@user, award), remote: true,
+            class:"btn btn-default btn-sm tip btn-responsive" do %>
+            <div class="icon-pencil2"></div>
+          <% end %>
+          <%= link_to user_award_path(@user, award), method: :delete,
+            class:"btn btn-danger btn-sm tip btn-responsive", remote: true,
+            data: {confirm: t(".delete_confirm")} do %>
+            <div class="icon-trash"></div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="full-right"><%= award.time %></div>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -547,6 +547,35 @@ vi:
       cannot_button: "Hủy bỏ"
       edit_quote: "Chỉnh sửa trích dẫn"
       quote_placeholder: "Trích dẫn của tôi..."
+  awards:
+    new:
+      create: "Thêm mới"
+    create:
+      create_error: "Thêm mới giải thưởng thất bại"
+      create_success: "Thêm mới giải thưởng thành công"
+    update:
+      update_error: "Cập nhật thông tin giải thưởng thất bại"
+      update_success: "Cập nhật thông tin giải thưởng thành công"
+    destroy:
+      destroy_error: "Xóa giải thưởng thất bại"
+      destroy_success: "Xóa giải thưởng thành công"
+    load_user:
+      user_not_found: "Không tìm thấy người dùng"
+    load_award:
+      award_not_found: "Không tìm thấy giải thưởng"
+    awards:
+      awards: "Các giải thưởng"
+      add: "Thêm"
+      friends: "Bạn bè"
+      friends_of_friends: "Bạn của bạn bè"
+      public: "Công khai"
+    form_award_modal:
+      award_header: "Giải thưởng"
+      award_placeholder: "Giải thưởng của bạn"
+      cancel_btn: "Hủy bỏ"
+    list_award:
+      edit: "Cập nhật"
+      delete_confirm: "Bạn có chắc muốn xóa không?"
   friend_ships:
     create:
       request_friend: "Đã gửi yêu cầu đến %{name}"

@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20170426044801) do
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
+  create_table "awards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "time"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_awards_on_user_id", using: :btree
+  end
+
   create_table "benefits", force: :cascade do |t|
     t.integer  "company_id"
     t.string   "name"
@@ -629,6 +638,7 @@ ActiveRecord::Schema.define(version: 20170426044801) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "awards", "users"
   add_foreign_key "company_industries", "companies"
   add_foreign_key "company_industries", "industries"
   add_foreign_key "education_comments", "users"

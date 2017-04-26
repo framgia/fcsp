@@ -209,3 +209,6 @@ user_portfolio:
   limit_description: 120
 form_portfolio:
   size_image: "120x120"
+award:
+  max_length_name: 255
+  min_year: 60

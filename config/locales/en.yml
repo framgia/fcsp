@@ -497,6 +497,35 @@ en:
       cancel_button: "Cancel"
       edit_quote: "Edit my quote"
       quote_placeholder: "My quote..."
+  awards:
+    new:
+      create: "Create"
+    create:
+      create_error: "Created award faild"
+      create_success: "Created award success"
+    update:
+      update_error: "Updated award faild"
+      update_success: "Updated award success"
+    destroy:
+      delete_error: "Destroy award faild"
+      delete_success: "Destroy award success"
+    load_user:
+      user_not_found: "User not found"
+    load_award:
+      award_not_found: "Award not found"
+    awards:
+      awards: "Awards"
+      add: "Add"
+      friends: "Friends"
+      friends_of_friends: "Friends of Friends"
+      public: "Public"
+    form_award_modal:
+      award_header: "Award"
+      award_placeholder: "Your award"
+      cancel_btn: "Cancel"
+    list_award:
+      edit: "Edit"
+      delete_confirm: "Are you sure?"
   friend_ships:
     create:
       request_friend: "Sent a request to %{name}"

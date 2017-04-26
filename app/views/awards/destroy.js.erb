@@ -1,0 +1,6 @@
+$('.list-award').html('<%= j render partial: "awards/list_award", locals: {awards: @awards} %>');
+<% if @render.status == 200 %>
+  $.growl.notice({message: '<%= @render.message %>'});
+<% else %>
+  $.growl.error({message: '<%= @render.message %>'});
+<% end %>
