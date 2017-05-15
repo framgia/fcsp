@@ -1,1 +1,27 @@
-<p>New job <%= @job.title %></p>
+<div class="create-team-job">
+  <%= form_for @team, url: team_jobs_path, html: {class: "form-horizontal"} do |f| %>
+    <%= hidden_field_tag :id, @job.id %> 
+    <div class="form-group">
+      <label for="email"><%= f.label :title %></label>
+      <%= f.text_field :title ,class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <label for="email"> <%= f.label :content %></label>
+      <%= f.text_field :content ,class: "form-control"  %>
+    </div>
+    <%= f.fields_for :images do |ff| %>
+      <div class="form-group">
+        <label for="email"> <%= ff.label :picture %></label>
+        <%= ff.file_field :picture %>
+      </div>
+    <% end %>
+    <div class="container">
+      <div class="col-md-3">
+        <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right" ><%= t ".previous" %></a>
+      </div>
+      <div class="col-md-3 col-md-offset-6">
+        <%= f.button t(".save_continue"),class: "buttonNext btn btn-success text-right create-team-jobs" %>
+      </div>
+    </div>
+  <% end %>
+</div>

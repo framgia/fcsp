@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, only: :session
   root "education/home#index"
   resources :companies, only: :show
+  resources :team_jobs
+  resources :team_introductions
   namespace :education do
     namespace :management do
       resources :groups, only: :index

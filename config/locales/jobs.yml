@@ -1,0 +1,4 @@
+en:
+  team_jobs:
+    create_team: "Create team success"
+    fail_create: "Fails create"

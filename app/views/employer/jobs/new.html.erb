@@ -13,7 +13,7 @@
         <a id = "a_step2" href="#step-2">
           <span class="step_no"><%= t ".step_no_2" %></span>
           <span class="step_descr"><%= t ".step_2" %><br />
-            <small><%= t ".members" %></small>
+            <small><%= t ".create_team_story" %></small>
           </span>
         </a>
       </li>
@@ -21,7 +21,7 @@
         <a id = "a_step3" href="#step-3">
           <span class="step_no"><%= t ".step_no_3" %></span>
           <span class="step_descr"><%= t ".step_3" %><br />
-            <small><%= t ".create_team_story" %></small>
+            <small><%= t ".members" %></small>
           </span>
         </a>
       </li>
@@ -33,19 +33,12 @@
       </div>
     </div>
     <div id="step-2">
-      <h2 class="StepTitle"><%= t ".members" %></h2>
+      <h2 class="StepTitle"><%= t ".create_team_story" %></h2>
       <div class="step-2-content"></div>
-      <div class="container">
-        <div class="col-md-3">
-          <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right"><%= t ".previous" %></a>
-        </div>
-        <div class="col-md-3 col-md-offset-6">
-          <%= submit_tag t(".save_continue"), class: "buttonNext btn btn-success text-right" %>
-        </div>
-        </div>
     </div>
     <div id="step-3">
-      <h2 class="StepTitle"><%= t ".create_team_story" %></h2>
+      <h2 class="StepTitle"><%= t ".members" %></h2>
+      <div class="step-3-content"></div>
     </div>
   </div>
 </div>

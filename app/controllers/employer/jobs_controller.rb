@@ -26,10 +26,12 @@ class Employer::JobsController < Employer::BaseController
   def create
     @job = @company.jobs.build job_params
     if @job.save
-      flash[:success] = t ".created_job"
+      @team = @job.team_introductions.build
+      @team.images.build
+      flash.now[:success] = t ".created_job"
       render json: {
         html_job: render_to_string(partial: "new_job",
-          layout: false),
+          layout: false)
       }, status: :created
     else
       flash[:danger] = t ".create_job_fail"
