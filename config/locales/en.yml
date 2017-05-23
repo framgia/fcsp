@@ -3,6 +3,16 @@ en:
     jobs:
       show:
         error: "Show job error!"
+  employer:
+    jobs:
+      info_hiring_type:
+        title: "Title"
+        description: "Description"
+      index:
+        job_recruitment: "Job Recruitment"
+    layouts:
+      employer_header:
+        general: "General"
   jobs:
     job_form:
       next: "Next"
@@ -443,7 +453,7 @@ en:
       add_profile_session: "Add new profile sections"
       background: "Background"
       skills: "Skills"
-      accomplishments: "Accomplishments"      
+      accomplishments: "Accomplishments"
     social_network:
       about_me: "About me"
       social_profiles: "Connect with me"

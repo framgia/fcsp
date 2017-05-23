@@ -1,4 +1,24 @@
 vi:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Display Entries"
+  views:
+    pagination:
+      next: "Next"
+      last: "Last"
+  kaminari:
+    next: "Next"
+  activerecord:
+    attributes:
+      job:
+        type_of_candidates:
+          creative: "Creative"
+          engineer: "Engineer"
+        statuses:
+          active: "Active"
+          close: "Close"
+          draft: "Draft"
   jobs:
     job_form:
       next: "Next"
@@ -85,6 +105,13 @@ vi:
       read_more: "Read more"
       type_of_candidates: "Type of candidates: "
   employer:
+    ok: "OK"
+    cancel: "Cancel"
+    sortaz: "Sortaz"
+    sortza: "Sortza"
+    sortvalue: "Sortvalue"
+    checkall: "Checkall"
+    delete: "Delete"
     companies:
       edit:
         company_info: "Company Info"
@@ -96,6 +123,21 @@ vi:
         update_company_info: "Update Company"
         required: "(required)"
         article: "Add article"
+    jobs:
+      index:
+        title: "Title"
+        job_recruitment: "Job Recruitment"
+        create_job: "Create Job"
+        status: "Status"
+        candidates: "Candidates"
+        messages: "Messages"
+        action: "Action"
+        job: "Job"
+      job:
+        show_posting: "Show Posting"
+        edit_posting: "Edit Posting"
+        bookmark: "Bookmark"
+        close: "Close"
     team_introductions:
       form:
         title: "Title"
@@ -133,6 +175,21 @@ vi:
         help: "Help"
         company_info: "Company Info"
     layouts:
+      employer_header:
+        log_out: "Log Out"
+        welcome: "Welcome"
+        general: "General"
+        home: "Home"
+        manage_posting: "Mange Posting"
+        postings_list: "Posting List"
+        new_posting: "New Posting"
+        candidates: "Candidates"
+        messages: "Message"
+        recommendations: "Recommendations"
+        view_more: "View More"
+        company_info: "Company Info"
+      employer_footer:
+        footer_content: "Footer Content"
       header:
         dashboard: "Dashboard"
         jobs: "Jobs"
