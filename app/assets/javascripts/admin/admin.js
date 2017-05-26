@@ -17,3 +17,5 @@
 //= require flash_message
 //= require common
 //= require ckeditor/init
+//= require admin/jquery.dropdown
+//= require admin/modernizr.custom.63321

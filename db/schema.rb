@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170529032237) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "description"
+    t.datetime "time_show"
     t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
     t.index ["title"], name: "index_articles_on_title", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree

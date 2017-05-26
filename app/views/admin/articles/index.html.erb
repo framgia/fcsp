@@ -14,14 +14,22 @@
           </div>
         <% end %>
         <div>
+          <%= render "articles/sort" %>
+        </div>
+        <div>
           <% if @total %>
             <h2><%= t ".found_results", total: @total %></h2>
           <% end %>
         </div>
       </div>
       <div class="col-sm-11 list-article">
-        <%= paginate @articles %>
+        <div>
+          <%= paginate @articles %>
+        </div>
         <%= render partial: "articles/article", collection: @articles %>
+        <div>
+          <%= paginate @articles %>
+        </div>
       </div>
       <div class="new-article col-sm-1">
         <%= link_to new_admin_article_path,

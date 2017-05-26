@@ -7,6 +7,7 @@
     <div class="col-sm-8">
       <h4 class="article-title "><%= link_to "#{article.title.html_safe}",
         admin_article_path(article) %></h4>
+      <%= "Posted at #{article.time_show.strftime("%a, %d %b %Y %H:%M")}" %>
       <p class="article-body">
         <%= truncate(strip_tags(article.description.html_safe),
           length: Settings.article.description_limit) %>

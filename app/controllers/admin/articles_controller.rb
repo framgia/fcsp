@@ -4,11 +4,13 @@ class Admin::ArticlesController < Admin::BaseController
   def index
     if params[:search].present?
       @articles = Article.search_form(params[:search])
-        .select(:id, :title, :description, :content)
+        .select(:id, :title, :description, :content, :time_show)
+        .order(time_show: :desc)
         .page(params[:page]).per Settings.article.page
       @total = @articles.size
     else
-      @articles = Article.select(:id, :title, :description, :content)
+      @articles = Article.select(:id, :title, :description, :content,
+        :time_show).order(created_at: :desc)
         .page(params[:page]).per Settings.article.page
     end
   end
@@ -38,7 +40,7 @@ class Admin::ArticlesController < Admin::BaseController
   def update
     if @article.update_attributes article_params
       flash[:success] = t ".update"
-      redirect_to admin_article_path(@article)
+      redirect_to admin_articles_path
     else
       render :edit
     end

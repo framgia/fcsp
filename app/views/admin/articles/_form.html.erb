@@ -15,10 +15,31 @@
 
       <div class="form-group">
         <%= f.label :background_picture %>
-        <%= f.fields_for :images do |ff| %>
-          <%= ff.file_field :picture, required: true %>
+        <% if @article.images.first.present? %>
+          <%= image_tag @article.images.first.picture, class: "img-responsive" %>
+          <%= f.fields_for :images do |ff| %>
+            <%= ff.file_field :picture %>
+          <% end %>
+        <% else %>
+          <%= f.fields_for :images do |ff| %>
+            <%= ff.file_field :picture, required: true %>
+          <% end %>
         <% end %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :time_show %>
+        <select name="time_show">
+          <option value="1">Now</option>
+          <option value="2">Choose time</option>
+        </select>
+        <script type="text/javascript">
+          $("time_show").change(function() {
+
+          });
+        </script>
+      </div>
+
 
       <div class="form-group">
         <%= f.submit class: "btn btn-success form-control" %>
