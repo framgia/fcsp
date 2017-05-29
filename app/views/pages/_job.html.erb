@@ -1,6 +1,6 @@
 <% @jobs.each do |job| %>
   <div class="row">
-    <div class="ohidden about-edu-custom row" data-height-lg="300" data-height-md="567"
+    <div class="ohidden img-job-custom row " data-height-lg="350" data-height-md="567"
       data-height-sm="470" data-height-xs="287" data-height-xxs="183">
         <%= link_to job do %>
           <%= image_tag job.images.present? ? job.images.first : "default.jpg",
@@ -21,7 +21,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-xm-12">
-              <%= image_tag job.company.images.present? ? job.company.images.first : "default.jpg", class: "img-circle" %>
+              <%= image_tag job.company.images.present? ? job.company.images.first : "default.jpg", class: "company-img-circle" %>
               <%= link_to job.company_name, company_path(job.company) %>
             </div>
             <div class="actions-and-metas col-sm-6 col-xm-12">
