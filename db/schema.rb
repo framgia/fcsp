@@ -554,6 +554,7 @@ ActiveRecord::Schema.define(version: 20170529032237) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< f664415c9d92de3c0e083876958fe9f640909771
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -563,6 +564,8 @@ ActiveRecord::Schema.define(version: 20170529032237) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+=======
+>>>>>>> edit-article
   create_table "organizations", force: :cascade do |t|
     t.integer  "org_type",   default: 1
     t.string   "name"
@@ -793,8 +796,11 @@ ActiveRecord::Schema.define(version: 20170529032237) do
 
   add_foreign_key "awards", "users"
   add_foreign_key "certificates", "users"
+<<<<<<< f664415c9d92de3c0e083876958fe9f640909771
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+=======
+>>>>>>> edit-article
   add_foreign_key "company_industries", "companies"
   add_foreign_key "company_industries", "industries"
   add_foreign_key "education_comments", "users"

@@ -1,23 +1,23 @@
-<div class="col-md-12 article-item">
-  <div class="row">
-    <div class="col-sm-4">
-      <%= link_to image_tag(article.images.first.picture,
-        class: "pull-left img-responsive"), admin_article_path(article) %>
-    </div>
-    <div class="col-sm-8">
-      <h4 class="article-title "><%= link_to "#{article.title.html_safe}",
-        admin_article_path(article) %></h4>
-      <%= "Posted at #{article.time_show.strftime("%a, %d %b %Y %H:%M")}" %>
-      <p class="article-body">
-        <%= truncate(strip_tags(article.description.html_safe),
-          length: Settings.article.description_limit) %>
-      </p>
-      <%= link_to t(".continue"), admin_article_path(article),
-        class: "btn btn-success  pull-right" %>
-      <%= link_to t(".edit"), edit_admin_article_path(article),
-        class: "btn btn-primary pull-right" %>
-      <%= link_to t(".delete"), admin_article_path(article), method: :delete,
-        class: "btn btn-danger pull-right" %>
+<% @articles.each do |article| %>
+  <div class="col-md-12 article-item">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= link_to image_tag(article.images.first.picture,
+          class: "pull-left img-responsive"), employer_company_article_path(@company, article) %>
+      </div>
+      <div class="col-sm-9">
+        <h4 class="article-title "><%= link_to "#{article.title.html_safe}",
+          employer_company_article_path(@company, article) %></h4>
+        <%= "Showed at #{article.time_show.strftime("%a, %d %b %Y %H:%M")}" %>
+        <p class="article-body">
+          <%= truncate(strip_tags(article.description.html_safe),
+            length: Settings.article.description_limit) %>
+        </p>
+        <%= link_to t(".edit"), edit_employer_company_article_path(@company, article),
+          class: "btn btn-primary pull-right" %>
+        <%= link_to t(".delete"), employer_company_article_path(@company, article), method: :delete,
+          class: "btn btn-danger pull-right" %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

@@ -66,6 +66,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to employer_company_articles_path(@company) do %>
+              <i class="fa fa-rss-square"></i> <%= t ".articles" %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to "#" do %>
               <%= t ".view_more" %> <span class="fa fa-chevron-down"></span>
             <% end %>

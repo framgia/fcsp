@@ -1,9 +1,47 @@
-<div class="sort">
-  <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
-    <option value="-1" selected>Sort by</option>
-    <option value="1" class="icon-monkey">Monkey</option>
-    <option value="2" class="icon-bear">Bear</option>
-    <option value="3" class="icon-squirrel">Squirrel</option>
-    <option value="4" class="icon-elephant">Elephant</option>
-  </select>
+<div class="btn-group btn-filter">
+  <button type="button" class="btn btn-default dropdown-toggle button-show-filter"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-filter" aria-hidden="true"></i>
+  </button>
+  <input type="hidden" id="company-id" value="<%= @company.id %>">
+  <div class="dropdown-menu filter" data-filter="time_show"
+    data-model="article" id="sort-item">
+    <ul>
+
+        <li>
+
+            <div class="input-group stylish-input-group">
+              <input type="text" class="form-control search-article"
+                placeholder="Search" >
+              <span class="input-group-addon">
+                <button>
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+            </div>
+
+        </li>
+
+
+
+      <li>
+        <button class="button-sort sortAlpha" data-sort-by="ASC">
+          <%= t "employer.sortaz" %>
+        </button>
+      </li>
+      <li>
+        <button class="button-sort sortAlpha" data-sort-by="DESC">
+          <%= t "employer.sortza" %>
+        </button>
+      </li>
+      <hr />
+
+      <li>
+        <input type="radio" name="options" id="option1" value="title"> Name
+        <br>
+        <input type="radio" name="options" id="option1" value="time_show" checked="checked"> Post Time
+      </li>
+
+    </ul>
+  </div>
 </div>
