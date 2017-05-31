@@ -28,5 +28,7 @@ module Fcsp
     config.to_prepare do
       Devise::SessionsController.layout "education/layouts/application"
     end
+
+    config.time_zone = "Bangkok"
   end
 end

@@ -1,5 +1,6 @@
+
 <%= render "layouts/message" %>
-<%= form_for [:admin, @article], html: {class: "form-article"} do |f| %>
+<%= form_for [:employer, @company, @article], html: {class: "form-article"} do |f| %>
   <div class="row">
     <div class="col-sm-4 form-left">
       <div class="form-group">
@@ -15,15 +16,11 @@
 
       <div class="form-group">
         <%= f.label :background_picture %>
-        <% if @article.images.first.present? %>
+        <% unless @article.new_record? %>
           <%= image_tag @article.images.first.picture, class: "img-responsive" %>
-          <%= f.fields_for :images do |ff| %>
-            <%= ff.file_field :picture %>
-          <% end %>
-        <% else %>
-          <%= f.fields_for :images do |ff| %>
-            <%= ff.file_field :picture, required: true %>
-          <% end %>
+        <% end %>
+        <%= f.fields_for :images do |ff| %>
+          <%= ff.file_field :picture, required: @article.new_record? %>
         <% end %>
       </div>
 
@@ -45,7 +42,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit class: "btn btn-success form-control" %>
+        <%= f.submit class: "btn btn-success form-control btn-qwe" %>
       </div>
     </div>
     <div class="col-sm-8">

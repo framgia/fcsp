@@ -1,4 +1,4 @@
-class Admin::ArticlesController < Admin::BaseController
+class Employer::ArticlesController < Employer::BaseController
   load_and_authorize_resource
 
   def index
@@ -36,7 +36,7 @@ class Admin::ArticlesController < Admin::BaseController
     @article.time_show = Time.now unless @article.time_show?
     if @article.save
       flash[:success] = t ".created"
-      redirect_to admin_articles_path
+      redirect_to employer_company_articles_path(@company)
     else
       flash[:danger] = t ".fail"
       render :new
@@ -52,8 +52,9 @@ class Admin::ArticlesController < Admin::BaseController
         @article.update_attributes time_show: Time.now
       end
       flash[:success] = t ".update"
-      redirect_to admin_articles_path
+      redirect_to employer_company_articles_path(@company)
     else
+      flash[:danger] = t ".fail"
       render :edit
     end
   end
@@ -61,7 +62,7 @@ class Admin::ArticlesController < Admin::BaseController
   def destroy
     @article.destroy
     flash[:success] = t ".delete"
-    redirect_to admin_articles_path
+    redirect_to employer_company_articles_path(@company)
   end
 
   private

@@ -1,5 +1,22 @@
 en:
   employer:
+    articles:
+      index:
+        new: "New Article"
+        continue: "Read more"
+        found_results: "Found %{total} results"
+      new:
+        new: "New Article"
+      show:
+        edit: "Edit"
+        delete: "Delete"
+      create:
+        created: "Article has been created successfully"
+        fail: "Article has been created fail"
+      update:
+        update: "Article has been updated"
+      destroy:
+        delete: "Article has been deleted"
     sortaz: "Sort by A → Z"
     sortza: "Sort by Z → A"
     sortvalue: "Sort follow value..."
