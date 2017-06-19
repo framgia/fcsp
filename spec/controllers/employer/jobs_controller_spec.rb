@@ -101,23 +101,41 @@ RSpec.describe Employer::JobsController, type: :controller do
         xhr: false
       job.reload
     end
+
+    context "cannot load job" do
+      before do
+        allow(Job).to receive(:find_by).and_return nil
+        get :update, params: {company_id: company, id: 999}
+      end
+
+      it "redirect to job_path" do
+        expect(response).to redirect_to employer_company_jobs_path company
+      end
+
+      it "get a flash danger" do
+        expect(flash[:danger]).to be_present
+      end
+    end
   end
 
   describe "DELETE #destroy" do
     context "delete successfully" do
-      before{delete :destroy, params: {company_id: company, ids: arr_id_success}}
-      it{expect{response.to change(Job, :count).by -1}}
+      before{delete :destroy,
+        params: {company_id: company, array_id: arr_id_success}}
+      it{expect{response.to change(Job, :count).by - 2}}
     end
 
     it "delete fail" do
       allow_any_instance_of(Job).to receive(:destroy).and_return(false)
       expect do
-        delete :destroy, params: {company_id: company, ids: arr_id_fail}
+        delete :destroy,
+          params: {company_id: company, array_id: arr_id_fail}
       end.not_to change(Job, :count)
     end
 
     it "responds successfully with an HTTP 200 status code" do
-      delete :destroy, params: {company_id: company, ids: arr_id_success}, xhr: true
+      delete :destroy, params: {company_id: company, array_id: arr_id_success},
+        xhr: true
       expect(response).to have_http_status 200
     end
   end

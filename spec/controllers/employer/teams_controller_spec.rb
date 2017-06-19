@@ -14,12 +14,35 @@ RSpec.describe Employer::TeamsController, type: :controller do
   describe "GET #index" do
     it "populates an array of team" do
       get :index, params: {company_id: company}
-      expect(assigns(:teams)).to include team
+      expect(assigns :teams).to include team
+    end
+
+    it "populates an array of team" do
+      get :index, params: {company_id: company,
+        paginate_team: "paginate_team_for_job"}, xhr: true
+      expect(assigns :teams).to include team
+    end
+
+    it "populates an array of team" do
+      get :index, params: {company_id: company,
+        paginate_team: team}, xhr: true
+      expect(assigns :teams).to include team
     end
 
     it "responds successfully with an HTTP 200 status code" do
       expect(response).to be_success
       expect(response).to have_http_status 200
+    end
+
+    context "cannot load company" do
+      before do
+        allow(Company).to receive(:find_by).and_return nil
+        get :index, params: {company_id: 999}
+      end
+
+      it "redirect to employer_company_teams_path" do
+        expect(response).to have_http_status 404
+      end
     end
   end
 
@@ -53,6 +76,28 @@ RSpec.describe Employer::TeamsController, type: :controller do
       put :update, params: {company_id: company, id: team, team: team_params}
       team.reload
       expect(team.name).to eq "something"
+    end
+
+    it "update team fail" do
+      team_params = FactoryGirl.attributes_for :team, name: nil
+      put :update, params: {company_id: company, id: team, team: team_params}
+      team.reload
+      expect(flash[:danger]).to be_present
+    end
+
+    context "cannot load team" do
+      before do
+        allow(Team).to receive(:find_by).and_return nil
+        get :update, params: {id: 999, company_id: company}
+      end
+
+      it "redirect to employer_company_teams_path" do
+        expect(response).to redirect_to employer_company_teams_path
+      end
+
+      it "get a flash danger" do
+        expect(flash[:danger]).to be_present
+      end
     end
   end
 

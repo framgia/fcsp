@@ -2,14 +2,19 @@ project_type: ruby
 test:
   bundle-audit:
     command: bundle-audit check --update | tee .framgia-ci-reports/bundle-audit.txt
+    ignore: true
   rspec:
     command: rspec --format html --out .framgia-ci-reports/rspec.html spec/
+    ignore: true
   brakeman:
     command: brakeman -o .framgia-ci-reports/brakeman.html -o .framgia-ci-reports/brakeman.json
+    ignore: true
   reek:
     command: reek -c config.reek --format html > .framgia-ci-reports/reek.html app/
+    ignore: true
   rubocop:
     command: rubocop --require rubocop/formatter/checkstyle_formatter --format RuboCop::Formatter::CheckstyleFormatter --no-color --rails --out .framgia-ci-reports/rubocop.xml
+    ignore: true
   scss-lint:
     command: scss-lint --require=scss_lint_reporter_checkstyle --format=Checkstyle --out=.framgia-ci-reports/scss-lint.xml app/assets/stylesheets/
     ignore: true
