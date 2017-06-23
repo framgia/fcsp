@@ -1,0 +1,9 @@
+<div class="pagination-job">
+  <div>
+    <%= page_entries_info @users %>
+  </div>
+  <div>
+  <%= paginate @users, params: {controller: "employer/users", 
+    action: "index", paginate_users: 1} %>
+  </div>  
+</div>

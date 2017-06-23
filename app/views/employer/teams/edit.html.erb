@@ -6,7 +6,9 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h3><%= t "employer.teams.team.edit_team" %></h3>
-              <%= render "form", team: @team, company: @company %>
+              <%= form_for [:employer, @company, @team] do |f| %>
+                <%= render "form", team: @team, company: @company, f: f %>
+              <% end %>
             </div>
           </div>
         </div>

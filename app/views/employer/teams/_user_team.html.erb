@@ -1,0 +1,37 @@
+<table class="table table-striped custab">
+  <thead>
+    <tr class="headings">
+      <th class="job-title">
+        <%= t "employer.jobs.team_name" %>
+        <%= hidden_field_tag "team_id", @team.id %>
+      </th>
+      <th class="col-checkbox">
+        <div class="ckbox">
+          <input type="checkbox" id="checkbox-check-all">
+          <label for="checkbox-check-all"></label>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="jobs-list">
+    <% users.each do |employer| %>
+      <tr>
+        <td>
+          <div class="job-thumb-image">
+            <%= load_user_avatar employer.user %>
+          </div>
+          <div class="job-title-content">
+            <%= employer.user.name %>
+          </div>
+        </td>
+        <td class="col-check">
+          <div class="ckbox">
+            <input type="checkbox" value="<%= employer.user.id %>" 
+              id="checkbox-user-<%= dom_id employer.user %>" name="team[user_ids][]">
+            <label for="checkbox-user-<%= dom_id employer.user %>"></label>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

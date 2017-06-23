@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="list-item-value">
-            <% teams.each_with_index do |team, index| %>
+            <% @teams.each_with_index do |team, index| %>
               <div class="checkbox">
                 <input id="checkbox-name-<%= index + 1 %>"
                   data-list-id="<%= team.name %>" type="checkbox"

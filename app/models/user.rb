@@ -65,6 +65,11 @@ class User < ApplicationRecord
   has_many :share_posts, class_name: ShareJob.name, dependent: :destroy
   has_many :shared_posts, through: :share_jobs, source: :post
 
+  has_many :team_users, dependent: :destroy
+  has_many :teams, through: :team_users
+
+  accepts_nested_attributes_for :team_users
+
   accepts_nested_attributes_for :info_user
 
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,

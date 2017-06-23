@@ -1,31 +1,31 @@
 <%= load_team_image team, class: "img-upload" %>
 <div class="container">
-  <%= form_for [:employer, company, team], class: "form-horizontal" do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label col-sm-2" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <%= f.fields_for :images do |ff| %>
     <div class="form-group">
-      <%= f.label :name, class: "control-label col-sm-2" %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-    <%= f.fields_for :images do |ff| %>
-      <div class="form-group">
-        <%= ff.label :picture, class: "control-label col-sm-2" %>
-        <%= ff.file_field :picture, class: "form-control change-image" %>
-      </div>
-    <% end %>
-    <%= f.fields_for :team_introductions do |ff| %>
-      <div class="form-group">
-        <%= ff.label :title, class: "control-label col-sm-2" %>
-        <%= ff.text_field :title, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= ff.label :content, class: "control-label col-sm-2" %>
-        <%= ff.text_area :content, class: "form-control"  %>
-      </div>
-    <% end %>
-    <div class="form-group">
-      <%= link_to_add_fields t(".add_introduct"), f,
-        association: :team_introductions, class: "btn btn-primary",
-        title: t(".add_introduct") %>
-      <%= f.submit nil, class: "btn btn-primary" %>
+      <%= ff.label :picture, class: "control-label col-sm-2" %>
+      <%= ff.file_field :picture, class: "form-control change-image" %>
     </div>
   <% end %>
+  <%= f.fields_for :team_introductions do |ff| %>
+    <div class="form-group">
+      <%= ff.label :title, class: "control-label col-sm-2" %>
+      <%= ff.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= ff.label :content, class: "control-label col-sm-2" %>
+      <%= ff.text_area :content, class: "form-control"  %>
+    </div>
+  <% end %>
+  <div class="form-group"> 
+    <%= link_to_add_fields t("employer.teams.add_introduct"), f,
+      association: :team_introductions, class: "btn btn-primary",
+      title: t(".add_introduct") %>
+    <a href="#" class = "next-step-team btn btn-primary text-right">
+      <%= t "team.bt_next" %>
+    </a>
+  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608052416) do
+ActiveRecord::Schema.define(version: 20170609043131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,7 +139,6 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.datetime "updated_at",     null: false
     t.integer  "avatar_id"
     t.integer  "cover_image_id"
-    t.index ["avatar_id", "cover_image_id"], name: "index_companies_on_avatar_id_and_cover_image_id", unique: true, using: :btree
     t.index ["name"], name: "index_companies_on_name", using: :btree
     t.index ["website"], name: "index_companies_on_website", using: :btree
   end
@@ -151,6 +150,21 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.datetime "updated_at",  null: false
     t.index ["company_id"], name: "index_company_industries_on_company_id", using: :btree
     t.index ["industry_id"], name: "index_company_industries_on_industry_id", using: :btree
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
   create_table "education_about_translations", force: :cascade do |t|
@@ -184,7 +198,6 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.text     "content"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["commentable_id", "commentable_type"], name: "index_education_comments_on_commentable_id_and_commentable_type", using: :btree
     t.index ["user_id"], name: "index_education_comments_on_user_id", using: :btree
   end
 
@@ -360,7 +373,6 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.string   "rateable_type"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["rateable_id", "rateable_type"], name: "index_education_rates_on_rateable_id_and_rateable_type", using: :btree
     t.index ["user_id"], name: "index_education_rates_on_user_id", using: :btree
   end
 
@@ -441,9 +453,9 @@ ActiveRecord::Schema.define(version: 20170608052416) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.string   "followable_type"
+    t.string   "followable_type",                 null: false
     t.integer  "followable_id",                   null: false
-    t.string   "follower_type"
+    t.string   "follower_type",                   null: false
     t.integer  "follower_id",                     null: false
     t.boolean  "blocked",         default: false, null: false
     t.datetime "created_at"
@@ -551,7 +563,7 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.integer  "team_id"
     t.datetime "deleted_at"
     t.string   "profile_requests",   default: "[]", null: false
-    t.integer  "candidates_count",   default: 0
+    t.integer  "candidates_count"
     t.datetime "posting_time"
     t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
     t.index ["deleted_at"], name: "index_jobs_on_deleted_at", using: :btree
@@ -690,6 +702,16 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.datetime "updated_at",       null: false
     t.index ["team_target_id"], name: "index_team_introductions_on_team_target_id", using: :btree
     t.index ["team_target_type"], name: "index_team_introductions_on_team_target_type", using: :btree
+  end
+
+  create_table "team_users", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_team_users_on_team_id", using: :btree
+    t.index ["user_id"], name: "index_team_users_on_user_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|
@@ -842,6 +864,8 @@ ActiveRecord::Schema.define(version: 20170608052416) do
   add_foreign_key "permissions", "groups"
   add_foreign_key "positions", "companies"
   add_foreign_key "share_jobs", "users"
+  add_foreign_key "team_users", "teams"
+  add_foreign_key "team_users", "users"
   add_foreign_key "user_educations", "schools"
   add_foreign_key "user_educations", "users"
   add_foreign_key "user_groups", "groups"

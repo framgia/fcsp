@@ -15,7 +15,6 @@ class Employer::JobsController < Employer::BaseController
       @jobs = @company.jobs.includes(:candidates, :images, :bookmarks)
         .page(params[:page]).per Settings.employer.jobs.per_page
     end
-
     if request.xhr?
       render json: {
         html_job: render_to_string(partial: "job",
@@ -50,6 +49,8 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def edit
+    @teams = @company.teams.includes(:images).page(Settings.employer.page)
+      .per Settings.employer.team.per_page
   end
 
   def update

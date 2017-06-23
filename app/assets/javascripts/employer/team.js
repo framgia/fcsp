@@ -1,9 +1,7 @@
-
 $(document).ready(function(){
-  $('.next-step-2').on('click', function(){
-    var title_job = $('.title-job').val();
-    var text_job = $('.text-job').val();
-    if (title_job && text_job){ 
+  $('.next-step-team').on('click', function(){
+    var team_name = $('#team_name').val();
+    if (team_name){
       $('#step-1').hide();
       $('#step-2').slideDown();
       $('#a_step1').removeClass('selected').addClass('done');
@@ -20,13 +18,5 @@ $(document).ready(function(){
         text: I18n.t('employer.jobs.new.step_1_danger')
       });
     }
-  });
-  
-  $('.edit .buttonPrevious').click(function(){
-    $('#step-1').show();
-    $('#step-2').hide();
-    $('#a_step1').removeClass('done').addClass('selected');
-    $('#a_step2').removeClass('selected').addClass('done');
-    $(':submit').removeAttr('disabled');
   });
 });

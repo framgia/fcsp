@@ -4,7 +4,7 @@
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
     <%= f.select :type_of_candidates, Job::TYPEOFCANDIDATES,
-      {selected: job.type_of_candidates}, class: "form-control" %>
+      {selected: @job.type_of_candidates}, class: "form-control" %>
   </div>
 </div>
 <div class="form-group">
@@ -13,7 +13,7 @@
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
     <ul class="collection-wrapper">
-      <%= f.collection_check_boxes :hiring_type_ids, hiring_types,
+      <%= f.collection_check_boxes :hiring_type_ids, @hiring_types,
         :id, :name do |hiring_type| %>
         <li>
           <%= hiring_type.check_box %>

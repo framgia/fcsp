@@ -17,14 +17,6 @@
           </span>
         </a>
       </li>
-      <li>
-        <a id = "a_step3" href="#step-3">
-          <span class="step_no"><%= t ".step_no_3" %></span>
-          <span class="step_descr"><%= t ".step_3" %><br />
-            <small><%= t ".create_team_story" %></small>
-          </span>
-        </a>
-      </li>
     </ul>
     <%= form_for @job, url: employer_company_jobs_path,
       html: {class: "form-horizontal form-label-left"} do |f| %>
@@ -50,9 +42,6 @@
             <%= f.submit t(".save_continue"), class: "add-team btn btn-success text-right" %>
           </div>
         </div>
-      </div>
-      <div id="step-3">
-        <h2 class="StepTitle"><%= t ".create_team_story" %></h2>
       </div>
     <% end %>
   </div>

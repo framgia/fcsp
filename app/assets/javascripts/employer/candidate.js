@@ -70,6 +70,7 @@ $(document).ready(function() {
   $('.main_container').on('click', '.sortAlpha, .btn-ok', function(e){
     e.preventDefault();
     var typefilter = $(this).parents().eq(2).attr('data-filter');
+    var job_id_for_team = $('#job_id').val();
     var sort_by = $(this).attr('data-sort-by');
     var listcheckbox = $(this).parents('ul').children().find('.checkboxitem');
     var arrchecked = [];
@@ -82,7 +83,7 @@ $(document).ready(function() {
       }
     });
 
-    var params = {type: typefilter, sort: sort_by, array_id: arrchecked};
+    var params = {type: typefilter, sort: sort_by, id: job_id_for_team, array_id: arrchecked};
     var tbody = '';
     var url_request = '';
 

@@ -1,4 +1,12 @@
 en:
+  team:
+    success: "Join Team Success"
+    danger: "Join Team Fails"
+    bt_next: "Next"
+    create_team: "Create Team"
+    add_member: "Add Member"
+    join_team: "Join Team"
+    join_team_introduciton: "Click Join Team if you want join team"
   models:
     jobs:
       show:

@@ -5,15 +5,25 @@
         <%= load_team_image team %>
       </div>
       <div class="job-title-content">
-        <%= link_to team.name, employer_company_team_path(company_id: company.id,
+        <%= link_to team.name, employer_company_team_path(company_id: @company.id,
           id: team.id), class: "job-title" %>
       </div>
     </td>
     <td class="col-check">
       <div class="ckbox">
-        <input type="checkbox" value="<%= team.id %>"
-          id="checkbox-team-<%= dom_id team %>" name="team[<%= team.id %>]" >
-        <label for="checkbox-team-<%= dom_id team %>"></label>
+        <% if @job.job_teams.present? %>
+          <input type="checkbox" value="<%= team.id %>"
+            id="checkbox-team-<%= dom_id team %>" name="job[team_ids][]"
+            <%  @job.job_teams.each do |job| %>
+              <%= team.id == job.team_id ? "checked" : "" %>
+            <% end %>
+          >
+          <label for="checkbox-team-<%= dom_id team %>"></label>
+        <% else %>
+          <input type="checkbox" value="<%= team.id %>" 
+            id="checkbox-team-<%= dom_id team %>" name="job[team_ids][]">
+          <label for="checkbox-team-<%= dom_id team %>"></label>
+        <% end %>
       </div>
     </td>
   </tr>

@@ -3,9 +3,14 @@ class Employer::TeamsController < Employer::BaseController
   before_action :load_team, except: [:index, :new, :create]
 
   def index
-    @team_paginate = Supports::TeamJob.new @company, params
-    @teams = @team_paginate.paginate
+    team_paginate = Supports::TeamJob.new @company, params
+    @teams = team_paginate.paginate
     if request.xhr?
+      @job = Job.find_by id: params[:id]
+      unless @job
+        flash[:danger] = t ".not_found"
+        redirect_to employer_company_teams_path
+      end
       render json: {
         html_job: render_to_string(partial:
           params[:paginate_team] ? "paginate_team_for_job" : @teams, locals:
@@ -23,6 +28,9 @@ class Employer::TeamsController < Employer::BaseController
   def new
     @team = @company.teams.build
     @team.images.build
+    @users = @company.employees.includes(user: [:avatar])
+      .page(Settings.employer.jobs.page)
+      .per Settings.employer.jobs.per_page
     @team.team_introductions.build
   end
 
@@ -33,7 +41,7 @@ class Employer::TeamsController < Employer::BaseController
       redirect_to employer_company_teams_url
     else
       flash[:danger] = t ".create_fail"
-      render :new
+      redirect_to new_employer_company_team_url
     end
   end
 
@@ -46,7 +54,7 @@ class Employer::TeamsController < Employer::BaseController
   def update
     if @team.update_attributes team_params
       flash[:success] = t ".update_success"
-      redirect_to employer_company_teams_url
+      render :index
     else
       flash[:danger] = t ".update_fail"
       redirect_back fallback_location: :back

@@ -1,16 +1,59 @@
-<div class="clearfix" id="jobs-management">
-  <div class="container">
-    <div class="row">
-      <section class="content">
-        <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <h3><%= t ".new_team" %></h3>
-              <%= render "form", team: @team, company: @company %>
+<div class="new dashboard_graph">
+  <div id="wizard" class="form_wizard wizard_horizontal">
+    <ul class="wizard_steps">
+      <li>
+        <a id = "a_step1" href="#step-1">
+          <span class="step_no"> 1 </span>
+          <span class="step_descr">
+            <small><%= t "team.create_team" %></small>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a id = "a_step2" href="#step-2">
+          <span class="step_no"> 2 </span>
+          <span class="step_descr">
+            <small><%= t "team.add_member" %></small>
+          </span>
+        </a>
+      </li>
+    </ul>
+    <%= form_for [:employer, @company, @team], class: "form-horizontal" do |f| %>
+      <div id="step-1">
+        <div class="clearfix" id="jobs-management">
+          <div class="container">
+            <div class="row">
+              <section class="content">
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <h3><%= t ".new_team" %></h3>
+                      <%= render "form", team: @team, company: @company, f: f %>
+                    </div>
+                  </div>
+                </div>
+             </section>
             </div>
           </div>
         </div>
-     </section>
-    </div>
+      </div>
+      <div id="step-2">
+        <h2 class="StepTitle"><%= t ".members" %></h2>   
+        <%= render "user_team", users: @users %> 
+        <div class="pagination-job">
+          <div>
+            <%= page_entries_info @users %>
+          </div>
+          <div>
+            <%= paginate @users, params: {controller: "employer/users", 
+              action: "index", paginate_users: 1} %>
+          </div>  
+        </div>
+        <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right">
+          <%= t ".previous" %>
+        </a>
+        <%= f.submit nil, class: "btn btn-primary fa fa-arrow-circle-left" %>
+      </div>
+    <% end %>
   </div>
 </div>

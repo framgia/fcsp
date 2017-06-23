@@ -1,0 +1,19 @@
+<% @users.each do |employer| %>
+  <tr>
+    <td>
+      <div class="job-thumb-image">
+        <%= load_user_avatar employer.user %>
+      </div>
+      <div class="job-title-content">
+        <%= employer.user.name %>
+      </div>
+    </td>
+    <td class="col-check">
+      <div class="ckbox">
+        <input type="checkbox" value="<%= employer.user.id %>" 
+          id="checkbox-user-<%= dom_id employer.user %>" name="team[user_ids][]">
+        <label for="checkbox-user-<%= dom_id employer.user %>"></label>
+      </div>
+    </td>
+  </tr>
+<% end %>

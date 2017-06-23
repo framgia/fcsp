@@ -40,12 +40,14 @@ Rails.application.routes.draw do
     resources :project_members, only: [:create, :destroy]
   end
 
+  resources :team_users, only: [:edit, :update]
   namespace :employer do
     resources :companies, only: [:edit, :update] do
       resources :jobs, except: [:show]
       delete "jobs", to: "jobs#destroy"
       resources :dashboards, only: :index
       resources :teams
+      resources :users, only: :index
       resources :team_introductions, only: [:create, :new]
       resources :candidates, only: [:index, :update]
       resources :articles, except: :show

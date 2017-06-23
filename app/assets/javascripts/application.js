@@ -37,6 +37,7 @@
 //= require searchbox
 //= require employer/create_job
 //= require employer/edit_job
+//= require employer/team
 //= require change_avatar_company
 //= require ckeditor/init
 //= require certificates

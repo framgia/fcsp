@@ -169,6 +169,11 @@ GEM
     datejs-rails (2.0.1)
       railties (>= 3.1)
     deep_merge (1.1.1)
+    delayed_job (4.1.2)
+      activesupport (>= 3.0, < 5.1)
+    delayed_job_active_record (4.1.1)
+      activerecord (>= 3.0, < 5.1)
+      delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.3.0)
@@ -274,6 +279,10 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     libv8 (3.16.14.19)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -565,6 +574,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   database_cleaner
+  delayed_job_active_record
   devise
   dropzonejs-rails
   eslint-rails!
@@ -584,6 +594,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0.5)
   js-routes
   kaminari
+  letter_opener
   listen (~> 3.0.5)
   mini_magick
   omniauth-hrsystem!

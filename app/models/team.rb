@@ -4,6 +4,12 @@ class Team < ApplicationRecord
   has_many :team_introductions, as: :team_target
   has_many :job_teams, dependent: :destroy
   has_many :jobs, through: :job_teams
+
+  has_many :team_users, dependent: :destroy
+  has_many :users, through: :team_users
+
+  accepts_nested_attributes_for :team_users
+
   validates :name, presence: true
 
   accepts_nested_attributes_for :images, allow_destroy: true
@@ -11,7 +17,7 @@ class Team < ApplicationRecord
 
   ATTRIBUTES = [:company_id, :name,
     images_attributes: [:id, :imageable_id, :imageable_type,
-    :picture, :caption], team_introductions_attributes:
+    :picture, :caption], user_ids: [], team_introductions_attributes:
     [:id, :team_target_id, :team_target_type, :title, :content]]
 
   scope :filter, ->(list_filter, sort_by, type) do

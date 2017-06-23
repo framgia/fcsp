@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+    <%= @user.name %>
+    <%= t "team.join_team_introduciton" %>
+    <%= link_to t("team.join_team"), team_user_url(@team_user), method: :patch %> 
+  </body>
+</html>

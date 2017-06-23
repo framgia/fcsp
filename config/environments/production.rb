@@ -88,13 +88,5 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {host: ENV["FCSP_MAILER_HOST"]}
-  config.action_mailer.smtp_settings = {
-    address: ENV["FCSP_EMAIL_ADDRESS"],
-    port: 587,
-    domain: ENV["FCSP_EMAIL_DOMAIN"],
-    user_name: ENV["FCSP_EMAIL_USERNAME"],
-    password: ENV["FCSP_EMAIL_PASSWORD"],
-    authentication: ENV["FCSP_EMAIL_AUTHENTICAION"],
-    enable_starttls_auto: true
-  }
+  config.active_job.queue_adapter = :delayed_job
 end

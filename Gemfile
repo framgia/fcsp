@@ -58,6 +58,7 @@ gem "figaro"
 gem "validates_timeliness"
 gem "ckeditor"
 gem "font-awesome-sass", "~> 4.7.0"
+gem "delayed_job_active_record"
 gem "omniauth-hrsystem",
   git: "https://github.com/framgia-education/omniauth-hrsystem.git"
 gem "bootstrap-datepicker-rails"
@@ -69,6 +70,7 @@ gem "searchkick"
 
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
+gem "letter_opener", group: :developments
 
 group :development, :test do
   gem "byebug", platform: :mri
