@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
       .page(params[:page]).per Settings.company.per_page
     @company_articles = @company.articles
       .select(:id, :title, :description, :time_show)
-      .time_filter(:time_show)
+      .time_filter
       .page(params[:page])
       .per Settings.article.page
 

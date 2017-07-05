@@ -51,7 +51,7 @@ class Job < ApplicationRecord
   validates :type_of_candidates, presence: true
   validates :who_can_apply, presence: true
   validates :profile_requests, presence: true
-  validate :check_posting_time
+  validate :check_posting_time, on: :create
 
   scope :newest, ->{order created_at: :desc}
   # scope :all_job, ->{}
@@ -84,13 +84,13 @@ class Job < ApplicationRecord
     check_time posting_time
   end
 
+  def image_url
+    images.any? ? images.first.picture_url : Settings.jobs.image_url
+  end
+
   private
 
   def send_posting_job_mail
     JobMailer.posting_job(creator, self).deliver_later
-  end
-
-  def image_url
-    images.any? ? images.first.picture_url : Settings.jobs.image_url
   end
 end

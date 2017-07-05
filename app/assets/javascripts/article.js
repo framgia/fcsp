@@ -1,9 +1,17 @@
 $(document).ready(function() {
+  if ($('#show_time option:selected').val() === 'now'){
+    $('input[name = "article[time_show]"]').addClass('hidden');
+  }
+
+  if ($('#show_time option:disabled').val() === 'now'){
+    $('input[name = "article[time_show]"]').prop('disabled', true);
+  }
+
   $('select').on('change', function() {
     if (this.value === 'now'){
       $('input[name = "article[time_show]"]').addClass('hidden');
     }
-    if (this.value === 'time'){
+    if (this.value === 'choose_time'){
       $('input[name = "article[time_show]"]').removeClass('hidden');
     }
   });

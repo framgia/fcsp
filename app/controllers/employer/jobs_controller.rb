@@ -1,7 +1,7 @@
 class Employer::JobsController < Employer::BaseController
   before_action :load_hiring_types, only: [:new, :create, :edit]
   before_action :update_status, only: :create
-  before_action :load_job, except: [:index, :new, :create]
+  before_action :load_job, only: [:edit, :update]
 
   def index
     if params[:type]
