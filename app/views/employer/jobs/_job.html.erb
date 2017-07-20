@@ -1,61 +1,48 @@
-<% jobs.each do |job| %>
-  <tr id="<%= dom_id job %>">
-    <td class="col-check">
-      <div class="ckbox">
-        <input type="checkbox" id="checkbox-job-<%= dom_id job %>"
-          class="checkboxjob" data-list-job-id="<%= job.id %>">
-        <label for="checkbox-job-<%= dom_id job %>"></label>
+<tr id="<%= dom_id job %>">
+  <td class="col-check">
+    <div class="ckbox">
+      <input type="checkbox" id="checkbox-job-<%= dom_id job %>"
+        class="checkboxjob" data-list-job-id="<%= job.id %>">
+      <label for="checkbox-job-<%= dom_id job %>"></label>
+    </div>
+  </td>
+  <td>
+    <div class="job-thumb-image">
+      <%= load_image_job job, size: Settings.employer.jobs.thumb_image_size %>
+    </div>
+    <div class="job-title-content">
+      <%= link_to job.title, edit_employer_company_job_path(id: job.id), class: "job-title", remote: true %>
+      <div class="hidden-xs">
+        <span class="icon-job-type sales">
+          <%= Job.human_enum_name :type_of_candidates, job.type_of_candidates %>
+        </span>
       </div>
-    </td>
-    <td>
-      <div class="job-thumb-image">
-        <% if job.images.present? %>
-          <%= image_tag(job.images.first.picture,
-            size: Settings.employer.jobs.thumb_image_size) %>
-        <% else %>
-          <%= image_tag(Settings.jobs.image_url, size: Settings.employer.jobs.thumb_image_size)%>
-        <% end %>
+      <div>
+        <%= link_to t(".show_posting"), job_path(job) %> |
+        <%= link_to t(".edit_posting"), edit_employer_company_job_path(id: job.id), remote: true %>
       </div>
-      <div class="job-title-content">
-        <%= link_to job.title, edit_employer_company_job_path(company.id, job.id), class: "job-title" %>
-        <div class="hidden-xs">
-          <span class="icon-job-type sales">
-            <%= Job.human_enum_name :type_of_candidates, job.type_of_candidates %>
-          </span>
-        </div>
-        <div>
-          <%= link_to t(".show_posting"), job_path(job) %> |
-          <%= link_to t(".edit_posting"), edit_employer_company_job_path(company.id, job.id) %>
-        </div>
-      </div>
-    </td>
-    <td class="status">
-      <b><%= Job.human_enum_name :status, job.status %></b>
-    </td>
-    <td>
-      <%= link_to job.candidates.length, employer_company_candidates_path(select: job.id) %>
-      <div class="bookmark">
-        <%= link_to t(".bookmark", count: job.bookmarks.length), "#" %>
-      </div>
-    </td>
-    <td>
-      <%= button_tag(type: "button", class: "btn btn-default") do %>
-        <i class="fa fa-comments-o"></i>
-      <% end %>
-    </td>
-    <td class="action">
-      <div class="btn-group">
-        <% if job.active? %>
-          <%= button_tag t(".close"), id: job.id, class: "close-job btn btn-warning btn-xs" %>
-        <% else %>
-          <%= button_tag t(".public"), id: job.id, class: "public-job btn btn-success btn-xs" %>
-        <% end %>
-        <%= button_tag t(".delete"), id: job.id, class: "delete-job btn btn-danger
-          btn-xs" %>
-      </div>
-    </td>
-    <input type="hidden" id="company-id" value="<%= company.id %>">
-    <input type="hidden" id="status-job_<%= job.id %>"
-      value="<%= Job.statuses[job.status] %>">
-  </tr>
-<% end %>
+    </div>
+  </td>
+  <td class="status">
+    <%= status_group job %>
+  </td>
+  <td>
+    <%= link_to job.candidates.length, employer_company_candidates_path(select: job.id) %>
+    <div class="bookmark">
+      <%= link_to t(".bookmark", count: job.bookmarks.length), "#" %>
+    </div>
+  </td>
+  <td>
+    <%= button_tag(type: "button", class: "btn btn-default") do %>
+      <i class="fa fa-comments-o"></i>
+    <% end %>
+  </td>
+  <td class="action">
+    <div class="btn-group">
+      <%= active_button job %>
+      <%= delete_button job %>
+    </div>
+  </td>
+  <input type="hidden" id="company-id" value="<%= company.id %>">
+  <input type="hidden" id="status-job_<%= job.id %>" value="<%= Job.statuses[job.status] %>">
+</tr>

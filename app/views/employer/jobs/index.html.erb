@@ -47,7 +47,7 @@
                     </tr>
                   </thead>
                   <tbody class="jobs-list">
-                    <%= render "job", jobs: @jobs, company: @company %>
+                    <%= render @jobs, company: @company %>
                   </tbody>
                 </table>
               </div>
@@ -62,3 +62,4 @@
   </div>
   <input type="hidden" id="company-id" value="<%= @company.id %>">
 </div>
+<div class="render_modal_job_form"></div>

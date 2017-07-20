@@ -31,7 +31,6 @@ class Job < ApplicationRecord
   accepts_nested_attributes_for :job_hiring_types,
     reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :images
-
   accepts_nested_attributes_for :job_teams
 
   delegate :name, to: :company, prefix: true
@@ -78,6 +77,10 @@ class Job < ApplicationRecord
 
   scope :delete_job, ->list_job do
     where("id IN (?)", list_job).destroy_all
+  end
+
+  def is_posted?
+    posting_time < Time.zone.now
   end
 
   def check_posting_time

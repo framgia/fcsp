@@ -5,7 +5,7 @@
         <%= load_team_image team %>
       </div>
       <div class="job-title-content">
-        <%= link_to team.name, employer_company_team_path(company_id: company.id,
+        <%= link_to team.name, employer_company_team_path(company: company,
           id: team.id), class: "job-title" %>
       </div>
     </td>

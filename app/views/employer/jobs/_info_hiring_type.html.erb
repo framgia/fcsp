@@ -49,9 +49,13 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".image" %>
       <span class="required">*</span>
     </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="col-md-9 col-sm-9 col-xs-12">
       <div class="custab job-image">
-        <%= ff.file_field :picture, id: "load-file" %>
+        <%= ff.file_field :picture, id: "load-file", class: "change-image" %>
+        <div class="img-default-size">
+          <%= image_tag Settings.jobs.image_url, size: Settings.jobs.image_size,
+            class: "img-upload" %>
+        </div>
       </div>
     </div>
   </div>
@@ -72,7 +76,7 @@
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
     <%= f.text_field :posting_time, class: "form-control datetimepicker",
-      value: format_time(@job.posting_time, :format_datetime) %>
+      value: format_time(job.posting_time, :format_datetime) %>
   </div>
 </div>
 <div class="form-group">

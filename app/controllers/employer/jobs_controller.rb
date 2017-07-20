@@ -1,7 +1,7 @@
 class Employer::JobsController < Employer::BaseController
   before_action :load_hiring_types, only: [:new, :create, :edit]
   before_action :update_status, only: :create
-  before_action :load_job, except: [:index, :new, :create]
+  before_action :load_job, only: [:edit, :update]
 
   def index
     if params[:type]
@@ -15,18 +15,16 @@ class Employer::JobsController < Employer::BaseController
       @jobs = @company.jobs.includes(:candidates, :images, :bookmarks)
         .page(params[:page]).per Settings.employer.jobs.per_page
     end
-
-    if request.xhr?
-      render json: {
+    respond_to do |format|
+      format.js{
+        render json: {
         html_job: render_to_string(partial: "job",
-          locals: {jobs: @jobs, company: @company}, layout: false),
+          locals: {jobs: @jobs, company: @company}, collection: @jobs),
         pagination_job: render_to_string(partial: "paginate",
           locals: {jobs: @jobs}, layout: false)
+        }
       }
-    else
-      respond_to do |format|
-        format.html
-      end
+      format.html
     end
   end
 
@@ -51,19 +49,24 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def edit
+    @job.images.build if @job.images.blank?
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
+    params[:job].delete :posting_time if @job.is_posted?
     if @job.update_attributes job_params
-      if request.xhr?
         @teams = @company.teams.includes(:images).page(Settings.employer.page)
           .per Settings.employer.team.per_page
-        render json: {
-          status: Job.human_enum_name(:status, @job.status)
-        }, status: 200
-      else
-        redirect_to job_path(@job)
-      end
+        respond_to do |format|
+          format.json {render json: {
+            status: Job.human_enum_name(:status, @job.status)
+          }}
+          format.js {render "update.js.erb", locals: {job: @job}}
+          format.html {redirect_to employer_company_jobs_path @company}
+        end
     else
       redirect_back fallback_location: :back
     end
@@ -74,17 +77,16 @@ class Employer::JobsController < Employer::BaseController
     @jobs = @company.jobs.includes(:candidates, :images, :bookmarks)
       .page(params[:page]).per Settings.employer.jobs.per_page
 
-    if request.xhr?
-      render json: {
+    respond_to do |format|
+      format.js{
+        render json: {
         html_job: render_to_string(partial: "job",
-          locals: {jobs: @jobs, company: @company}, layout: false),
+          locals: {jobs: @jobs, company: @company}, collection: @jobs),
         pagination_job: render_to_string(partial: "paginate",
           locals: {jobs: @jobs}, layout: false)
+        }
       }
-    else
-      respond_to do |format|
-        format.html
-      end
+      format.html
     end
   end
 
@@ -103,8 +105,11 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def load_job
-    return if @job = Job.find_by(id: params[:id])
-    flash[:danger] = t ".not_found"
-    redirect_to employer_company_jobs_path @company
+    @job = Job.find_by(id: params[:id])
+    @job.posting_time = Time.zone.now
+    unless @job
+      flash[:danger] = t ".not_found"
+      redirect_to employer_company_job_path
+    end
   end
 end
