@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
   validates :description, presence: true
+  validates :time_show, presence: true
   validate :check_time_show
 
   delegate :name, to: :company, prefix: true
@@ -22,11 +23,9 @@ class Article < ApplicationRecord
       "%#{search}%", "%#{search}%").order "#{type} #{sort_by}"
   end
 
-  # only use with user's view
-  scope :time_filter, ->time_show do
-    where("#{time_show} <= ?", format_time(Time.zone.now, :format_datetime))
-      .order "#{time_show} DESC"
-  end
+  scope :time_filter, lambda{
+    where("time_show <= ?", Time.zone.now).order time_show: :DESC
+  }
 
   class << self
     include ApplicationHelper
@@ -39,6 +38,6 @@ class Article < ApplicationRecord
   private
 
   def check_time_show
-    check_time time_show
+    check_time time_show if time_show_was > Time.zone.now
   end
 end

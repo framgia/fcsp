@@ -33,7 +33,7 @@ class Employer::ArticlesController < Employer::BaseController
       flash[:success] = t ".created"
       redirect_to employer_company_articles_path @company
     else
-      flash[:danger] = t ".fail"
+      flash.now[:danger] = t ".fail"
       render :new
     end
   end
@@ -42,14 +42,15 @@ class Employer::ArticlesController < Employer::BaseController
   end
 
   def update
+    if @article.time_show > Time.zone.now && params[:show_time] == "now"
+      params[:article][:time_show] = Time.zone.now
+    end
+
     if @article.update_attributes article_params
-      if params[:show_time] == "now"
-        @article.update_attributes time_show: Time.zone.now
-      end
       flash[:success] = t ".update"
       redirect_to employer_company_articles_path @company
     else
-      flash[:danger] = t ".fail"
+      flash.now[:danger] = t ".fail"
       render :edit
     end
   end

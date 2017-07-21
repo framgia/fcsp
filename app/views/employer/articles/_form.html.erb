@@ -24,21 +24,9 @@
 
       <div class="form-group">
         <%= f.label :time_show %>
-        <% if article.time_show? %>
-          <select name="show_time">
-            <option value="now"><%= t ".now" %></option>
-            <option value="time" selected="selected"><%= t ".time" %></option>
-          </select>
-          <%= f.text_field :time_show, class: "form-control datetimepicker",
-            value: format_time(article.time_show, :format_datetime) %>
-        <% else %>
-          <select name="show_time">
-            <option value="now"><%= t ".now" %></option>
-            <option value="time"><%= t ".time" %></option>
-          </select>
-          <%= f.text_field :time_show, class: "hidden form-control datetimepicker",
-            value: format_time(article.time_show, :format_datetime) %>
-        <% end %>
+        <%= check_time_show article %>
+        <%= f.text_field :time_show, class: "form-control datetimepicker",
+          value: format_time(article.time_show, :format_datetime) %>
       </div>
 
       <div class="form-group">

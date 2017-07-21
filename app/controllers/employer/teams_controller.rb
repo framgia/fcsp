@@ -38,6 +38,7 @@ class Employer::TeamsController < Employer::BaseController
   end
 
   def edit
+    @team.images.build if @team.images.blank?
   end
 
   def show
