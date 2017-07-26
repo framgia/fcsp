@@ -111,6 +111,23 @@ en:
       success: "Success"
       danger: "Fails"
     jobs:
+      modal_job_form:
+        status: "Status"
+        edit: "Edit Job"
+        close: "Close"
+        posting_time: "Posting time"
+        image: "Image"
+        caption: "Caption Image"
+        looking_for: "Looking for"
+        hiring_type: "Hiring type"
+        who_can_apply: "Who can apply"
+        everyone: "Everyone can apply"
+        friends_om: "Only friends of members"
+        of_friends_om: "Only friends of friends of members"
+        placeholder_title: "Join us to create a better workplace"
+        placeholder_des: "If you are a cool rocking young engineer and into
+          charities, I want to hear what you think about my new idea.
+          I will buy you a drink!"
       not_found: "Job not found"
       candidate_by_job:
         user: "User"
@@ -181,6 +198,13 @@ en:
         failed: "Failed!"
         job_post_updated: "Updated post job recruitment"
         job_post_update_fail: "Failed to update post job"
+        success_title: "Success"
+        change_success: "Change status success !!"
+        error_title: "Error"
+        change_error: "Change status error !!"
+        draft_error: "This job is active, can't draft"
+        update_success: "Update success !!"
+        update_error: "Update error !!"
       destroy:
         success: "Deleted success!"
         fail: "Deleted fail!"
@@ -210,6 +234,8 @@ en:
         show_posting: "Show posting"
         edit_posting: "Edit posting"
         bookmark: "Bookmark (%{count})"
+        draft: "Draft"
+        active: "Active"
       draft:
         reopen: "Reopen"
       info_main:

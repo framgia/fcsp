@@ -1,0 +1,20 @@
+<% if @job.errors.blank? %>
+  $('#modalJobForm').modal('hide');
+  var checkExist = setInterval(function() {
+   if(!$('body').attr('style')) {
+      swal({
+        type: 'success',
+        title: I18n.t('employer.jobs.update.success_title'),
+        text: I18n.t('employer.jobs.update.update_success')
+      });
+      clearInterval(checkExist);
+   }
+  }, 100);
+  $('#job_<%= job.id %>').replaceWith('<%= j render "job", company: @company, job: @job %>');
+<% else %>
+  swal({
+    type: 'error',
+    title: I18n.t('employer.jobs.update.error_title'),
+    text: I18n.t('employer.jobs.update.update_error')
+  });
+<% end %>

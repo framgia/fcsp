@@ -12,7 +12,7 @@
                     <thead>
                       <tr class="headings">
                         <th class="job-title">
-                          <%= render "filter_team", teams: teams, company_id: company_id %>
+                          <%= render "filter_team", teams: teams, company: company %>
                           <%= t "employer.jobs.team_name" %>
                         </th>
                         <th class="col-checkbox">
@@ -23,8 +23,7 @@
                         </th>
                       </tr>
                     </thead>
-                    <%= render "job_list", f: f, teams: teams,
-                      company_id: company_id %>
+                    <%= render "job_list", f: f, teams: teams, company: company %>
                   </table>
                 </div>
               </div>

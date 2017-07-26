@@ -34,6 +34,33 @@ vi:
         job_recruitment: "Tuyển dụng"
       info_hiring_type:
         posting_time: "Thời gian đăng bài"
+      update:
+        success_title: "Thành công"
+        change_success: "Thay đổi trạng thái thành công !!"
+        error_title: "Lỗi"
+        change_error: "Thay đổi trạng thái thất bại !!"
+        draft_error: "Trạng thái đang hoạt động, không thể cho vào bản nháp"
+        update_success: "Cập nhật thành công !!"
+        update_error: "Cập nhật có xảy ra lỗi !!"
+      modal_job_form:
+        status: "Trạng thái"
+        edit: "Chỉnh sửa bài đăng"
+        close: "Đóng"
+        posting_time: "Thời gian đăng"
+        image: "Hình ảnh"
+        caption: "Tiêu đề"
+        looking_for: "Tìm kiếm"
+        hiring_type: "Loại tuyển chọn"
+        who_can_apply: "Người có thể ứng tuyển"
+        everyone: "Tất cả mọi người"
+        friends_om: "Chỉ có bạn của thành viên"
+        of_friends_om: "Chỉ có bạn của bạn thành viên"
+        placeholder_title: "Tham gia cùng chúng tôi để tạo nên những điều tốt đẹp hơn"
+        placeholder_des: "Bạn là một kỹ sư trẻ tuổi, bạn muốn thể hiện mình.
+        Tôi sẽ nghe bất kỳ ý tưởng nào của bạn. Chúng ta cùng uống gì nhé !!"
+      job:
+        draft: "Bản nháp"
+        active: "Hoạt động"
     teams:
       new:
         new_team: "Tạo team mới"

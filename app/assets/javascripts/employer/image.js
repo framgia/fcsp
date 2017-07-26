@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //var team_introduction.view_image('.upload-image');
-  $('.change-image').on('change', function() {
+  $('body').on('change', '.change-image', function() {
     read_url(this);
   });
 });

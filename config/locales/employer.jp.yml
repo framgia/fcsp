@@ -34,6 +34,34 @@ jp:
         job_recruitment: "仕事の募集"
       info_hiring_type:
         posting_time: "投稿時間"
+      update:
+        success_title: "成功"
+        change_success: "ステータスの変更を成功させる！"
+        error_title: "エラー"
+        change_error: "状態エラーを変更！"
+        draft_error: "このジョブはアクティブで、ドラフトできません"
+        update_success: "アップデート成功！"
+        update_error: "アップデートエラー!!"
+      modal_job_form:
+        status: "状態"
+        edit: "仕事を編集する"
+        close: "閉じる"
+        posting_time: "投稿時間"
+        image: "画像"
+        caption: "キャプションイメージ"
+        looking_for: "探している"
+        hiring_type: "採用タイプ"
+        who_can_apply: "応募可能な人"
+        everyone: "誰もが応募できます"
+        friends_om: "メンバーの友人のみ"
+        of_friends_om: "メンバーの友人の友人のみ"
+        placeholder_title: "より良い職場をつくるために私たちと一緒に"
+        placeholder_des: "あなたがクールなロッキングの若手エンジニアであれば
+           慈善団体、あなたが私の新しいアイデアについて何を考えているか聞いてみたい。
+           私はあなたに飲み物を買うでしょう！"
+      job:
+        draft: "ドラフト"
+        active: "アクティブ"
     teams:
       new:
         new_team: "新しいチーム"

@@ -62,6 +62,11 @@ var draftjob = {
       draftjob.reopen_job(id);
     });
 
+    $('body').on('click', '.draft-job', function() {
+      var id = $(this).attr('id');
+      draftjob.draft_job(id);
+    });
+
     $('body').on('click', '.delete-job', function() {
       var id = $(this).attr('id');
       var arrchecked = [];
@@ -127,10 +132,8 @@ var draftjob = {
   close_job: function(id) {
     var public_button = '<button name="button" type="submit" id="' +
       id + '" class="public-job btn btn-success btn-xs">' +
-      I18n.t('employer.jobs.job.public') + '</button>' +
-      '<button name="button" type="submit" id="' +
-      id + '" class="delete-job btn btn-danger btn-xs">'
-      + I18n.t('employer.jobs.job.delete') + '</button>';
+      I18n.t('employer.jobs.job.public') + '</button>';
+    var close_label = '<strong class="label label-warning">'+ I18n.t('employer.jobs.job.close') +'</strong>';
     var company_id = $('#company-id').val();
 
     $.ajax({
@@ -138,9 +141,23 @@ var draftjob = {
       method: 'PUT',
       data: {job: {status: 'close'}},
       success: function(data){
-        $('#job_'+ id).children('.status').find('b').text(data.status);
-        $('#job_'+ id).find('.btn-group').html(public_button);
+        $('#job_'+ id).children('.status').find('strong').replaceWith(close_label);
+        $('#job_'+ id).find('.close-job').replaceWith(public_button);
+        if($('#job_'+ id).find('.draft-job').length)
+          $('#job_'+ id).find('.draft-job').prop('disabled', false);
         $('#job_'+ id).find('#status-job_'+ id).val(1);
+        swal({
+          type: 'success',
+          title: I18n.t('employer.jobs.update.success_title'),
+          text: I18n.t('employer.jobs.update.change_success')
+        });
+      },
+      error: function() {
+        swal({
+          type: 'error',
+          title: I18n.t('employer.jobs.update.error_title'),
+          text: I18n.t('employer.jobs.update.change_error')
+        });
       }
     });
   },
@@ -148,10 +165,8 @@ var draftjob = {
   reopen_job: function(id) {
     var close_button = '<button name="button" type="submit" id="' +
       id + '" class="close-job btn btn-warning btn-xs">' +
-      I18n.t('employer.jobs.job.close') + '</button>' +
-      '<button name="button" type="submit" id="' +
-      id + '" class="delete-job btn btn-danger btn-xs">'
-      + I18n.t('employer.jobs.job.delete') + '</button>';
+      I18n.t('employer.jobs.job.close') + '</button>';
+    var public_label = '<strong class="label label-info">'+ I18n.t('employer.jobs.job.active') +'</strong>';
     var company_id = $('#company-id').val();
 
     $.ajax({
@@ -159,9 +174,23 @@ var draftjob = {
       method: 'PUT',
       data: {job: {status: 'active'}},
       success: function(data) {
-        $('#job_'+ id).children('.status').find('b').text(data.status);
-        $('#job_'+ id).find('.btn-group').html(close_button);
+        $('#job_'+ id).children('.status').find('strong').replaceWith(public_label);
+        $('#job_'+ id).find('.public-job').replaceWith(close_button);
+        if($('#job_'+ id).find('.draft-job').length)
+          $('#job_'+ id).find('.draft-job').prop('disabled', false);
         $('#job_'+ id).find('#status-job_'+ id).val(0);
+        swal({
+          type: 'success',
+          title: I18n.t('employer.jobs.update.success_title'),
+          text: I18n.t('employer.jobs.update.change_success')
+        });
+      },
+      error: function() {
+        swal({
+          type: 'error',
+          title: I18n.t('employer.jobs.update.error_title'),
+          text: I18n.t('employer.jobs.update.change_error')
+        });
       }
     });
   },
@@ -182,6 +211,43 @@ var draftjob = {
         swal(I18n.t('employer.jobs.destroy.fail'));
       }
     });
+  },
+
+  draft_job: function(id) {
+    var draft_label = '<strong class="label label-default">'+ I18n.t('employer.jobs.job.draft') +'</strong>';
+    var company_id = $('#company-id').val();
+    var job_status =  $('#job_'+ id).find('#status-job_'+ id).val();
+
+    if (job_status != 0) {
+      $.ajax({
+        dataType: 'json',
+        url: '/employer/companies/' + company_id +'/jobs/'+ id,
+        method: 'PUT',
+        data: {job: {status: 'draft'}},
+        success: function(data) {
+          $('#job_'+ id).children('.status').find('strong').replaceWith(draft_label);
+          $('#job_'+ id).find('.draft-job').prop('disabled', true);
+          $('#job_'+ id).find('#status-job_'+ id).val(2);
+          swal({
+            type: 'success',
+            title: I18n.t('employer.jobs.update.success_title'),
+            text: I18n.t('employer.jobs.update.change_success')
+          });
+        },
+        error: function() {
+          swal({
+            type: 'error',
+            title: I18n.t('employer.jobs.update.error_title'),
+            text: I18n.t('employer.jobs.update.change_error')
+          });
+        }
+      });
+    } else {
+      swal({
+        type: 'error',
+        text: I18n.t('employer.jobs.update.draft_error')
+      });
+    }
   }
 };
 

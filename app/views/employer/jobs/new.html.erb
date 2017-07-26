@@ -33,13 +33,13 @@
         <div class="form_ajax">
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= render "info_hiring_type", f: f, job: @job,
-            company_id: @company.id, hiring_types: @hiring_types %>
+            company: @company, hiring_types: @hiring_types %>
         </div>
       </div>
       <div id="step-2">
         <h2 class="StepTitle"><%= t ".members" %></h2>
         <div class="step-2-content clearfix">
-          <%= render "new_job", f: f, teams: @teams, company_id: @company.id %>
+          <%= render "new_job", f: f, teams: @teams, company: @company %>
         </div>
         <div class="container">
           <div class="col-md-3">
