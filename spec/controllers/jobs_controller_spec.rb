@@ -2,7 +2,9 @@ require "rails_helper"
 
 RSpec.describe JobsController, type: :controller do
   let(:user){FactoryGirl.create :user, role: 1}
-  let!(:job){FactoryGirl.create :job}
+  let(:company){FactoryGirl.create :company}
+  let(:address){FactoryGirl.create :address, company_id: company.id}
+  let!(:job){FactoryGirl.create :job, company_id: company.id}
 
   describe "GET #index" do
     before :each do
@@ -23,8 +25,8 @@ RSpec.describe JobsController, type: :controller do
     end
 
     it "job found" do
-      get :show, params: {id: job.id}
-      expect(response).to render_template :show
+      get :show, params: {id: job.id}, xhr: true, format: JSON
+      expect(response).to have_http_status 200
     end
   end
 end
