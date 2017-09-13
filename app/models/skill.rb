@@ -4,6 +4,8 @@ class Skill < ApplicationRecord
   has_many :skill_users, dependent: :destroy
   has_many :users, through: :skill_users
 
+  belongs_to :group_skill
+
   validates :name, presence: true, uniqueness: true,
     length: {maximum: Settings.max_length_title}
   validates :description, length: {maximum: Settings.max_length_description}

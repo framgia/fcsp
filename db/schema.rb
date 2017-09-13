@@ -10,25 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703035525) do
+ActiveRecord::Schema.define(version: 20170907094002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string   "trackable_type"
-    t.integer  "trackable_id"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.string   "key"
-    t.text     "parameters"
-    t.string   "recipient_type"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
-    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
-    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "organization"
+    t.string   "description"
+    t.string   "address"
+    t.string   "url"
+    t.string   "type"
+    t.string   "license_number"
+    t.datetime "time_start"
+    t.datetime "time_end"
   end
 
   create_table "addresses", force: :cascade do |t|
@@ -112,6 +109,26 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.index ["industry_id"], name: "index_company_industries_on_industry_id", using: :btree
   end
 
+  create_table "course_subjects", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "subject_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "programming_language_id"
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.integer  "company_id"
     t.integer  "user_id"
@@ -135,6 +152,13 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.datetime "updated_at"
     t.index ["followable_id", "followable_type"], name: "fk_followables", using: :btree
     t.index ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+  end
+
+  create_table "group_skills", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "groups", force: :cascade do |t|
@@ -221,14 +245,6 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "organizations", force: :cascade do |t|
-    t.integer  "org_type",   default: 1
-    t.string   "name"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["name"], name: "index_organizations_on_name", using: :btree
-  end
-
   create_table "permissions", force: :cascade do |t|
     t.string   "entry"
     t.text     "optional"
@@ -260,8 +276,16 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.index ["postable_type", "postable_id"], name: "index_posts_on_postable_type_and_postable_id", using: :btree
   end
 
+  create_table "programming_languages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string   "name"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -277,20 +301,20 @@ ActiveRecord::Schema.define(version: 20170703035525) do
   end
 
   create_table "skill_users", force: :cascade do |t|
-    t.integer  "skill_id"
+    t.string   "level"
+    t.float    "years"
     t.integer  "user_id"
-    t.integer  "level"
+    t.integer  "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["skill_id"], name: "index_skill_users_on_skill_id", using: :btree
-    t.index ["user_id"], name: "index_skill_users_on_user_id", using: :btree
   end
 
   create_table "skills", force: :cascade do |t|
+    t.integer  "group_skill_id"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "social_networks", force: :cascade do |t|
@@ -301,6 +325,15 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["owner_type", "owner_id"], name: "index_social_networks_on_owner_type_and_owner_id", using: :btree
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -328,16 +361,30 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
-  create_table "user_educations", force: :cascade do |t|
-    t.string   "major"
-    t.date     "graduation"
-    t.text     "description"
-    t.integer  "user_id"
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "subject_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "status"
+    t.integer  "type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "school_id"
-    t.index ["school_id"], name: "index_user_educations_on_school_id", using: :btree
-    t.index ["user_id"], name: "index_user_educations_on_user_id", using: :btree
+  end
+
+  create_table "user_course_subjects", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "course_subject_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "user_courses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_groups", force: :cascade do |t|
@@ -362,29 +409,23 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.index ["user_id"], name: "index_user_languages_on_user_id", using: :btree
   end
 
-  create_table "user_portfolios", force: :cascade do |t|
-    t.string   "url"
-    t.string   "title"
-    t.text     "description"
-    t.date     "time"
+  create_table "user_schools", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_user_portfolios_on_user_id", using: :btree
+    t.integer  "school_id"
+    t.integer  "degree"
+    t.text     "major"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "complete"
+    t.text     "type_of_graduation"
   end
 
-  create_table "user_works", force: :cascade do |t|
-    t.string   "position"
-    t.text     "description"
+  create_table "user_tasks", force: :cascade do |t|
+    t.integer  "user_course_subject_id"
+    t.integer  "task_id"
     t.integer  "status"
-    t.date     "start_time"
-    t.date     "end_time"
-    t.integer  "user_id"
-    t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["organization_id"], name: "index_user_works_on_organization_id", using: :btree
-    t.index ["user_id"], name: "index_user_works_on_user_id", using: :btree
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -403,6 +444,13 @@ ActiveRecord::Schema.define(version: 20170703035525) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "address"
+    t.integer  "gender"
+    t.datetime "birthday"
+    t.string   "relationship_status"
+    t.string   "country"
+    t.string   "occupation"
+    t.string   "status"
     t.integer  "education_status",       default: 1
     t.integer  "cover_image_id"
     t.integer  "avatar_id"
@@ -423,14 +471,9 @@ ActiveRecord::Schema.define(version: 20170703035525) do
   add_foreign_key "permissions", "groups"
   add_foreign_key "positions", "companies"
   add_foreign_key "share_jobs", "users"
-  add_foreign_key "user_educations", "schools"
-  add_foreign_key "user_educations", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "positions"
   add_foreign_key "user_groups", "users"
   add_foreign_key "user_languages", "languages"
   add_foreign_key "user_languages", "users"
-  add_foreign_key "user_portfolios", "users"
-  add_foreign_key "user_works", "organizations"
-  add_foreign_key "user_works", "users"
 end

@@ -1,18 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   include ApplyJob
   include BookmarkJob
 
   acts_as_follower
-  has_friendship
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  has_many :articles, dependent: :destroy
-  has_many :education_courses, through: :course_members, source: :course
-  has_many :education_projects, through: :education_project_members,
-    source: :project
-  has_one :education_learning_program, through: :education_program_member
   has_many :user_groups, dependent: :destroy
   has_many :employer_groups, class_name: Group.name, through: :user_groups,
     source: :group
@@ -27,28 +19,21 @@ class User < ApplicationRecord
   has_one :info_user, dependent: :destroy
   has_many :skill_users, dependent: :destroy
   has_many :skills, through: :skill_users
-  has_many :awards, dependent: :destroy
-  has_many :user_educations, dependent: :destroy
-  has_many :user_works, dependent: :destroy
-  has_many :organizations, through: :user_works
-  has_many :schools, through: :user_educations, source: :school
+  has_many :schools, through: :user_school
   has_many :shares, class_name: ShareJob.name, dependent: :destroy
   has_many :shared_jobs, through: :shares, source: :job
-  has_many :certificates, dependent: :destroy
+
   has_many :user_languages, dependent: :destroy
+  has_many :languages, through: :user_languages
+
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,
     primary_key: :cover_image_id
   has_many :companies, foreign_key: :creator_id
-  has_many :user_links, dependent: :destroy
-  has_many :posts, as: :postable
   has_many :social_networks, as: :owner, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
   has_many :share_posts, class_name: ShareJob.name, dependent: :destroy
   has_many :shared_posts, through: :share_jobs, source: :post
-  has_many :messages
   accepts_nested_attributes_for :info_user
 
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
@@ -132,18 +117,6 @@ class User < ApplicationRecord
 
   def is_user? user
     user == self
-  end
-
-  def send_email_request_friend user
-    FriendRequestMailer.friend_request(self, user).deliver_later
-  end
-
-  def mutual_friends user
-    self.friends & user.friends
-  end
-
-  def mutual_friends_in_lists user_friends
-    self.friends & user_friends
   end
 
   def link_social_network type

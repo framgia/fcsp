@@ -3,14 +3,10 @@ class Company < ApplicationRecord
   has_many :jobs, dependent: :destroy
   has_many :candidates, through: :jobs
   has_many :candidate_users, through: :candidates, source: :user
-  has_many :benefits, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_many :employees, dependent: :destroy
-  has_many :articles, dependent: :destroy
   has_many :images, as: :imageable, dependent: :destroy
   has_many :users, through: :employees
-  has_many :company_industries, dependent: :destroy
-  has_many :industries, through: :company_industries
   has_many :groups
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
@@ -19,7 +15,6 @@ class Company < ApplicationRecord
   has_many :social_networks, as: :owner, dependent: :destroy
   belongs_to :creator, foreign_key: :creator_id, class_name: User.name
 
-  after_create :create_organization
 
   ATTRIBUTES = [:name, :website, :introduction, :founder, :country,
     :company_size, :founder_on, addresses_attributes: [:id, :address,
