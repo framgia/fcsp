@@ -1,0 +1,9 @@
+en:
+  users:
+    courses_user:
+      status: "Status"
+      start_date: "Start Date"
+      end_date: "End Date"
+      name: "Name"
+      all_courses: "All Courses"
+      courses: "Courses"

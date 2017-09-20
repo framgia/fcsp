@@ -96,10 +96,10 @@
 }
 
 .course-subject {
-  background-color: #3c586a;
-  box-shadow: 0 1px 1px 1px #666;
-  color: #fff;
-  margin-bottom: 10px;
+  background-color: $fiord;
+  box-shadow: 0 1px 1px 1px $dove_gray;
+  color: $white;
+  margin-bottom: 25px;
   position: relative;
   width: 100%;
   border-radius: 5px;
@@ -112,6 +112,7 @@
     float: left;
     img {
       border-radius: 100%;
+      height: 90px;
     }
   }
 
@@ -126,12 +127,13 @@
     }
 
     .status {
-      background-color: #fb6e52;
+      background-color: $persimmon;
       width: 66px;
       border-radius: 3px;
       margin-left: 2px;
       padding: 5px;
       left: 12px;
+      margin-left: 10px;
     }
 
     .avatar {
@@ -153,6 +155,7 @@
     }
 
     .date {
+      padding-top: 50px;
       position: absolute;
       right: 16px;
     }

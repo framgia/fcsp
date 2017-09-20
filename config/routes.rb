@@ -42,7 +42,11 @@ Rails.application.routes.draw do
   resources :candidates, only: [:create, :destroy]
   resources :bookmarks, only: [:create, :destroy]
   resources :follow_companies, only: [:create, :destroy]
-  resources :users, only: [:show, :new]
+  resources :users, only: [:show, :new] do
+    resources :courses do
+      resources :subjects
+    end
+  end
   resources :user_avatars, only: :create
   resource :user_avatars, only: :update
   resources :companies_avatars, only: [:create, :update]

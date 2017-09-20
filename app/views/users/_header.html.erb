@@ -169,6 +169,6 @@
     </div>
   </div>
 </div>
-<%= render "change_avatar", user: user if user.is_user? current_user %>
-<%= render "change_cover", user: user if user.is_user? current_user %>
+<%= render "users/change_avatar", user: user if user.is_user? current_user %>
+<%= render "users/change_cover", user: user if user.is_user? current_user %>
 <div class="render-form-user-skill-modal"></div>

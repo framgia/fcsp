@@ -5,7 +5,7 @@
         <aside class="col-md-12 column-main">
           <div class="column-main-inner">
             <% if user_object.user_jobs_any? %>
-              <%= render "job_accordance", job_page: :suggest_jobs_page,
+              <%= render "users/job_accordance", job_page: :suggest_jobs_page,
                 jobs: user_object.user_jobs %>
             <% end %>
           </div>

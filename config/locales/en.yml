@@ -583,6 +583,13 @@ en:
     skill_user:
       skills: "Skills"
       add: "Add"
+    course_details:
+      courses: "Courses"
+      subjects: "Subjects"
+      name: "Name"
+      description: "Description"
+      start_date: "Start Date"
+      end_date: "End Date"
   user_works:
     create:
       create_success: "Add work successfully!"
