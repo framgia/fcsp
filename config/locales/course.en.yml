@@ -8,3 +8,7 @@ en:
       all_courses: "All Courses"
       courses: "Courses"
       no_data: "no data"
+  courses:
+    show:
+      user_not_found: "User not found"
+      course_not_found: "Course not found"

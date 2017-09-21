@@ -17,7 +17,7 @@
             <table id="datatable" class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th class="stt">#</th>
+                  <th>#</th>
                   <th><%= t ".name" %></th>
                   <th><%= t ".status" %></th>
                   <th><%= t ".start_date" %></th>
@@ -26,10 +26,10 @@
               </thead>
 
               <tbody>
-                <% user.courses.each do |course| %>
+                <% courses.each do |course| %>
                   <tr>
                     <td></td>
-                    <td><%= link_to course.name, "#" %></td>
+                    <td><%= link_to course.name, user_course_path(user.id, course.id) %></td>
                     <td>
                       <span class="<%= status_color course.status %>"><%= course.status %></span>
                     </td>

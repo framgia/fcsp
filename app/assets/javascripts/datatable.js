@@ -2,7 +2,6 @@ $(document).ready(function() {
   var t = $('#datatable').DataTable({
     'columnDefs': [{
       'searchable': false,
-      'orderable': false,
       'targets': 0
     }],
     'order': [[ 0, 'asc' ]],

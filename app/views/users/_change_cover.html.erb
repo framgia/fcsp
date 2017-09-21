@@ -26,7 +26,7 @@
           id: "form-update-cover" do %>
           <div class="album-image">
             <%= hidden_field_tag :image_id, "", class: "user-old-image" %>
-            <%= render "album_image", user: user %>
+            <%= render "users/album_image", user: user %>
           </div>
         <% end %>
       </div>

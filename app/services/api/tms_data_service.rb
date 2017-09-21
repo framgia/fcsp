@@ -72,10 +72,9 @@ class Api::TmsDataService
         course_subject = CourseSubject.find_or_create_by course_id: course_id,
           subject_id: subject.id
         course_subject.update_attributes start_date: data_subject["start_date"],
-          end_date: data_subject["end_date"]
+          end_date: data_subject["end_date"], status: data_subject["status"]
         user_course_subject = UserCourseSubject.find_or_create_by user_id:
           @current_user.id, course_subject_id: course_subject.id
-        user_course_subject.update_attributes status: data_subject["status"]
         synchronize_user_task data_subject, user_course_subject.id, subject.id
       end
     end

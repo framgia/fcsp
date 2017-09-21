@@ -5,8 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
-    @user.build_info_user if @user.info_user.nil?
-    @info_user = @user.info_user
+    @courses = @user.courses
 
     if request.xhr?
       if params[:suggest_jobs_page]
