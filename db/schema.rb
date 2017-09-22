@@ -375,6 +375,8 @@ ActiveRecord::Schema.define(version: 20170914040644) do
 
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "course_id"
+    t.integer  "subject_id"
     t.integer  "task_id"
     t.datetime "start_date"
     t.datetime "end_date"

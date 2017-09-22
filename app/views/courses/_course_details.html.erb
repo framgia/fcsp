@@ -3,7 +3,7 @@
     <div class="title_left">
       <ol class="breadcrumb-arrow">
         <li><%= link_to t(".courses"), user_path(user) %></li>
-        <li><%= link_to course.name, user_course_path(user.id, course.id) %></li>
+        <li><%= link_to course.name, "#" %></li>
       </ol>
     </div>
 
@@ -18,14 +18,16 @@
         </div>
         <div class="date">
           <% if course.start_date? && course.end_date? %>
-            <span><%= l course.start_date, format: :format_date %> ~ <%= l course.end_date,
-              format: :format_date %></span>
+            <span>
+              <%= l course.start_date, format: :format_date %> ~ <%= l course.end_date,
+              format: :format_date %>
+            </span>
           <% end %>
         </div>
       </div>
     </div>
 
-    <h4><%= t ".subjects" %></h4>
+    <h4><%= t ".subjects" %><%= course.name %></h4>
 
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
@@ -44,26 +46,9 @@
                 </tr>
               </thead>
               <tbody>
-                <% @user_course_subjects.each do |course_subject| %>
-                  <tr>
-                    <td></td>
-                    <td><%= course_subject.subject_name %></td>
-                    <td><span class="<%= status_color course_subject.status %>"><%= course_subject.status %></span></td>
-                    <td>
-                      <% if course_subject.start_date? %>
-                        <%= l course_subject.start_date, format: :format_date %>
-                      <% else %>
-                        <%= t ".no_data" %>
-                      <% end %>
-                    </td>
-                    <td>
-                      <% if course_subject.end_date? %>
-                        <%= l course_subject.end_date, format: :format_date %>
-                      <% else %>
-                        <%= t ".no_data" %>
-                      <% end %>
-                    </td>
-                  </tr>
+                <% subjects.each do |course_subject| %>
+                  <%= render "subjects/subject", course_subject: course_subject,
+                  user: user, course: course %>
                 <% end %>
               </tbody>
             </table>

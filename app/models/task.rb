@@ -3,5 +3,5 @@ class Task < ApplicationRecord
 
   belongs_to :subject
 
-  enum type_task: %i(assignments survey test)
+  enum task_type: %i(assignments test)
 end

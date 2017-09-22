@@ -5,7 +5,7 @@ $(document).ready(function() {
       'targets': 0
     }],
     'order': [[ 0, 'asc' ]],
-    'pageLength': 25,
+    'pageLength': 10,
     destroy: true
   });
 

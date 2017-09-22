@@ -7,6 +7,8 @@ class Api::AuthenticateService
   def tms_authenticate
     http_request = Api::HttpActionService.new @url, @params
     response_json = http_request.post_data
-    response_json.code.to_i != 200 ? false : JSON.parse(response_json.body)
+    if response_json
+      response_json.code.to_i != 200 ? false : JSON.parse(response_json.body)
+    end
   end
 end

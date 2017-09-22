@@ -5,10 +5,24 @@ en:
       start_date: "Start Date"
       end_date: "End Date"
       name: "Name"
-      all_courses: "All Courses"
+      all_courses: "All my Courses"
       courses: "Courses"
       no_data: "no data"
   courses:
+    course_details:
+      subjects: "All subject in "
     show:
       user_not_found: "User not found"
       course_not_found: "Course not found"
+  subjects:
+    subject_details:
+      courses: "Courses"
+      name: "Name"
+      type: "Type"
+      status: "Status"
+      content: "Content"
+      tasks: "All task in "
+    show:
+      user_not_found: "User not found"
+      course_not_found: "Course not found"
+      subject_not_found: "Subject not found"

@@ -1,0 +1,8 @@
+vi:
+  subjects:
+    subject_details:
+      courses: "Khóa học"
+      name: "Tên"
+      type: "Kiểu"
+      status: "Trạng thái"
+      content: "Nội dung"

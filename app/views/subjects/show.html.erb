@@ -11,7 +11,9 @@
               </div>
             <% end %>
             <div class="hide-tab active" id="tab-information">
-              <%= render "courses/course_details", user: @user, course: @course, subjects: @user_course_subjects %>
+              <%= render "subjects/subject_details", user: @user,
+                course: @course, subject: @user_course_subject,
+                tasks: @user_tasks %>
             </div>
           </div>
         </article>

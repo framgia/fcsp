@@ -1,0 +1,8 @@
+jp:
+  subjects:
+    subject_details:
+      courses: "コース"
+      name: "名"
+      type: "タイプ"
+      status: "状態"
+      content: "コンテンツ"

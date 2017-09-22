@@ -76,12 +76,12 @@ class Api::TmsDataService
           data_subject["start_date"], end_date: data_subject["end_date"],
           status: data_subject["status"]
 
-        synchronize_user_task data_subject, subject.id
+        synchronize_user_task data_subject, course_id, subject.id
       end
     end
   end
 
-  def synchronize_user_task data_subject, subject_id
+  def synchronize_user_task data_subject, course_id, subject_id
     if data_subject["tasks"]
       data_subject["tasks"].each do |data_task|
         task_type = data_task.keys[0]
@@ -89,7 +89,7 @@ class Api::TmsDataService
           task_type: task_type, subject_id: subject_id
         task.update_attributes description: data_task[task_type]["content"]
         user_task = UserTask.find_or_create_by user_id: @current_user.id,
-          task_id: task.id
+          task_id: task.id, subject_id: subject_id, course_id: course_id
         user_task.update_attributes status: data_task[task_type]["status"]
       end
     end

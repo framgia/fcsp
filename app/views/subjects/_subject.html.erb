@@ -1,0 +1,20 @@
+<tr>
+  <td></td>
+  <td> <%= link_to course_subject.subject_name, user_course_subject_path(user.id, course.id, course_subject.subject_id) %></td>
+
+  <td><span class="<%= status_color course_subject.status %>"><%= course_subject.status %></span></td>
+  <td>
+    <% if course_subject.start_date? %>
+      <%= l course_subject.start_date, format: :format_date %>
+    <% else %>
+      <%= t ".no_data" %>
+    <% end %>
+  </td>
+  <td>
+    <% if course_subject.end_date? %>
+      <%= l course_subject.end_date, format: :format_date %>
+    <% else %>
+      <%= t ".no_data" %>
+    <% end %>
+  </td>
+</tr>
