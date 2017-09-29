@@ -1,9 +1,15 @@
-<tr>
-  <td></td>
-  <td> <%= task.task_name %></td>
-  <td><%= task.task_task_type %></td>
-  <td>
-    <span class="<%= status_color task.status %>"><%= task.status %></span>
-  </td>
-  <td><%= task.task_description %></td>
-</tr>
+<div class="box-task">
+  <div class="col-md-2 avatar-task">
+    <%= load_user_avatar user %>
+  </div>
+  <div class="tl-circ-task <%= status_color(task.status)[6..-1] %>"></div>
+  <div class="col-md-10 info-detail">
+    <div class="title-assignment">
+      <h4><%= task.task_name %></h4>
+      <div><%= task.task_description %></div>
+    </div>
+    <div class="github">
+      <i class="fa fa-link"></i>
+    </div>
+  </div>
+</div>
