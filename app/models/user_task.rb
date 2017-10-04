@@ -7,6 +7,7 @@ class UserTask < ApplicationRecord
   serialize :meta, Hash
 
   enum status: %i(init in_progress finished closed)
+
   delegate :name, :task_type, :description, to: :task, prefix: true
 
   scope :check_course_subject, (lambda do |course_id, subject_id|

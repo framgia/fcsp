@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   acts_as_followable
+
   has_many :jobs, dependent: :destroy
   has_many :candidates, through: :jobs
   has_many :candidate_users, through: :candidates, source: :user
@@ -12,13 +13,14 @@ class Company < ApplicationRecord
     primary_key: :avatar_id
   has_one :cover_image, class_name: Image.name, foreign_key: :id,
     primary_key: :cover_image_id
+
   belongs_to :creator, foreign_key: :creator_id, class_name: User.name
 
   ATTRIBUTES = [:name, :website, :introduction, :founder, :country,
-    :company_size, :founder_on, addresses_attributes: [:id, :address,
-    :longtitude, :latitude, :head_office],
-    images_attributes: [:id, :imageable_id, :imageable_type,
-      :picture, :caption]]
+    :company_size, :founder_on, addresses_attributes: %i(id address
+    longtitude latitude head_office),
+    images_attributes: %i(id imageable_id imageable_type
+      picture caption)]
 
   accepts_nested_attributes_for :addresses, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true

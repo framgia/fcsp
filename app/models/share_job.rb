@@ -4,8 +4,8 @@ class ShareJob < ApplicationRecord
 
   delegate :name, to: :user, prefix: true
 
-  validates :shareable_id, presence: true, uniqueness: {scope: :user_id}
-  validates :user_id, presence: true
+  validates :shareable, presence: true, uniqueness: {scope: :user_id}
+  validates :user, presence: true
 
   scope :shared_jobs, ->ids do
     where(user_id: ids).order created_at: :DESC

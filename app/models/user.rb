@@ -47,21 +47,13 @@ class User < ApplicationRecord
   delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
     to: :info_user, prefix: true
 
-  enum role: [:user, :admin, :employer, :employee]
+  enum role: %i(user admin employer employee)
 
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true
 
   scope :newest, ->{order created_at: :desc}
-
-  scope :not_in_object, ->object do
-    where("id NOT IN (?)", object.users.pluck(:user_id)) if object.users.any?
-  end
-
-  scope :in_object, ->object do
-    where("id IN (?)", object.users.pluck(:user_id))
-  end
 
   scope :recommend, ->job_id do
     select("users.id, users.name, users.avatar_id,
