@@ -165,6 +165,9 @@ GEM
       deep_merge (~> 1.1.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    crono (1.1.2)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
     database_cleaner (1.6.1)
     datejs-rails (2.0.1)
       railties (>= 3.1)
@@ -565,6 +568,7 @@ DEPENDENCIES
   coderay
   coffee-rails (~> 4.2)
   config
+  crono
   database_cleaner
   devise
   dropzonejs-rails
@@ -633,4 +637,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.3
+   1.16.0.pre.3

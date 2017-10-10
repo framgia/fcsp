@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :country
       t.string :occupation
       t.string :status
+      t.boolean :auto_synchronize, default: false
     end
 
     add_index :users, :email,                unique: true

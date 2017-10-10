@@ -67,6 +67,8 @@ class User < ApplicationRecord
     select("users.id, users.name, users.avatar").limit Settings.recommend.user_limit
   end
 
+  scope :want_auto_sync, ->{where auto_synchronize: true}
+
   class << self
     def import file
       (2..spreadsheet(file).last_row).each do |row|
