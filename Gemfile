@@ -62,6 +62,7 @@ gem "omniauth-hrsystem",
   git: "https://github.com/framgia-education/omniauth-hrsystem.git"
 gem "bootstrap-datepicker-rails"
 gem "searchkick"
+gem "crono"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 3.0"
 # Use ActiveModel has_secure_password

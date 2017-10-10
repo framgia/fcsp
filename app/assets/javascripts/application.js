@@ -51,3 +51,4 @@
 //= require subject
 //= require js/template_course/custom
 //= require js/template_course/jquery.easing.min
+//= require synchronize
