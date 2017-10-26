@@ -4,7 +4,7 @@
     var panel = $(this).closest('.box-message');
     var messages_list = panel.find('.messages-list');
     panel.find('.panel-body').toggle();
-    panel.attr('class', 'panel panel-default box-message');
+    // panel.attr('class', 'panel panel-default box-message');
 
     if (panel.find('.panel-body').is(':visible')) {
       var height = messages_list[0].scrollHeight;

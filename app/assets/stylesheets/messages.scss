@@ -324,3 +324,25 @@
 .message-button {
   margin-right: 15px;
 }
+
+#conversations-list {
+  float: right;
+  position: fixed;
+  bottom: -20px;
+  right: 0;
+  display: inline-flex;
+}
+
+.send {
+  float: right;
+  color: green;
+}
+
+.box-message {
+  margin-right: 10px;
+  width: 260px;
+}
+
+.close {
+  float: right;
+}
