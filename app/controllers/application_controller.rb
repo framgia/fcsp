@@ -103,4 +103,8 @@ class ApplicationController < ActionController::Base
     end
     resource
   end
+
+  def signed_in_root_path resource
+    resource
+  end
 end

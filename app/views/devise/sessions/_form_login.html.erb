@@ -39,7 +39,7 @@
   </div>
   <% if devise_mapping.omniauthable? %>
     <h4 class="omb-authtitle">
-      <%= t ".login_or" %><%= link_to t(".sign_up"), "#" %>
+      <%= t ".login_or" %><%= link_to t(".sign_up"), new_registration_path(:user) %>
     </h4>
     <div class="row omb-socialbuttons">
       <div class="col-xs-10 col-sm-12">

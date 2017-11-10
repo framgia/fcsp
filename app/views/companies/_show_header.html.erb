@@ -26,7 +26,6 @@
         <span class="site-name"><b><%= company.name %></b></span>
         <span class="site-description">
           <%= company.website %>
-          <%= render "follow_form", company: company if user_signed_in? %>
         </span>
         <div id="mainNav">
           <ul class="main-menu user-show">

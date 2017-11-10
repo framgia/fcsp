@@ -52,6 +52,7 @@ vi:
         sign_up: "Đăng kí"
       edit:
         change_information: "Thay đổi thông tin"
+        detail_information: "Thông tin chi tiết"
       destroyed: "Tạm biệt! Tài khoản của bạn đã được xóa thành công.Chúng tôi mong sẽ được gặp lại bạn."
       signed_up: "Chào mừng! Bạn đã đăng kí thành công."
       signed_up_but_inactive: "Bạn đã đăng kí thành công. Tuy nhiên, bạn chưa thể đăng nhập được bởi vì tài khoản của bạn chưa được kích hoạt."
@@ -59,15 +60,10 @@ vi:
       signed_up_but_unconfirmed: "Một tin nhắn với đường dẫn xác nhận đã được gửi đến địa chỉ email của bạn.Làm ơn làm theo hướng dẫn để kích hoạt tài khoản của bạn."
       update_needs_confirmation: "Bạn đã cập nhật tài khoản của bạn thành công, nhưng chúng tôi cần xác thực địa chỉ email mới của bạn. Làm ơn kiểm tra email của bạn và làm theo hướng dẫn để xác thực địa chỉ email mới của bạn."
       updated: "Tài khoản của bạn đã được cập nhật thành công."
+      update_error: "Có lỗi xảy ra. Làm ơn kiểm tra lại!"
     sessions:
       already_signed_out: "Đăng xuất thành công."
       form_login:
-        facebook: "Facebook"
-        forgot_password: "Quên mật khẩu của bạn?"
-        login: "Đăng nhập"
-        or_login_with: "Hoặc đăng nhập với"
-        twitter: "Twitter"
-      form_login_2:
         email_address: "Địa chỉ email"
         facebook: "Facebook"
         forgot_password: "Quên mật khẩu của bạn?"

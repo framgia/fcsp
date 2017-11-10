@@ -52,6 +52,7 @@ jp:
         sign_up: "サインアップ"
       edit:
         change_information: "情報を変更するn"
+        detail_information: "詳細情報"
       destroyed: "さようなら！ あなたのアカウントは正常にキャンセルされました。 もう一度あなたに会いたいと思います."
       signed_up: "ようこそ！ あなたは正常にサインアップしました."
       signed_up_but_inactive: "あなたは正常にサインアップしました。 アカウントがまだ有効になっていないため、ログインできませんでした."
@@ -59,15 +60,10 @@ jp:
       signed_up_but_unconfirmed: "あなたのメールアドレスに確認リンク付きのメッセージが送信されました。 あなたのアカウントを有効にするためのリンクをたどってください."
       update_needs_confirmation: "アカウントを正常に更新しましたが、新しいメールアドレスを確認する必要があります。 あなたのメールアドレスを確認して確認リンクをたどって、新しいメールアドレスを確認してください."
       updated: "あなたのアカウントは正常に更新されました."
+      update_error: "何かが間違っていました。もう一度確認してください！"
     sessions:
       already_signed_out: "署名済み."
       form_login:
-        facebook: "Facebook"
-        forgot_password: "パスワードをお忘れですか?"
-        login: "ログイン"
-        or_login_with: "またはでログインする"
-        twitter: "Twitter"
-      form_login_2:
         email_address: "電子メールアドレス"
         facebook: "Facebook"
         forgot_password: "パスワードをお忘れですか?"

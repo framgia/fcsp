@@ -7,97 +7,111 @@
 
       <h3 class="text-center"><%= t ".change_information" %></h3>
 
-      <div class="col-md-5">
-        <div class="col_full">
-          <%= f.label :email, class: "login-form-username" %>
-          <%= f.email_field :email, class: "form-control not-dark", autofocus: true %>
+      <%= render "shared/error_messages", object: @user %>
+
+      <div class="col-md-12">
+        <div class="col-md-5">
+          <div class="col_full">
+            <%= f.label :email, class: "login-form-username field-compulsory" %>
+            <%= f.email_field :email, class: "form-control not-dark", autofocus: true,
+              required: true %>
+          </div>
+
+          <div class="col_full">
+            <%= f.label :name, class: "login-form-username field-compulsory" %>
+            <%= f.text_field :name, class: "form-control not-dark", required: true %>
+          </div>
         </div>
 
-        <div class="col_full">
-          <%= f.label :name, class: "login-form-username" %>
-          <%= f.text_field :name, class: "form-control not-dark" %>
-        </div>
+        <div class="col-md-2"></div>
 
-        <div class="col_full">
-          <%= f.label :role, class: "login-form-username" %>
-          <%= f.select :role, select_user_role, {},
-            class: "form-control not-dark" %>
-        </div>
+        <div class="col-md-5">
+          <div class="col_full password-custom">
+            <%= f.label :password, class: "login-form-password" %>
+            <%= f.password_field :password,
+              class: "form-control not-dark", autocomplete: "off" %>
+          </div>
 
-        <div class="col_full password-custom">
-          <%= f.label :password, class: "login-form-password" %><br />
-          <%= f.password_field :password,
-            class: "form-control not-dark", autocomplete: "off" %>
-        </div>
+          <div class="col_full password-custom">
+            <%= f.label :password_confirmation, class: "login-form-password" %>
+            <%= f.password_field :password_confirmation, class: "form-control not-dark" %>
+          </div>
 
-        <div class="col_full password-custom">
-          <%= f.label :password_confirmation, class: "login-form-password" %>
-          <%= f.password_field :password_confirmation, class: "form-control not-dark" %>
-        </div>
-
-        <div class="col_full password-custom">
-          <%= f.label :current_password, class: "login-form-password" %>
-          <%= f.password_field :current_password, class: "form-control not-dark" %>
+          <div class="col_full password-custom">
+            <%= f.label :current_password, class: "login-form-password field-compulsory" %>
+            <%= f.password_field :current_password, class: "form-control not-dark",
+              required: true %>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-2"></div>
+      <hr>
 
-      <div class="col-md-5">
-        <%= f.fields_for :info_user do |info| %>
-          <div class="col_full">
-            <%= info.label :phone, class: "login-form-username" %>
-            <%= info.text_field :phone, class: "form-control not-dark" %>
+      <%= f.fields_for :info_user do |info| %>
+        <div class="col-md-12">
+
+          <h4><%= t ".detail_information" %></h4>
+          <div class="col-md-5">
+            <div class="col_full">
+              <%= info.label :phone, class: "login-form-username" %>
+              <%= info.text_field :phone, class: "form-control not-dark", required: true %>
+            </div>
+
+            <div class="col_full">
+              <%= info.label :gender, class: "login-form-username field-compulsory" %>
+              <%= info.select :gender, select_info_user_gender, {}, required: true,
+                class: "form-control not-dark" %>
+            </div>
+
+            <div class="col_full">
+              <%= info.label :birthday, class: "login-form-username field-compulsory" %>
+              <%= info.date_field :birthday, class: "form-control not-dark",
+                required: true %>
+            </div>
+
+            <div class="col_full">
+              <%= info.label :occupation, class: "login-form-username field-compulsory" %>
+              <%= info.text_field :occupation, class: "form-control not-dark",
+                required: true %>
+            </div>
+
+            <div class="col_full">
+              <%= info.label :relationship_status, class: "login-form-username" %>
+              <%= info.select :relationship_status, select_info_user_relationship_status,
+                {}, class: "form-control not-dark" %>
+            </div>
           </div>
 
-          <div class="col_full">
-            <%= info.label :gender, class: "login-form-username" %>
-            <%= info.select :gender, select_info_user_gender, {},
-              class: "form-control not-dark" %>
-          </div>
+          <div class="col-md-2"></div>
 
-          <div class="col_full">
-            <%= info.label :birthday, class: "login-form-username" %>
-            <%= info.date_field :birthday, class: "form-control not-dark" %>
-          </div>
+          <div class="col-md-5">
+            <div class="col_full">
+              <%= info.label :introduce, class: "login-form-username" %>
+              <%= info.text_field :introduce, class: "form-control not-dark" %>
+            </div>
 
-          <div class="col_full">
-            <%= info.label :occupation, class: "login-form-username" %>
-            <%= info.text_field :occupation, class: "form-control not-dark" %>
-          </div>
+            <div class="col_full">
+              <%= info.label :quote, class: "login-form-username" %>
+              <%= info.text_field :quote, class: "form-control not-dark" %>
+            </div>
 
-          <div class="col_full">
-            <%= info.label :relationship_status, class: "login-form-username" %>
-            <%= info.select :relationship_status, select_info_user_relationship_status,
-              {}, class: "form-control not-dark" %>
-          </div>
+            <div class="col_full">
+              <%= info.label :ambition, class: "login-form-username" %>
+              <%= info.text_field :ambition, class: "form-control not-dark" %>
+            </div>
 
-          <div class="col_full">
-            <%= info.label :introduce, class: "login-form-username" %>
-            <%= info.text_field :introduce, class: "form-control not-dark" %>
-          </div>
+            <div class="col_full">
+              <%= info.label :address, class: "login-form-username" %>
+              <%= info.text_field :address, class: "form-control not-dark" %>
+            </div>
 
-          <div class="col_full">
-            <%= info.label :quote, class: "login-form-username" %>
-            <%= info.text_field :quote, class: "form-control not-dark" %>
+            <div class="col_full">
+              <%= info.label :country, class: "login-form-username" %>
+              <%= info.text_field :country, class: "form-control not-dark" %>
+            </div>
           </div>
-
-          <div class="col_full">
-            <%= info.label :ambition, class: "login-form-username" %>
-            <%= info.text_field :ambition, class: "form-control not-dark" %>
-          </div>
-
-          <div class="col_full">
-            <%= info.label :address, class: "login-form-username" %>
-            <%= info.text_field :address, class: "form-control not-dark" %>
-          </div>
-
-          <div class="col_full">
-            <%= info.label :country, class: "login-form-username" %>
-            <%= info.text_field :country, class: "form-control not-dark" %>
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
 
       <div class="col_full nobottommargin">
         <%= f.submit t(".change_information"),

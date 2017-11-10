@@ -1,7 +1,26 @@
+@import 'variables/color';
+
 .image-welcome {
   width: 100%;
 }
 
 .logo-header {
   margin: 5px 0 0 10px;
+}
+
+.field-compulsory::after {
+  color: $red;
+  content: ' *';
+  font-weight: bold;
+}
+
+.field-compulsory-before::before {
+  color: $red;
+  content: '* ';
+  font-weight: bold;
+}
+
+hr {
+  width: 95%;
+  border-width: medium;
 }

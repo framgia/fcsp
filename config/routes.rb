@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
-  devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks, sessions: :sessions}
+  devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks,
+    sessions: :sessions, registrations: :registrations}
   root "pages#index"
   resources :tms_synchronize, only: :index
   resources :companies, only: %i(show create)
