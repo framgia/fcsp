@@ -148,7 +148,7 @@ vi:
         team_member_trainer: "Người hướng dẫn"
         title: "Team chúng tôi"
       our_techniques:
-        introduce: "Chúng tôi luôn cập nhật các xu thế công nghệ mới để chắc chắn rằng các sản phẩm mà học viên chúng tôi phát triển nên đều có thể sử dụng trên những thiệt bị hiện đại nhất."
+        introduction: "Chúng tôi luôn cập nhật các xu thế công nghệ mới để chắc chắn rằng các sản phẩm mà học viên chúng tôi phát triển nên đều có thể sử dụng trên những thiệt bị hiện đại nhất."
         title: "Công nghệ"
       slider:
         description: "Tiềm năng lớn của bạn + Thực hành thực tế = Chiến thắng</br>

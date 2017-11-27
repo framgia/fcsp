@@ -1,0 +1,18 @@
+<% if @skills %>
+  <ul class="list-group">
+    <% @skills.each do |skill| %>
+      <li class="list-group-item">
+        <div class="show-form">
+          <span><%= skill.skill_name %></span>
+          <span class="button-edit">
+            <i class="fa fa-pencil"><%= t ".edit" %></i>
+          </span>
+          <span class="skill-level pull-right"><%= skill.years %></span>
+        </div>
+        <div class="edit-form">
+          <%= render "setting/profiles/form_update_skill", skill: skill %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

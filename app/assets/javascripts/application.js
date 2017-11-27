@@ -56,3 +56,6 @@
 //= require_tree ./channels
 //= require setting/profile
 //= require setting/share_profiles
+//= require setting/skill
+//= require jquery-ui
+//= require autocomplete-rails

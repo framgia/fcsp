@@ -63,6 +63,7 @@ Rails.application.routes.draw do
       delete :unfollow
       patch :update_auto_synchronize
     end
+    get :autocomplete_skill_name, on: :collection
   end
   resources :user_avatars, only: :create
   resource :user_avatars, only: :update
@@ -72,8 +73,8 @@ Rails.application.routes.draw do
   resource :user_covers, only: :update
   resources :info_users, only: %i(update index)
   resources :user_languages, except: :show
-  resources :skills, only: :index
-  resources :user_skills
+  resources :skills, only: %i(index create)
+  resources :skill_users, only: %i(update destroy)
   resources :conversations, only: :create do
     member do
       post :close

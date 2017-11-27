@@ -1,0 +1,18 @@
+<%= form_for skill, method: :PATCH, html: {"data-id": skill.id} do |f| %>
+  <div>
+    <p><%= t ".name" %></p>
+    <%= text_field_tag :name, skill.skill_name, disabled: true, class: "form-control short-form" %>
+  </div>
+
+  <div>
+    <p><%= t ".years" %></p>
+    <%= number_field_tag :years, skill.years, class: "form-control short-form" %>
+  </div>
+
+  <div class="pull-right">
+    <%= link_to :delete, skill_user_path(skill), id: skill.id, remote:true, class: "delete-skill" %>
+    <%= button_tag t("button.cancel"), type: :reset,
+      class: "btn btn-default cancel" %>
+    <%= submit_tag t("button.save"), type: :button, class: "btn btn-primary update" %>
+  </div>
+<% end %>

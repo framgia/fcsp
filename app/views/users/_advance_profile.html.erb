@@ -1,18 +1,20 @@
 <div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".self_introduction" %></h4></p>
-  <div class="self_introduction">
-    <%= @user.info_user_introduction %>
-  </div>
+  <% if @user.info_user_introduction.present? %>
+    <p><h4 class="profile-title"><%= t ".self_introduction" %></h4></p>
+    <div class="self_introduction">
+      <%= @user.info_user_introduction %>
+    </div>
+  <% end %>
 </div>
 
 <div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".skill" %></h4></p>
-  <% if advance_profiles[:skills] %>
+  <% if advance_profiles[:skills].present? %>
+    <p><h4 class="profile-title"><%= t ".skill" %></h4></p>
     <ul class="list-group">
       <% advance_profiles[:skills].each do |skill| %>
         <li class="list-group-item">
           <span><%= skill.skill_name %></span>
-          <span class="pull-right"><%= skill.level %></span>
+          <span class="pull-right"><%= skill.years %></span>
         </li>
       <% end %>
     </ul>
@@ -25,8 +27,8 @@
 </div>
 
 <div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".language" %></h4></p>
-  <% if advance_profiles[:languages] %>
+  <% if advance_profiles[:languages].present? %>
+    <p><h4 class="profile-title"><%= t ".language" %></h4></p>
     <ul class="list-group">
       <% advance_profiles[:languages].each do |language| %>
         <li class="list-group-item">
@@ -39,12 +41,8 @@
 </div>
 
 <div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".activities" %></h4></p>
-</div>
-
-<div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".education" %></h4></p>
-  <% if advance_profiles[:schools] %>
+  <% if advance_profiles[:schools].present? %>
+    <p><h4 class="profile-title"><%= t ".education" %></h4></p>
     <ul class="list-group">
       <% advance_profiles[:schools].each do |school| %>
         <li class="list-group-item"><%= school.name %></li>

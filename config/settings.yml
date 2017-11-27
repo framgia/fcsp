@@ -285,3 +285,7 @@ shared_post:
 setting_page: "http://localhost:3000/setting"
 personal_information:
   textarea_rows: 5
+validate:
+  years:
+    min: 0
+    max: 100

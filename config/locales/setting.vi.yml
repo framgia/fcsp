@@ -16,6 +16,11 @@ vi:
         all_data_auto_sync: "Tất cả dữ liệu của bạn sẽ được tự động đồng bộ hóa hàng ngày với hệ thống TMS nếu bạn bấm vào nút này"
         synchronize: "Đồng bộ hóa"
         you_can_sync: "Bạn có thể đồng bộ hóa dữ liệu của bạn với hệ thống quản lý đào tạo ở đây hoặc bạn có thể chọn đồng bộ hóa thủ công hoặc tự động hàng ngày"
+      skill:
+        edit: "Edit"
+      form_update_skill:
+        name: "Name"
+        years: "Years"
     share_profiles:
       modal_edit:
         cancel: "Hủy bỏ"

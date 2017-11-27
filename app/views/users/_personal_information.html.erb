@@ -17,6 +17,43 @@
 </div>
 
 <div class="col_full">
+  <a class="edit-toggle">
+    <h3 class="orange-text"><%= t ".skill" %></h3>
+    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+  </a>
+
+  <div class="current-skills">
+    <%= render "setting/profiles/skill", skills: @skills %>
+  </div>
+
+  <div id="create_skill" class="edit-form create-form">
+    <%= form_for @skill, method: :post do |f| %>
+      <div>
+        <%= t ".name" %>
+        <%= f.autocomplete_field :name, autocomplete_skill_name_users_path,
+          update_elements: {id: '#skill_id'},
+          class: "form-control short-form" %>
+      </div>
+      <%= f.fields_for "skill_users_attributes[]",
+        @skill.skill_users.build do |ff| %>
+        <%= ff.hidden_field :user_id, value: current_user.id %>
+
+        <div>
+          <%= t ".years" %>
+          <%= ff.number_field :years, min: 0, class: "form-control short-form" %>
+        </div>
+      <% end %>
+      <div class="pull-right">
+        <%= button_tag t("button.cancel"), type: :reset,
+          class: "btn btn-default cancel" %>
+        <%= submit_tag t("button.save"), type: :button,
+          class: "btn btn-primary save" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="col_full">
   <a href="#edit-phone" class="edit-toggle" data-toggle="collapse">
     <span class="orange-text"><%= t ".phone" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
@@ -112,20 +149,21 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-introduce" class="edit-toggle" data-toggle="collapse">
+  <a href="#edit-introduction" class="edit-toggle" data-toggle="collapse">
     <span class="orange-text"><%= t ".self_introduction" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
-  <div class="black-text" id="introduce">
-    <%= @info_user.introduce %>
+  <div class="black-text" id="introduction">
+    <%= @info_user.introduction %>
   </div>
-  <div id="edit-introduce" class="collapse">
+  <div id="edit-introduction" class="collapse">
     <span>
       <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
-      <%= f.text_area :introduce, rows: Settings.personal_information.textarea_rows,
+      <%= f.text_area :introduction,
+        rows: Settings.personal_information.textarea_rows,
         class: "form-control text-area-edit" %>
       <%= render "shared/button_group" %>
     <% end %>

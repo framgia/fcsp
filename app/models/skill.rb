@@ -10,6 +10,8 @@ class Skill < ApplicationRecord
     length: {maximum: Settings.max_length_title}
   validates :description, length: {maximum: Settings.max_length_description}
 
+  accepts_nested_attributes_for :skill_users
+
   scope :require_by_job, ->job_id do
     joins(:jobs).where("job_skills.job_id = ?", job_id)
   end

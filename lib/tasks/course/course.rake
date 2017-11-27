@@ -5,7 +5,7 @@ namespace :db do
       name: "Tran Tuan Nghia",
       password: "123456"
 
-    InfoUser.create! user_id: user.id, introduce: "humman development",
+    InfoUser.create! user_id: user.id, introduction: "humman development",
       ambition: "become to rich man", quote: "human", phone: "123456789",
       birthday: "1996-11-05", occupation: "student", gender: "male"
 

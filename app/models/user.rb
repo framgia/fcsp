@@ -50,9 +50,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :info_user, update_only: true
 
-  delegate :introduce, :ambition, :address, :phone, :quote, :info_statuses,
+  delegate :ambition, :address, :phone, :quote, :info_statuses,
     :birthday, :relationship_status, :occupation, :country, :introduction, :gender,
-      to: :info_user, prefix: true
+    :id, to: :info_user, prefix: true
 
   enum role: %i(employer trainee admin)
 
@@ -70,10 +70,10 @@ class User < ApplicationRecord
     where("id IN (?)", object.users.pluck(:user_id))
   end
 
-  scope :recommend, ->job_id do
+  scope :recommend, (lambda do
     select("users.id, users.name, users.avatar_id, users.email").includes(:avatar)
       .limit Settings.recommend.user_limit
-  end
+  end)
 
   scope :user_all, (lambda do |id|
     select("id, name, email").where("id != ?", id)

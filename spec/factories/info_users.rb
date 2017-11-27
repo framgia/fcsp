@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :info_user do
     relationship_status 0
-    introduce FFaker::Lorem.paragraph
+    introduction FFaker::Lorem.paragraph
     birthday FFaker::Time.date
     phone FFaker::PhoneNumber.short_phone_number
     quote FFaker::Lorem.sentence

@@ -26,8 +26,8 @@ class InfoUsersController < ApplicationController
   private
 
   def info_user_params
-    params.require(:info_user).permit :relationship_status, :introduce, :quote,
-      :ambition, :phone, :address, :gender, :birthday, :occupation, :country
+    params.require(:info_user).permit :introduction, :ambition, :quote, :address,
+      :phone, :relationship_status, :gender, :birthday, :occupation, :country
   end
 
   def find_info_user

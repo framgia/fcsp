@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_tms
   before_action :is_employer?, only: %i(show follow unfollow)
   load_resource only: %i(show follow unfollow)
+  autocomplete :skill, :name, full: true
 
   def show
     @user_object = Supports::ShowUser.new @user, current_user, params
@@ -43,6 +44,8 @@ class UsersController < ApplicationController
 
   def edit
     @info_user = current_user.info_user
+    @skill = Skill.new
+    @skills = current_user.skill_users.includes :skill
   end
 
   def update

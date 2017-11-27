@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update,
       keys: [:name, :email, :password, :password_confirmation, :role,
         :current_password, info_user_attributes: %i(gender birthday phone
-        occupation relationship_status introduce quote ambition address country)]
+        occupation relationship_status introduction quote ambition address country)]
   end
 
   def after_sign_in_path_for resource

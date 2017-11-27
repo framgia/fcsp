@@ -7,3 +7,9 @@ en:
       education: "Educations"
       project: "Projects"
       activities: "Activities"
+  setting:
+    notice:
+      delete_success: "Delete successfully!"
+      update_success: "Update successfully!"
+      update_error: "Update error!"
+      delete_error: "Delete error!"
