@@ -5,7 +5,7 @@
   overflow-y: auto;
 
   li {
-    border-bottom: 1px ridge;
+    border: 1px ridge;
     height: 40px;
     padding-top: 10px;
 
@@ -13,6 +13,10 @@
       background: $gray;
     };
   }
+}
+
+.panel-info {
+  border-color: $mint_tulip;
 }
 
 .custom-label {
@@ -30,6 +34,12 @@
 
 .title-modal {
   width: 100%;
+  background-color: $teal;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  color: $white;
 }
 
 .modal-dialog {
@@ -45,13 +55,9 @@
   margin-top: 30px;
 }
 
-.edit {
-  float: right;
-}
-
 .user-share {
   display: inline-flex;
-  padding: 15px 0 0 30px;
+  padding-top: 10px;
 
   .avatar-share {
     width: 30px;
@@ -76,5 +82,11 @@
 }
 
 .title-share {
-  padding-left: 28px;
+  margin-bottom: 10px;
+  position: relative;
+  top: 8px;
+
+  .edit {
+    float: right;
+  }
 }
