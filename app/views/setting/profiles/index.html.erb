@@ -1,38 +1,46 @@
-<div class="content-setting">
+<div class="container">
   <div class="container">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <article class="show-header-user post header-avatar-edit">
-            <div class="cover-image">
-              <%= load_user_cover current_user, class: "img-cover" %>
-            </div>
-            <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
-              data-target="#changeAvatarModal">
-              <%= load_user_avatar current_user, class: "img-avatar" %>
-            </a>
-            <span class="site-name"><strong><%= current_user.name %></strong></span>
-            <span class="occupation">
-              <i class="fa fa-briefcase"></i>
-              <%= current_user.info_user_occupation %>
-            </span>
-          </article>
-        </div>
+    <div class="row">
+      <div class="col-md-12">
+        <article class="show-header-user post header-avatar-edit">
+          <div class="cover-image">
+            <%= load_user_cover current_user, class: "img-cover" %>
+          </div>
+          <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
+            data-target="#changeAvatarModal">
+            <%= load_user_avatar current_user, class: "img-avatar" %>
+          </a>
+          <span class="site-name"><strong><%= current_user.name %></strong></span>
+          <span class="occupation">
+            <i class="fa fa-briefcase"></i>
+            <%= current_user.info_user_occupation %>
+          </span>
+        </article>
       </div>
     </div>
-
-    <%= render "shared/avatar_cover_image", user: current_user %>
-    <div class="col-md-9">
-      <%= render "synchronize" %>
-    </div>
-    <div class="col-md-3">
-      <button class="fa fa-user-plus edit" data-toggle="modal" data-target="#modal-edit"></button>
-      <span class="title-share"><%= t ".users_shared" %></span>
-      <ul>
-        <%= render partial: "limit_user", collection: @limit_users,
-          locals: {limit_users: @limit_users} %>
-      </ul>
-      <%= render "setting/share_profiles/modal_edit", users: @users %>
+  </div>
+</div>
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <article class="post show-tab-user">
+          <%= render "synchronize" %>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="post show-tab-user">
+          <div class="title-share">
+            <button class="fa fa-user-plus edit" data-toggle="modal" data-target="#modal-edit"></button>
+            <%= t ".users_shared" %>
+          </div>
+          <ul>
+            <%= render partial: "limit_user", collection: @limit_users,
+              locals: {limit_users: @limit_users} %>
+          </ul>
+          <%= render "setting/share_profiles/modal_edit", users: @users %>
+        </article>
+      </div>
     </div>
   </div>
 </div>
