@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resource :share_profiles, only: :create
   end
 
-  resources :jobs, only: %i(index show)
   resources :users, except: %i(index destroy create) do
     resources :courses do
       resources :subjects
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
       patch :update_auto_synchronize
     end
     get :autocomplete_skill_name, on: :collection
+    get :autocomplete_school_name, on: :collection
   end
 
   resource :user_avatars, only: %i(create update)
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     end
     resources :messages, only: :create
   end
+  resources :schools, only: %i(index, create)
 
   match "*path", to: "application#routing_error", via: :all
 end

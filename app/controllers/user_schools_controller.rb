@@ -1,0 +1,3 @@
+class UserSchoolsController < ApllicationController
+
+end

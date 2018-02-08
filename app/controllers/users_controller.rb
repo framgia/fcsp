@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   before_action :check_valid_param_type, only: :update
 
   autocomplete :skill, :name, full: true
+  autocomplete :school, :name
 
   def show
     user_shares = @user.user_shares.includes :avatar
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
     @skill = Skill.new
     @image = Image.new
     @user_presenter = UserPresenter.new current_user
+    @school = School.new
   end
 
   def update

@@ -4,10 +4,11 @@ class SkillsController < ApplicationController
   def create
     skill_form = SkillForm.new skill_params, current_user
 
+      byebug
     if skill_form.save
       render json: {content: skill_form.content}
     else
-      render json: {error: 400}
+      render json: {content: {status: "error"}}
     end
   end
 
