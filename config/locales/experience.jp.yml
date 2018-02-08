@@ -8,3 +8,4 @@ jp:
     job_require: "仕事内容"
     from: "から: "
     to: "に: "
+    delete: "Delete"

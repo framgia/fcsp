@@ -1,0 +1,60 @@
+<a class="edit-toggle">
+  <h3 class="orange-text">Education</h3>
+  <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+</a>
+
+<div id="create-school" class="edit-form create-form">
+  <%= form_for @school, method: :post do |f| %>
+    <div class="row">
+      <div class="col-md-2">Name</div>
+      <div class="col-md-10">
+        <%= f.autocomplete_field :name, autocomplete_school_name_users_path,
+          update_elements: {id: "#skill_id"}, class: "form-control",
+          data: {"auto-focus": true} %>
+      </div>
+    </div>
+
+    <%= f.fields_for "user_schools_attributes[]",
+      @school.user_schools.build do |ff| %>
+      <div class="row row-margin-top">
+        <div class="col-md-2">Address</div>
+        <div class="col-md-10">
+          <%= ff.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2">Major</div>
+        <div class="col-md-10">
+          <%= ff.text_field :major, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2">Graduation</div>
+        <div class="col-md-10">
+          <%= ff.date_field :graduation, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2">Degree</div>
+        <div class="col-md-10">
+          <%= ff.text_field :degree, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2">Description</div>
+        <div class="col-md-10">
+          <%= ff.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+    <% end %>
+    <%= render "shared/group_buttons" %>
+  <% end %>
+</div>
+
+<div class="user-schools">
+  <%= render partial: "user_schools/user_school", collection: @user_presenter.load_user_schools %>
+</div>

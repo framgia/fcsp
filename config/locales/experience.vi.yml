@@ -8,3 +8,4 @@ vi:
     job_require: "Mô tả công việc"
     from: "Bắt đầu từ: "
     to: "Tới: "
+    delete: "Delete"

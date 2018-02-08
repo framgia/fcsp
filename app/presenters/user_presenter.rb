@@ -2,6 +2,7 @@ class UserPresenter
   def initialize user
     @user = user
     @skills = @user.skills
+    @schools = @user.schools
   end
 
   def soft_skills
@@ -14,6 +15,10 @@ class UserPresenter
 
   def skill_user skill
     SkillUser.load_skill_user skill, @user
+  end
+
+  def load_user_schools
+    UserSchool.includes(:school).by_schools @schools.ids
   end
 
   def skill_html_content skill

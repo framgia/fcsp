@@ -1,0 +1,11 @@
+<div class="row row-margin-top">
+  <div class="col-md-12">
+    <strong><%= user_school.school.name %></strong>
+    <i class="pull-right">
+      <%= l(user_school.graduation, format: :month_year_format) if user_school.graduation %>
+    </i>
+  </div>
+  <div class="col-md-12">
+    <i><%= user_school.description %></i>
+  </div>
+</div>

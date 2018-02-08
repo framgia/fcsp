@@ -1,10 +1,11 @@
 en:
   date:
     formats:
-      month_year_format: "%B %Y"
+      month_year_format: "%B, %Y"
       short_month_year: "%d-%m-%Y"
   time:
     formats:
+      month_year_format: "%B, %Y"
       date_month_year_concise: "%d-%m-%y"
       format_date: "%Y/%m/%d"
       format_date_eng: "%a %b %d %Y"
