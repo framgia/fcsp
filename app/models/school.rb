@@ -5,4 +5,6 @@ class School < ApplicationRecord
   validates :name, presence: true, length: {
     maximum: Settings.user_educations.school_max
   }
+
+  accepts_nested_attributes_for :user_schools
 end

@@ -57,3 +57,23 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require setting/synchronize
+//= require profiles/schools
+
+
+var serializeFormJSON = function(form){
+  var data = {};
+  var arr = this.serializeArray();
+
+  $.each(arr, function () {
+    if (data[this.name]) {
+      if (!data[this.name].push) {
+        data[this.name] = [data[this.name]];
+      }
+      data[this.name].push(this.value || '');
+    } else {
+      data[this.name] = this.value || '';
+    }
+  });
+
+  return data;
+}

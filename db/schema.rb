@@ -154,7 +154,6 @@ ActiveRecord::Schema.define(version: 20171114071134) do
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
-    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -256,14 +255,13 @@ ActiveRecord::Schema.define(version: 20171114071134) do
   end
 
   create_table "user_schools", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "school_id"
-    t.integer  "degree"
-    t.text     "major"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer  "complete"
-    t.text     "type_of_graduation"
+    t.integer "user_id"
+    t.integer "school_id"
+    t.string  "degree"
+    t.string  "major"
+    t.date    "graduation"
+    t.text    "description"
+    t.string  "address"
   end
 
   create_table "user_tasks", force: :cascade do |t|

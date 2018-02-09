@@ -22,6 +22,7 @@ $(document).ready(function(){
       dataType: 'json',
       data: data,
       success: function(result){
+        debugger
         if(result.content.status == "success"){
           form.closest('.col_full').find('.current-skills').append(result.content.html);
           form.find('.input-field').val('');
