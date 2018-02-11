@@ -1,8 +1,6 @@
 class Skill < ApplicationRecord
   enum skill_type: %i(hard_skill soft_skill)
 
-  has_many :job_skills, dependent: :destroy
-  has_many :jobs, through: :job_skills
   has_many :skill_users, dependent: :destroy
   has_many :users, through: :skill_users
 

@@ -16,6 +16,7 @@ $(document).ready(function(){
     description = form.find('#skill_skill_users_attributes__description').val();
     data = {skill: {name: name, skill_type: skill_type,
       skill_users_attributes: [{years: years, description: description}]}};
+
     $.ajax({
       url: url,
       type: 'POST',
@@ -41,7 +42,9 @@ $(document).ready(function(){
     url = form.attr('action');
     years = form.find('#years').val();
     form_id = form.attr('data-id');
-    data = {skill_users: {id: form_id, years: years}};
+    name = form.find('#name').val();
+    description = form.find('#skill_user_description').val();
+    data = {skill_users: {name: name, skill_users_attributes: {id: form_id, years: years, description: description}}};
 
     $.ajax({
       url: url,

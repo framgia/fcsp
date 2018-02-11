@@ -1,0 +1,23 @@
+<%= form_for skill_user, html: {"data-id": skill_user.id}, method: :patch do |f| %>
+  <div class="row">
+    <div class="col-md-2"><%= t "name" %></div>
+    <div class="col-md-10">
+      <%= text_field_tag :name, skill_user.skill.name, class: "form-control input-field" %>
+    </div>
+  </div>
+  <div class="row row-margin-top">
+    <div class="col-md-2"><%= t "description" %></div>
+    <div class="col-md-10">
+      <%= f.text_area :description,
+        rows: Settings.personal_information.textarea_rows,
+        class: "form-control text-area-edit input-field" %>
+    </div>
+  </div>
+  <div class="pull-right button-group-edit">
+    <%= button_tag t("button.cancel"), type: :reset,
+      class: "btn btn-sm btn-default cancel" %>
+    <%= link_to t("button.delete"), skill_user_path(skill_user), id: skill_user.id,
+      remote:true, class: "delete-skill btn btn-sm btn-danger" %>
+    <%= submit_tag t("button.save"), type: :button, class: "btn btn-sm btn-primary update" %>
+  </div>
+<% end %>

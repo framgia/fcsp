@@ -1,2 +1,12 @@
-<h3><%= soft_skill.name %></h3>
-<p class="skill_description"><%= soft_skill.skill_users.first.description %></p>
+<div class="list-group-item">
+  <div class="show_soft_skill show-form">
+    <span class="thick"><%= soft_skill.name %></span>
+    <span class="button-edit">
+      <i class="fa fa-pencil"><%= t "edit" %></i>
+    </span>
+    <p class="skill_description"><%= @user_presenter.skill_user(soft_skill).description %></p>
+  </div>
+  <div class="edit-form">
+    <%= render "skills/soft_skill_edit_form", skill_user: @user_presenter.skill_user(soft_skill) %>
+  </div>
+</div>

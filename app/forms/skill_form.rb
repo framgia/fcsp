@@ -6,15 +6,20 @@ class SkillForm
   def initialize params, user
     @params = params
     @user = user
-
-    @skill = Skill.find_or_initialize_by name: params[:name]
-  end
-
-  def update
-    @user.skills.update params
   end
 
   def save
+    if @params[:skill_type] == "soft_skill"
+      skill = Skill.find_by name: @params[:name]
+
+      if skill
+        skill_user = SkillUser.load_skill_user skill, @user
+
+        return false if skill_user
+      end
+    end
+
+    @skill = Skill.find_or_initialize_by name: @params[:name]
     @skill.update_attributes skill_params
   end
 
