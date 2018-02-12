@@ -1,0 +1,76 @@
+<div class="col_full">
+  <div class="orange-text"><%= t "users.basic_profile.basic_information" %></div>
+  <a class="edit-toggle">    
+    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <div class="black-text current-info">
+      <%= render "show_info_basic", info_user: @info_user %>
+    </div>
+  </a>
+
+  <div class="form-edit-profile">
+    <%= form_for @info_user, url: info_user_path(@info_user), method: :patch do |f| %>
+      <div class="row">
+        <div class="col-md-2"><%= t "users.basic_profile.birthday" %></div>
+        <div class="col-md-10">
+            <%= f.date_field :birthday, id: "edit-birthday", class: "form-control form_profile" %>
+        </div>
+      </div>
+        
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.basic_profile.gender" %></div>
+        <div class="col-md-10">
+          <%= f.select :gender, select_info_user_gender, {}, id: "edit-gender",
+            class: "form-control select-form" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.basic_profile.relationship" %></div>
+        <div class="col-md-10">
+          <%= f.select :relationship_status,
+            select_info_user_relationship_status, {}, id: "edit-relationship_status",
+            class: "form-control select-form" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.basic_profile.contact.phone" %></div>
+        <div class="col-md-10">
+          <%= f.text_field :phone, id: "edit-phone", class: "form_profile form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.basic_profile.occupation" %></div>
+        <div class="col-md-10">
+          <%= f.text_field :occupation, id: "edit-occupation", class: "form_profile form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.basic_profile.contact.address" %></div>
+        <div class="col-md-10">
+          <%= f.text_field :address , id: "edit-address", class: "form_profile form-control" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.advance_profile.self_intro.self_introduction" %></div>
+        <div class="col-md-10">
+          <%= f.text_area :introduction, rows: Settings.personal_information.textarea_rows,
+            id: "edit-introduction", class: "form-control text-area-edit" %>
+        </div>
+      </div>
+
+      <div class="row row-margin-top">
+        <div class="col-md-2"><%= t "users.basic_profile.quote" %></div>
+        <div class="col-md-10">
+          <%= f.text_area :quote, rows: Settings.personal_information.textarea_rows,
+            id: "edit-quote", class: "form-control text-area-edit" %>
+        </div>
+      </div>
+
+      <%= render "shared/profiles_button" %>
+    <% end %>
+  </div>
+</div>

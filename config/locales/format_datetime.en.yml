@@ -7,7 +7,7 @@ en:
     formats:
       date_month_year_concise: "%d-%m-%y"
       format_date: "%Y/%m/%d"
-      format_date_eng: "%a %b %d %Y"
+      format_date_eng: "%b %d %Y"
       format_datetime: "%Y/%m/%d %H:%M"
       format_datetime_js: "YYYY/MM/DD HH:mm"
       time_date_month_year: "%-d %B %Y, %H:%M %p"

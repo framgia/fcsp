@@ -1,0 +1,33 @@
+	<span id="birthday">
+	  <% if info_user.birthday.present? %>
+	    <%= l info_user.birthday, format: :format_date_eng %>
+	  <% end %>
+	</span>
+
+	<span id="gender">
+	  / <%= info_user.gender %> /
+	</span>
+
+	<span id="relationship_status">
+	  <%= info_user.relationship_status %>
+	</span>
+
+	<div id="phone">
+	  <span class="label_profile"><%= t "users.basic_profile.contact.phone" %></span>: <%= info_user.phone %>
+	</div>
+
+	<div id="occupation">
+	  <span class="label_profile"><%= t "users.basic_profile.occupation" %></span>: <%= info_user.occupation %>
+	</div>
+
+	<div id="address">
+	  <span class="label_profile"><%= t "users.basic_profile.contact.address" %></span>: <%= info_user.address %>
+	</div>
+
+	<div id="introduction">
+	  <span class="label_profile"><%= t "users.advance_profile.self_intro.self_introduction" %></span>: <%= info_user.introduction %>
+	</div>
+
+	<div id="quote">
+	  <span class="label_profile"><%= t "users.basic_profile.quote" %></span>: <%= info_user.quote %>
+	</div>

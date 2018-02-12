@@ -26,9 +26,13 @@ en:
     information:
       join_on: "Joined on %{date}"
     basic_profile:
+      basic_information: "Basic information"
       add_quote: "Add quote"
-      quote:
-        quote: "Quote"
+      birthday: "Birthday"
+      gender: "Gender"
+      occupation: "Occupation"
+      quote: "Quote"
+      relationship: "Relationship"
       contact:
         phone: "Phone"
         contact_info: "Contact Information"
