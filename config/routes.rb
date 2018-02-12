@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resource :user_covers, only: %i(create update)
   resources :info_users, only: %i(update)
   resources :user_languages, except: :show
-  resources :skills, only: %i(index create)
+  resources :skills
   resources :skill_users, only: %i(update destroy)
   resources :conversations, only: :create do
     member do

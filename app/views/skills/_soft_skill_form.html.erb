@@ -17,18 +17,18 @@
           <%= f.autocomplete_field :name, autocomplete_skill_name_users_path,
             update_elements: {id: "#skill_id"}, class: "form-control input-field" %>
         </div>
-        <%= f.fields_for "skill_users_attributes[]",
-          @skill.skill_users.build do |ff| %>
-          <div class="row-margin-top">
-            <div class="col-md-2"><%= t "description" %></div>
-            <div class="col-md-10">
-              <%= ff.text_area :description,
-              rows: Settings.personal_information.textarea_rows,
-              class: "form-control text-area-edit input-field" %>
-            </div>
-          </div>
-        <% end %>
       </div>
+      <%= f.fields_for "skill_users_attributes[]",
+        @skill.skill_users.build do |ff| %>
+        <div class="row row-margin-top">
+          <div class="col-md-2"><%= t "description" %></div>
+          <div class="col-md-10">
+            <%= ff.text_area :description,
+            rows: Settings.personal_information.textarea_rows,
+            class: "form-control text-area-edit input-field" %>
+          </div>
+        </div>
+      <% end %>
       <%= render "shared/group_buttons" %>
     <% end %>
   </div>
