@@ -11,6 +11,7 @@ en:
       project: "Projects"
       activities: "Activities"
     basic_profile:
+      basic_information: "Basic information"
       add_quote: "Add quote"
       address: "Address"
       contact_info: "Contact Information"
@@ -20,6 +21,24 @@ en:
       phone: "Phone"
       quote: "Quote"
       shared_for_user: "Shared profile for users"
+      birthday: "Birthday"
+      gender: "Gender"
+      occupation: "Occupation"
+      quote: "Quote"
+      relationship: "Relationship"
+      contact:
+        phone: "Phone"
+        contact_info: "Contact Information"
+        address: "Address"
+        email: "Email"
+      social:
+        social_media: "Social Media"
+      user_share:
+        shared_for_user: "Shared profile for users"
+        load_more: "Load more"
+      user_following:
+        following: "Following"
+        load_more: "Load more"
     modal_user_share:
       user_shared: "Users you shared profile"
     modal_user_following:

@@ -10,12 +10,17 @@ jp:
     basic_profile:
       add_quote: "見積もりを追加"
       address: "住所"
+      birthday: "誕生日"
       contact_info: "連絡先情報"
       email: "メール"
+      gender: "性別"
+      relationship: "関係"
       following: "以下"
       load_more: "もっと読み込む"
+      occupation: "職業"
       phone: "電話"
       quote: "見積もり"
+      self_introduction: "自己紹介"
       shared_for_user: "あなたがプロフィールを共有した人"
     modal_user_share:
       user_shared: "あなたがプロフィールを共有した人"

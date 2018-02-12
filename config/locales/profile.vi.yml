@@ -10,6 +10,11 @@ vi:
     basic_profile:
       address: "Địa chỉ"
       add_quote: "Thêm trích dẫn"
+      birthday: "Ngày sinh"
+      gender: "Giới tính"
+      relationship: "Tình trạng quan hệ"
+      occupation: "Nghề nghiệp"
+      self_introduction: "Lời giới thiệu"
       contact_info: "Thông tin liên hệ"
       email: "Email"
       following: "Những người đang theo dõi"
