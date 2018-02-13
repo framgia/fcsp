@@ -1,0 +1,6 @@
+<% if @user_presenter.load_experiences %>
+  <div>
+    <%= render partial: "experiences/work_experience",
+      collection: @user_presenter.load_experiences, as: :work_experience %>
+  </div>
+<% end %>

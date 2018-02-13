@@ -1,0 +1,73 @@
+@import 'variables/color';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.ex-organize {
+  font-size: 22px;
+  font-weight: 180;
+  padding-right: 30px;
+}
+
+.ex-date {
+  font-style: italic;
+  padding-left: 30px;
+}
+
+.show-work-experience {
+  cursor: pointer;
+  margin: 0;
+}
+
+.work-experience {
+  margin: 0;
+}
+
+.edit-experience {
+  float: right;
+}
+
+.fa-times {
+  font-size: 18px;
+  opacity: 0.7;
+
+  &:hover {
+    color: $fire-brick;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+}
+
+.fa-edit {
+  font-size: 16px;
+  opacity: 0.7;
+
+  &:hover {
+    color: black;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+}
+
+.work-experience {
+  .button-edit {
+    color: blue;
+    display: none;
+  }
+}
+
+hr {
+  margin: 5px 0;
+}
+
+.edit-work-experience {
+  background-color: $gray-ece;
+  box-shadow: 1px 2px 2px 1px $sliver;
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+  .work-position {
+    font-size: 17px;
+    font-weight: 180;
+  }

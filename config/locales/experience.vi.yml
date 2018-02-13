@@ -1,0 +1,10 @@
+vi:
+  experience:
+    work_experience: "Kinh nghiệm làm việc"
+    organize: "Công ty/Tổ chức"
+    date_from: "Bắt đầu"
+    date_to: "Kết thúc"
+    position: "Chức vụ"
+    job_require: "Mô tả công việc"
+    from: "Bắt đầu từ: "
+    to: "Tới: "

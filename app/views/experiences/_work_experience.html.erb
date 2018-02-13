@@ -1,0 +1,22 @@
+<div class="work-experience" id="work-experience-<%= work_experience.id %>">
+  <div class="row show-work-experience">
+    <p class="ex-title">
+      <span class="ex-organize"><%= work_experience.organization %></span>
+      <span class="ex-date">
+        <%= t "experience.from" %><%= l work_experience.date_from, format: :short_month_year %>
+      </span>
+      <span class="ex-date">
+        <%= t "experience.to" %><%= l work_experience.date_to, format: :short_month_year %>
+      </span>
+      <span class="button-edit edit-experience">
+        <i class="fa fa-pencil"><%= t "edit" %></i>
+      </span>
+    </p>
+    <p class="work-position"><%= work_experience.position %></p>
+    <p><i><%= work_experience.job_requirement %></i></p>
+  </div>
+  <div class="edit-work-experience">
+    <%= render "experiences/experience" %>
+  </div>
+  <hr>
+</div>

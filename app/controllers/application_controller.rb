@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :rack_mini_profiler_authorize_request, :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
+  helper_method :notice_fail_action
 
   include ApplicationHelper
   include PublicActivity::StoreController
@@ -24,6 +25,12 @@ class ApplicationController < ActionController::Base
   def routing_error
     flash[:alert] = t "routing_error"
     redirect_to root_path
+  end
+
+  def notice_fail_action
+    render json: {
+      status: :error
+    }
   end
 
   private

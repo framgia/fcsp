@@ -20,4 +20,12 @@ class UserPresenter
     ApplicationController.render partial: "users/#{skill.skill_type}",
       locals: {"#{skill.skill_type}": skill}, assigns: {user_presenter: UserPresenter.new(@user)}
   end
+
+  def new_experience
+    @user.work_experiences.build
+  end
+
+  def load_experiences
+    @user.work_experiences
+  end
 end

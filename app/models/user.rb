@@ -26,6 +26,7 @@ class User < ApplicationRecord
     foreign_key: :user_share_id, dependent: :destroy
   has_many :user_shares, through: :active_shares, source: :user_share
   has_many :shared, through: :passive_shares, source: :user_shared
+  has_many :work_experiences
 
   has_one :avatar, class_name: Image.name, foreign_key: :id,
     primary_key: :avatar_id
