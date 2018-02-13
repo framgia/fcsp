@@ -228,12 +228,12 @@
     <h3 class="orange-text"><%= t ".work_experience" %></h3>
     <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
   </a>
+  <div id="create_experience" class="form-edit-profile">
+    <%= render "experiences/experience" %>
+  </div>
   <div class="current-experience">
     <div class="current_experience">
       <%= render "experiences/current_experience" %>
     </div>
-  </div>
-  <div id="create_experience" class="form-edit-profile">
-    <%= render "experiences/experience" %>
   </div>
 </div>

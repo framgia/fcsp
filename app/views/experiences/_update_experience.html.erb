@@ -1,0 +1,39 @@
+<%= form_for work_experience, url: work_experience_path(work_experience),
+  method: :patch do |f| %>
+  <div class="row">
+    <div class="col-md-2"><%= t "experience.organize" %></div>
+    <div class="col-md-10">
+      <%= f.text_field :organization, class: "form-control experience-form" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= t "experience.date_from" %></div>
+    <div class="col-md-10">
+      <%= f.date_field :date_from, class: "form-control experience-form" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= t "experience.date_to" %></div>
+    <div class="col-md-10">
+      <%= f.date_field :date_to, class: "form-control experience-form" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= t "experience.position" %></div>
+    <div class="col-md-10">
+      <%= f.text_field :position, class: "form-control experience-form" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= t "experience.job_require" %></div>
+    <div class="col-md-10">
+      <%= f.text_area :job_requirement, class: "form-control experience-form" %>
+    </div>
+  </div>
+
+  <%= render "shared/group_buttons" %>
+<% end %>
