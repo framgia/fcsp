@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :user_languages, except: :show
   resources :skills, only: %i(index create)
   resources :skill_users, only: %i(update destroy)
+  resources :work_experiences, only: %i(create update destroy)
   resources :conversations, only: :create do
     member do
       post :close

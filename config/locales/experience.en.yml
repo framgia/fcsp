@@ -1,0 +1,11 @@
+en:
+  experience:
+    work_experience: "Work Experiences"
+    organize: "Organization"
+    date_from: "Start job at"
+    date_to: "End job at"
+    position: "Your position"
+    job_require: "Job description"
+    from: "From: "
+    to: "To: "
+    delete: "Delete"
