@@ -6,4 +6,6 @@ class WorkExperience < ApplicationRecord
   validates :date_to, presence: true
   validates :position, presence: true
   validates :job_requirement, presence: true
+
+  scope :order_by_created_at, -> {order(created_at: :asc)}
 end

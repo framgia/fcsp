@@ -33,12 +33,9 @@ $(document).ready(function(){
   $('#create_experience .save').on('click', function(e){
     e.preventDefault();
     var url = '/work_experiences';
-    var inputData = {};
-
-    $('.experience-form').serializeArray().map(function(x){
-      inputData[x.name.replace( /(^.*\[|\].*$)/g, '' )] = x.value;
-    });
-    inputData = {work_experience: inputData};
+    var inputData = {
+      work_experience: $('#create_experience .experience-form').get_input_data()
+    };
 
     $.ajax({
       url: url,
@@ -49,7 +46,7 @@ $(document).ready(function(){
     .done(function(json){
       if(json.status == "success"){
         $('.current-experience').html(json.html);
-        $('.experience-form').val('');
+        $('#create_experience .experience-form').val('');
         $.growl.notice({message: I18n.t('setting.notice.update_success')});
       } else {
         $.growl.error({message: I18n.t('setting.notice.update_error')});
@@ -84,4 +81,31 @@ $(document).ready(function(){
       $.growl.error({message: I18n.t('setting.notice.delete_error')});
     });
   });
+
+  $('body').on('click', '.edit-work-experience .save', function(){
+    var id_experience = $(this).closest('.work-experience').attr('id').match(/\d/g).join('');
+    var url = '/work_experiences/'+id_experience;
+    var inputData = {
+      work_experience: $(this).closest('.edit-work-experience').find('.experience-form').get_input_data(),
+      id: id_experience
+    };
+
+    $.ajax({
+      url: url,
+      type: 'PATCH',
+      dataType: 'json',
+      data: inputData,
+    })
+    .done(function(json){
+      if(json.status == "success"){
+        $('.current-experience').html(json.html);
+        $.growl.notice({message: I18n.t('setting.notice.update_success')});
+      } else {
+        $.growl.error({message: I18n.t('setting.notice.update_error')});
+      };
+    })
+    .fail(function(){
+      $.growl.error({message: I18n.t('setting.notice.update_error')});
+    });
+  })
 });
