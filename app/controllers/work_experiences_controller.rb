@@ -1,5 +1,5 @@
 class WorkExperiencesController < ApplicationController
-  before_action :find_work_experience, only: [:destroy]
+  before_action :find_work_experience, only: [:destroy, :update]
 
   def create
     work_experience = current_user.work_experiences.build experience_params
@@ -13,6 +13,11 @@ class WorkExperiencesController < ApplicationController
   end
 
   def update
+    if @work_experience.update_attributes experience_params
+      load_work_experiences
+    else
+      notice_fail_action
+    end
   end
 
   def destroy

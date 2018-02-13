@@ -26,6 +26,6 @@ class UserPresenter
   end
 
   def load_experiences
-    @user.work_experiences
+    @user.work_experiences.order_by_created_at
   end
 end

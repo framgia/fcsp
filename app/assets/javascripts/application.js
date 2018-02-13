@@ -58,3 +58,11 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require setting/synchronize
+
+$.fn.get_input_data = function(){
+  var data = {};
+  this.serializeArray().map(function(x){
+    data[x.name.replace( /(^.*\[|\].*$)/g, '' )] = x.value;
+  });
+  return data;
+};
