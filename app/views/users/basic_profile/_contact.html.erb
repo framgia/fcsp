@@ -1,0 +1,45 @@
+<article class="post show-tab-user">
+  <div class="clearfix">
+    <div class="toggle-info fancy-title">
+      <h4><%= t ".contact_info" %></h4>
+      <i class="caret"></i>
+    </div>
+    <div id="toggle-info-contact">
+      <div class="top-cart-item clearfix">
+        <i class="i-rounded i-small i-bordered icon-email"></i>
+        <div class="top-cart-item-desc">
+          <%= t ".email" %>
+          <span class="top-cart-item-price" id="address-information">
+            <%= user.email %>
+          </span>
+        </div>
+      </div>
+      <div class="top-cart-item clearfix">
+        <i class="i-rounded i-small i-bordered icon-phone"></i>
+        <div class="top-cart-item-desc">
+          <%= t ".phone" %>
+          <span class="top-cart-item-price" id="phone-information">
+            <% if user.info_user_phone.present? %>
+              <%= user.info_user_phone %>
+            <% else %>
+              --
+            <% end %>
+          </span>
+        </div>
+      </div>
+      <div class="top-cart-item clearfix">
+        <i class="i-rounded i-small i-bordered icon-home"></i>
+        <div class="top-cart-item-desc">
+          <%= t ".address" %>
+          <span class="top-cart-item-price" id="address-information">
+            <% if user.info_user_address.present? %>
+              <%= user.info_user_address %>
+            <% else %>
+              --
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
