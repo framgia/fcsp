@@ -26,6 +26,7 @@ trainees.each do |email, name|
       trying to create something awesome!",
     address: "Ha Noi, Viet Nam",
     phone: "0902890890"
+    birthday: "01/01/1980"
 end
 
 InfoUser.create! user_id: admin.id,

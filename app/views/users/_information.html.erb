@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-4">
+    <i class="glyphicon glyphicon-briefcase"></i>
+    <% if user.info_user.occupation.present? %>
+      <span><%= user.info_user.occupation %></span>
+    <% else %>
+      <span>--</span>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <i class="fa fa-venus-mars"></i>
+    <span><%= user.info_user.gender.capitalize %></span>
+  </div>
+  <div class="col-sm-4">
+    <i class="glyphicon glyphicon-map-marker"></i>
+    <% if user.info_user.country.present? %>
+      <span><%= user.info_user.country %></span>
+    <% else %>
+      <span>--</span>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <i class="fa fa-birthday-cake"></i>
+    <% if user.info_user.birthday.present? %>
+      <span>
+        <%= l user.info_user.birthday, format: :date_month_year_concise %>
+      </span>
+    <% else %>
+      <span>--</span>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <i class="fa fa-heartbeat"></i>
+    <span><%= user.info_user.relationship_status.capitalize %></span>
+  </div>
+  <div class="col-sm-4">
+    <i class="glyphicon glyphicon-time"></i>
+    <span><%= t(".join_on",
+      date: l(user.created_at, format: :date_month_year_concise)) %></span>
+  </div>
+</div>

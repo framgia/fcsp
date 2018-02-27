@@ -164,7 +164,7 @@ courses:
 user:
   max_length_name: 50
   per_page: 5
-  limit_user: 3
+  limit_user: 5
 max_length_title: 150
 max_length_description: 1000
 hiring_type:
@@ -306,6 +306,7 @@ truncate:
   skill_name: 40
   language_name: 40
   school_name: 40
+  work_experience: 40
   word:
     course_name: 15
     course_description: 25

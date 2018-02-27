@@ -2,24 +2,46 @@ en:
   users:
     advance_profile :
       activities: "Activities"
-      education: "Educations"
-      language: "Languages"
-      project: "Projects"
-      self_introduction: "Self Introduction"
-      skill: "Skills"
-      education: "Educations"
-      project: "Project"
-      activities: "Activities"
+      self_intro:
+        self_introduction: "Self Introduction"
+      ambition:
+        ambition: "Ambition"
+        from_to: "From %{from} to %{to}"
+        major: "Major: "
+      education:
+        from_to: "From %{from} to %{to}"
+        major: "Major: "
+        education: "Education"
+      course:
+        project: "Projects"
+      language:
+        language: "Languages"
+      skill:
+        skill: "Skills"
+        years: "years"
+      working_experience:
+        work_experiences: "Work Experiences"
+        from_to: "From %{from} to %{to}"
+        pos: "Position: "
+    information:
+      join_on: "Joined on %{date}"
     basic_profile:
       add_quote: "Add quote"
-      address: "Address"
-      contact_info: "Contact Information"
-      email: "Email"
-      following: "Following"
-      load_more: "Load more"
-      phone: "Phone"
-      quote: "Quote"
-      shared_for_user: "Shared profile for users"
+      quote:
+        quote: "Quote"
+      contact:
+        phone: "Phone"
+        contact_info: "Contact Information"
+        address: "Address"
+        email: "Email"
+      social:
+        social_media: "Social Media"
+      user_share:
+        shared_for_user: "Shared profile for users"
+        load_more: "Load more"
+      user_following:
+        following: "Following"
+        load_more: "Load more"
     modal_user_share:
       user_shared: "Users you shared profile"
     modal_user_following:

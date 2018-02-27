@@ -1,0 +1,28 @@
+<article class="post show-tab-user">
+  <div class="clearfix">
+    <div class="fancy-title">
+      <h4><%= t ".social_media" %></h4>
+    </div>
+    <div class="user-online-contacts-wrapper">
+      <ul class="user-online-contacts">
+        <% user.online_contacts.each do |social| %>
+          <% if social.title == "facebook" %>
+            <li>
+              <%= link_to("", social.url, class: "fa fa-facebook") %>
+            </li>
+          <% end %>
+          <% if social.title == "instagram" %>
+            <li>
+              <%= link_to("", social.url, class: "fa fa-instagram") %>
+            </li>
+          <% end %>
+          <% if social.title == "linkedin" %>
+            <li>
+              <%= link_to("", social.url, class: "fa fa-linkedin") %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</article>

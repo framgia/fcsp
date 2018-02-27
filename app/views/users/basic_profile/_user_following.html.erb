@@ -1,0 +1,25 @@
+<article class="post show-tab-user">
+  <div class="clearfix">
+    <div class="fancy-title top-cart-item">
+      <h4><%= t ".following" %></h4>
+    </div>
+    <ul>
+      <% limit_user_following.each do |user_following| %>
+        <li>
+          <div class="user-share-profile">
+            <div class="avatar-share"><%= load_user_avatar user_following %></div>
+            <span class="name-share"><%= link_to user_following.name, user_path(user_following) %></span>
+          </div>
+        <li>
+      <% end %>
+    </ul>
+    <% if user_following.count > Settings.user.limit_user.to_i %>
+      <div class="load-more">
+        <a data-toggle="modal" data-target="#modal_user_following" class="link-load-more">
+          <%= t ".load_more" %>
+        </a>
+      </div>
+      <%= render "users/modal_user_following", user_following: user_following %>
+    <% end %>
+  </div>
+</article>

@@ -1,0 +1,17 @@
+<div class="border border-primary box-information">
+  <p><h4 class="profile-title"><%= t ".language" %></h4></p>
+  <% if languages.present? %>
+    <ul class="list-group">
+      <% languages.each do |language| %>
+        <li class="list-group-item">
+          <span><%= language.language_name.truncate Settings.truncate.language_name %></span>
+          <span class="pull-right"><%= language.level %></span>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="self_introduction">
+      <%= t "coming_soon" %>
+    </div>
+  <% end %>
+</div>

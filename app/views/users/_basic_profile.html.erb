@@ -1,91 +1,26 @@
 <% if user.info_user_quote %>
-  <div class="fancy-title">
-    <h4><%= t ".quote" %></h4>
-  </div>
-  <div class="block-quote education-info">
-    <q><%= quote_content user.info_user_quote %></q>
-  </div>
+  <%= render "users/basic_profile/quote",
+    user: user %>
 <% end %>
 
 <% if user.info_user %>
-  <div class="toggle-info fancy-title">
-    <h4><%= t ".contact_info" %></h4>
-    <i class="caret"></i>
-  </div>
-  <div id="toggle-info-contact">
-    <div class="top-cart-item clearfix">
-      <i class="i-rounded i-small i-bordered icon-email"></i>
-      <div class="top-cart-item-desc">
-        <%= t ".email" %>
-        <span class="top-cart-item-price" id="address-information">
-          <%= user.email %>
-        </span>
-      </div>
-    </div>
-    <% if user.info_user_phone.present? %>
-      <div class="top-cart-item clearfix">
-        <i class="i-rounded i-small i-bordered icon-phone"></i>
-        <div class="top-cart-item-desc">
-          <%= t ".phone" %>
-          <span class="top-cart-item-price" id="phone-information">
-            <%= user.info_user_phone %>
-          </span>
-        </div>
-      </div>
-    <% end %>
-    <% if user.info_user_address.present? %>
-      <div class="top-cart-item clearfix">
-        <i class="i-rounded i-small i-bordered icon-home"></i>
-        <div class="top-cart-item-desc">
-          <%= t ".address" %>
-          <span class="top-cart-item-price" id="address-information">
-            <%= user.info_user_address %>
-          </span>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render "users/basic_profile/contact",
+    user: user %>
 <% end %>
+
+<% if user.online_contacts.any? %>
+  <%= render "users/basic_profile/social",
+    user: user %>
+<% end %>
+
 <% if @users[:user_shares].present? %>
-  <div class="fancy-title top-cart-item">
-    <h4><%= t ".shared_for_user" %></h4>
-  </div>
-  <ul>
-    <% @users[:limit_user_shares].each do |user_share| %>
-      <li>
-        <div class="user-share-profile">
-          <div class="avatar-share"><%= load_user_avatar user_share %></div>
-          <span class="name-share"><%= link_to user_share.name, user_path(user_share) %></span>
-        </div>
-      <li>
-    <% end %>
-  </ul>
-  <div class="load-more">
-    <a data-toggle="modal" data-target="#modal_user_share" class="link-load-more">
-      <%= t ".load_more" %>
-    </a>
-  </div>
-  <%= render "users/modal_user_share", user_shares: @users[:user_shares] %>
+  <%= render "users/basic_profile/user_share",
+    limit_user_shares: @users[:limit_user_shares],
+    user_shares: @users[:user_shares] %>
 <% end %>
 
 <% if @users[:user_following].present? %>
-  <div class="fancy-title top-cart-item">
-    <h4><%= t ".following" %></h4>
-  </div>
-  <ul>
-    <% @users[:limit_user_following].each do |user_following| %>
-      <li>
-        <div class="user-share-profile">
-          <div class="avatar-share"><%= load_user_avatar user_following %></div>
-          <span class="name-share"><%= link_to user_following.name, user_path(user_following) %></span>
-        </div>
-      <li>
-    <% end %>
-  </ul>
-  <div class="load-more">
-    <a data-toggle="modal" data-target="#modal_user_following" class="link-load-more">
-      <%= t ".load_more" %>
-    </a>
-  </div>
-  <%= render "users/modal_user_following", user_following: @users[:user_following] %>
+  <%= render "users/basic_profile/user_following",
+    limit_user_following: @users[:limit_user_following],
+    user_following: @users[:user_following] %>
 <% end %>

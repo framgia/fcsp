@@ -1,63 +1,13 @@
-<div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".self_introduction" %></h4></p>
-  <% if @user.info_user_introduction.present? %>
-    <div class="self_introduction">
-      <%= @user.info_user_introduction %>
-    </div>
-  <% else %>
-    <%= t ".coming_soon" %>
-  <% end %>
-</div>
-
-<div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".skill" %></h4></p>
-  <% if advance_profiles[:skills].present? %>
-    <ul class="list-group">
-      <% advance_profiles[:skills].each do |skill| %>
-        <li class="list-group-item">
-          <span><%= skill.skill_name.truncate Settings.truncate.skill_name %></span>
-          <span class="pull-right">
-            <%= format_skill_years skill.years %>
-            <%= t ".years" %>
-          </span>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <%= t ".coming_soon" %>
-  <% end %>
-</div>
-
-<div id="projects" class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".project" %></h4></p>
-  <%= render "course_users", user: @user, courses: advance_profiles[:courses] %>
-</div>
-
-<div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".language" %></h4></p>
-  <% if advance_profiles[:languages].present? %>
-    <ul class="list-group">
-      <% advance_profiles[:languages].each do |language| %>
-        <li class="list-group-item">
-          <span><%= language.language_name.truncate Settings.truncate.language_name %></span>
-          <span class="pull-right"><%= language.level %></span>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <%= t ".coming_soon" %>
-  <% end %>
-</div>
-
-<div class="border border-primary box-information">
-  <p><h4 class="profile-title"><%= t ".education" %></h4></p>
-  <% if advance_profiles[:schools].present? %>
-    <ul class="list-group">
-      <% advance_profiles[:schools].each do |school| %>
-        <li class="list-group-item"><%= school.name.truncate Settings.truncate.school_name %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <%= t ".coming_soon" %>
-  <% end %>
-</div>
+<%= render "users/advance_profile/self_intro" %>
+<%= render "users/advance_profile/ambition" %>
+<%= render "users/advance_profile/education",
+  schools: advance_profiles[:schools] %>
+<%= render "users/advance_profile/working_experience",
+  experiences: advance_profiles[:work_experiences] %>
+<%= render "users/advance_profile/skill",
+  skills: advance_profiles[:skills] %>
+<%= render "users/advance_profile/course",
+  users: @user,
+  courses: advance_profiles[:courses] %>
+<%= render "users/advance_profile/language",
+  languages: advance_profiles[:languages] %>
