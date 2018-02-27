@@ -1,7 +1,7 @@
 @import 'variables/color';
 
 .box-information {
-  padding: 5px 10px 5px 10px;
+  padding: 10px 10px 30px 10px;
 
   li {
     list-style-type: square;
@@ -14,6 +14,8 @@
 
   .profile-title {
     color: $orange;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 
   .self_introduction {
@@ -33,6 +35,47 @@
   .list-group-item {
     border-radius: 0;
     padding: 5px 15px;
+    background: $white;
+    border: none;
+    margin-bottom: 10px;
+    .list-group-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      span {
+        background: $white;
+        padding-right: 20px;
+      }
+    }
+    .pull-right {
+      background: url(https://de7iszmjjjuya.cloudfront.net/assets/linethrough-bg-ca1a0157a77da0bca2ace712e4d6037a7aa1dec69db54d1491c4e7918a33855a.gif);
+      background-repeat: repeat-x;
+      background-position: left center;
+      padding: 5px 0px;
+      width: 90%;
+      margin-right: 15px;
+      display: block;
+      margin-left: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #9DA0A4;
+      text-align: right;
+      span {
+        background: $white;
+        padding-left: 20px;
+      }
+    }
+    p {
+      margin-bottom: 0px;
+    }
+    .addition-information {
+      padding-left: 15px;
+      font-size: 14px;
+      color: $gray-dark;
+    }
   }
 }
 
@@ -116,9 +159,17 @@
 
 .nav-tabs-profile-user {
   bottom: 20px;
-  font-weight: bold;
   left: 205px;
+  width: 56%;
   position: absolute;
+  font-size: 13px;
+  color: $color-media-meta;
+  i {
+    margin-right: 4px;
+  }
+  .row {
+    margin-bottom: 3px;
+  }
 }
 
 .style-italic {

@@ -1,0 +1,26 @@
+<div class="border border-primary box-information">
+  <p><h4 class="profile-title"><%= t ".skill" %></h4></p>
+  <% if skills.present? %>
+    <ul class="list-group">
+      <% skills.each do |skill| %>
+        <li class="list-group-item">
+          <span class="list-group-item-title">
+            <span>
+              <%= skill.skill_name.truncate(Settings.truncate.skill_name).upcase %>
+            </span>
+          </span>
+          <span class="pull-right">
+            <span>
+              <%= format_skill_years skill.years %>
+              <%= t ".years" %>
+            </span>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="self_introduction">
+      <%= t "coming_soon" %>
+    </div>
+  <% end %>
+</div>

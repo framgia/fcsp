@@ -2,14 +2,29 @@ en:
   users:
     advance_profile :
       activities: "Activities"
-      education: "Educations"
-      language: "Languages"
-      project: "Projects"
-      self_introduction: "Self Introduction"
-      skill: "Skills"
-      education: "Educations"
-      project: "Projects"
-      activities: "Activities"
+      self_intro:
+        self_introduction: "Self Introduction"
+      ambition:
+        ambition: "Ambition"
+        from_to: "From %{from} to %{to}"
+        major: "Major: "
+      education:
+        from_to: "From %{from} to %{to}"
+        major: "Major: "
+        education: "Education"
+      course:
+        project: "Projects"
+      language:
+        language: "Languages"
+      skill:
+        skill: "Skills"
+        years: "years"
+      working_experience:
+        work_experiences: "Work Experiences"
+        from_to: "From %{from} to %{to}"
+        pos: "Position: "
+    information:
+      join_on: "Joined on %{date}"
     basic_profile:
       add_quote: "Add quote"
       address: "Address"

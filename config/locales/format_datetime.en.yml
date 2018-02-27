@@ -1,7 +1,7 @@
 en:
   date:
     formats:
-      month_year_format: "%B %Y"
+      month_year_format: "%B, %Y"
       short_month_year: "%d-%m-%Y"
   time:
     formats:

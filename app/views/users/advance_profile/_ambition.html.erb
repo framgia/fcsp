@@ -1,0 +1,28 @@
+<div class="border border-primary box-information">
+  <p><h4 class="profile-title"><%= t ".ambition" %></h4></p>
+  <ul class="list-group">
+      <li class="list-group-item">
+        <span class="list-group-item-title">
+          <span>
+            DEVELOPER
+          </span>
+        </span>
+        <span class="pull-right">
+          <span>
+            <%= t(".from_to",
+              from: l(Date.today, format: :month_year_format),
+              to: l(Date.today, format: :month_year_format)) %>
+            </span>
+        </span>
+        <p class="addition-information">
+          <%= t ".major" %> Software engineering
+        </p>
+        <p class="addition-information">
+          Organization: Framgia Inc
+        </p>
+        <p class="addition-information">
+          Salary: $1000/month
+        </p>
+      </li>
+    </ul>
+</div>

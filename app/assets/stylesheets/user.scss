@@ -52,8 +52,8 @@
 }
 
 .img-avatar {
-  height: 120px;
-  width: 120px;
+  height: 130px;
+  width: 130px;
 }
 
 .img-avatar-friend {
@@ -66,7 +66,7 @@
 }
 
 .img-cover {
-  height: 200px;
+  height: 300px;
   width: 100%;
 }
 
@@ -187,22 +187,22 @@
   color: $white !important;
   float: left;
   font-size: 2em;
-  height: 120px;
+  height: 130px;
   line-height: 160px;
-  margin-left: 15px;
+  margin-left: 25px;
   margin-top: -90px;
   overflow: hidden;
   padding: 0;
   position: relative;
   text-align: center;
   transition: all .3s ease-in-out;
-  width: 120px;
+  width: 130px;
 }
 
 .site-name {
-  bottom: 70px;
+  bottom: 98px;
   color: $dark-gray;
-  font-size: 1.4em;
+  font-size: 2em;
   left: 204px;
   position: absolute;
 }
@@ -304,8 +304,6 @@
 }
 
 .block-quote {
-  background: $white-gray;
-  border-left: 5px solid $white-eee;
   font-size: 15px;
   margin: 0 0 10px;
   padding: 0 10px;
@@ -336,12 +334,12 @@ q {
 
 .show-header-user {
   margin-bottom: 15px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 
   .request-user {
-    bottom: 77px;
+    bottom: 93px;
     position: absolute;
-    right: 20px;
+    right: 25px;
   }
 
   .user-show {
@@ -379,8 +377,36 @@ q {
 }
 
 .show-tab-user {
-  padding: 8px 15px 1px 15px;
-  min-height: 225px;
+  padding: 8px 15px 20px 15px;
+}
+
+.page-err-container {
+  align-content: center;
+  width: 100%;
+  text-align: center;
+  padding: 50px 0px;
+  img {
+    width: 180px;
+    margin: 0px auto;
+    display: block;
+  }
+}
+
+.show-quote-user {
+  i {
+    font-size: 30px;
+    color: $color-media-meta;
+  }
+  blockquote {
+    border-left: none;
+    background-color: $alabaster;
+    text-align: center;
+    margin: -18px 0px 0px 0px;
+  }
+  .fa-quote-right {
+    float: right;
+    margin-top: -25px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -393,7 +419,7 @@ q {
 
   .avatar-user {
     float: left;
-    margin: -65px 0 0 15px;
+    margin-left: 25px;
     max-height: 100px;
     max-width: 100px;
     transition: all .3s ease-in-out;
@@ -538,6 +564,8 @@ q {
 
 .fancy-title {
   margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: solid 1px $gray-light;
 }
 
 .toggle-info {

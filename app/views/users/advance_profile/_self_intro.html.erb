@@ -1,0 +1,12 @@
+<div class="border border-primary box-information">
+  <p><h4 class="profile-title"><%= t ".self_introduction" %></h4></p>
+  <% if @user.info_user_introduction.present? %>
+    <div class="self_introduction">
+      <%= @user.info_user_introduction %>
+    </div>
+  <% else %>
+    <div class="self_introduction">
+      <%= t "coming_soon" %>
+    </div>
+  <% end %>
+</div>

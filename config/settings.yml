@@ -306,6 +306,7 @@ truncate:
   skill_name: 40
   language_name: 40
   school_name: 40
+  work_experience: 40
   word:
     course_name: 15
     course_description: 25

@@ -951,9 +951,6 @@ en:
       add: "Add"
       user_work: "User Work"
   users:
-    advance_profile:
-      years: "years"
-      coming_soon: "Coming soon!"
     personal_information:
       if_you_dont_want: "If you don't want to change, click cancel"
       click_to_change: "Click to change"
