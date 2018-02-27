@@ -201,7 +201,9 @@
 
 .site-name {
   bottom: 98px;
-  color: $dark-gray;
+  color: $white;
+  text-rendering: optimizelegibility;
+  text-shadow: 0 0 3px rgba(0,0,0,.8);
   font-size: 2em;
   left: 204px;
   position: absolute;
@@ -378,6 +380,40 @@ q {
 
 .show-tab-user {
   padding: 8px 15px 20px 15px;
+  .user-online-contacts-wrapper{
+    text-align: center;
+    .user-online-contacts {
+      overflow: auto;
+      display: inline-block;
+      margin: 0 auto;
+      li {
+        display: inline;
+        .fa {
+          padding: 10px;
+          font-size: 20px;
+          width: 40px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 5px;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        .fa-facebook {
+          background: $bg-facebook;
+          color: white;
+        }
+        .fa-linkedin {
+          background: $bg-linkedin;
+          color: white;
+        }
+        .fa-instagram {
+          background: $bg-instagram;
+          color: white;
+        }
+      }
+    }
+  }
 }
 
 .page-err-container {
