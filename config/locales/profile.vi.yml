@@ -1,12 +1,30 @@
 vi:
   users:
     advance_profile:
-      language: "Ngôn ngữ"
-      self_introduction: "Giới thiệu bản thân"
-      skill: "Kĩ năng"
-      education: "Trường học"
-      project: "Project"
+      self_intro:
+        self_introduction: "Giới thiệu bản thân"
+      ambition:
+        ambition: "Nguyện vọng"
+        from_to: "Từ %{from} đến %{to}"
+        major: "Chuyên ngành:  "
+      education:
+        from_to: "From %{from} to %{to}"
+        major: "Chuyên ngành:  "
+        education: "Trường học"
+      course:
+        project: "Dự án"
+      language:
+        language: "Ngôn ngữ"
+      skill:
+        skill: "Kĩ năng"
+        years: "years"
+      working_experience:
+        work_experiences: "Kinh nghiệm làm việc"
+        from_to: "Từ %{from} đến %{to}"
+        pos: "Vị trí: "
       activities: "Hoạt động"
+    information:
+      join_on: "Tham gia từ %{date}"
     basic_profile:
       address: "Địa chỉ"
       add_quote: "Thêm trích dẫn"

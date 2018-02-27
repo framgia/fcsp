@@ -1,0 +1,53 @@
+<div class="border border-primary box-information">
+  <p><h4 class="profile-title"><%= t ".education" %></h4></p>
+  <% if schools.present? %>
+    <ul class="list-group">
+      <% schools.each do |school| %>
+        <li class="list-group-item">
+          <span class="list-group-item-title">
+            <span>
+              <%= school.name.truncate(Settings.truncate.school_name).upcase %>
+            </span>
+          </span>
+          <span class="pull-right">
+            <span>
+              <%= t(".from_to",
+                from: l(Date.today, format: :month_year_format),
+                to: l(Date.today, format: :month_year_format)) %>
+              </span>
+          </span>
+          <p class="addition-information">
+            <%= t ".major" %> Software engineering
+          </p>
+          <p class="addition-information">
+            GPA (or smth else): 4.0
+          </p>
+        </li>
+      <% end %>
+        <li class="list-group-item">
+          <span class="list-group-item-title">
+            <span>
+              BACH KHOA
+            </span>
+          </span>
+          <span class="pull-right">
+            <span>
+              <%= t(".from_to",
+                from: l(Date.today, format: :month_year_format),
+                to: l(Date.today, format: :month_year_format)) %>
+              </span>
+          </span>
+          <p class="addition-information">
+            <%= t ".major" %> Software engineering
+          </p>
+          <p class="addition-information">
+            GPA (or smth else): 4.0
+          </p>
+        </li>
+    </ul>
+  <% else %>
+    <div class="self_introduction">
+      <%= t "coming_soon" %>
+    </div>
+  <% end %>
+</div>

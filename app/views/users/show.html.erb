@@ -11,7 +11,7 @@
         </a>
         <span class="site-name"><strong><%= @user.name %></strong></span>
           <span class="nav nav-tabs-profile-user">
-            <%= t ".information" %>
+            <%= render "information", user: @user %>
           </span>
         <div class="request-user">
           <% if !@user.is_user?(current_user) && user_signed_in? %>
@@ -38,19 +38,18 @@
                     advance_profiles: @advance_profiles %>
                 </div>
               <% else %>
-                <h1><%= t ".page_error" %></h1>
+                <div class="page-err-container">
+                  <%= image_tag "https://www.buyon.pk/catalog/view/theme/buyon/image/buyon/not_found.gif" %>
+                  <h1><%= t ".page_error" %></h1>
+                </div>
               <% end %>
             </div>
           </div>
         </article>
       </div>
       <div class="col-md-3">
-        <article class="post show-tab-user">
-          <div class="clearfix">
-            <%= render "basic_profile", user: @user, info_user: @info_user,
-              users: @users %>
-          </div>
-        </article>
+        <%= render "basic_profile", user: @user, info_user: @info_user,
+          users: @users %>
       </div>
     </div>
   </div>

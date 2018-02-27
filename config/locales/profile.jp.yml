@@ -1,12 +1,30 @@
 jp:
   users:
     advance_profile:
-      language: "言語"
-      self_introduction: "自己紹介"
-      skill: "スキル"
-      education: "教育"
-      project: "プロジェクト"
+      self_intro:
+        self_introduction: "自己紹介"
+      ambition:
+        ambition: "Ambition"
+        from_to: "From %{from} to %{to}"
+        major: "Major: "
+      education:
+        from_to: "From %{from} to %{to}"
+        major: "Major: "
+        education: "教育"
+      course:
+        project: "プロジェクト"
+      language:
+        language: "言語"
+      skill:
+        skill: "スキル"
+        years: "years"
+      working_experience:
+        work_experiences: "Work Experiences"
+        from_to: "From %{from} to %{to}"
+        pos: "Position: "
       activities: "アクティビティ"
+    information:
+      join_on: "Joined on %{date}"
     basic_profile:
       add_quote: "見積もりを追加"
       address: "住所"

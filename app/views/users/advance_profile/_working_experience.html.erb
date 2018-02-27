@@ -1,0 +1,30 @@
+<div class="border border-primary box-information">
+  <p><h4 class="profile-title"><%= t ".work_experiences" %></h4></p>
+  <% if experiences.present? %>
+    <ul class="list-group">
+      <% experiences.each do |work_experience| %>
+        <li class="list-group-item">
+          <span class="list-group-item-title">
+            <span>
+              <%= work_experience.organization.truncate Settings.truncate.work_experience %>
+            </span>
+          </span>
+          <span class="pull-right">
+            <span>
+              <%= t(".from_to",
+                from: l(Date.today, format: :month_year_format),
+                to: l(Date.today, format: :month_year_format)) %>
+              </span>
+          </span>
+          <p class="addition-information">
+            <%= t ".pos" %> Developer
+          </p>
+         </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="self_introduction">
+      <%= t "coming_soon" %>
+    </div>
+  <% end %>
+</div>

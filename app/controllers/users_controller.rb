@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       user_following: user_following,
       limit_user_following: user_following.take(Settings.user.limit_user)}
     @advance_profiles = {schools: @user.schools,
+      work_experiences: @user.work_experiences,
       skills: @user.skill_users.includes(:skill),
       languages: @user.user_languages.includes(:language),
       courses: @user.courses.includes(:programming_language)}
