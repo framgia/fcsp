@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   before_action :check_valid_param_type, only: :update
 
   autocomplete :skill, :name, full: true
+  autocomplete :language, :name, full: true
 
   def show
     user_shares = @user.user_shares.includes :avatar

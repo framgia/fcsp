@@ -4,4 +4,5 @@ class Language < ApplicationRecord
   validates :name, presence: true, length: {
     maximum: Settings.language.name_max_length
   }
+  accepts_nested_attributes_for :user_languages
 end
