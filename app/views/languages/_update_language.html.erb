@@ -1,0 +1,20 @@
+<%= form_for user_language, url: user_language_path(user_language),
+  method: :patch do |f| %>
+  <div class="row language-form">
+    <div class="col-md-2"><%= t ".language" %></div>
+    <div class="col-md-10">
+      <%= text_field_tag :name, user_language.language.name, disabled: true,
+        class: "form-control", id: "language-name" %>
+    </div>
+  </div>
+
+  <div class="row language-form">
+    <div class="col-md-2"><%= t "experience.level" %></div>
+    <div class="col-md-10">
+      <%= f.select :level, UserLanguage.levels.keys, {},
+        {class: "form_control select-language"} %>
+    </div>
+  </div>
+
+  <%= render "shared/group_buttons" %>
+<% end %>
