@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.7">
 <%= stylesheet_link_tag "application", media: :all, "data-turbolinks-track": "reload" %>
 <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "api_maps", defer: "defer", async: "async" %>
 <%= javascript_tag do %>
   I18n.defaultLocale = "<%= I18n.default_locale %>";
   I18n.locale = "<%= I18n.locale %>";

@@ -51,13 +51,15 @@
 //= require cable
 //= require conversations
 //= require_tree ./channels
-//= require setting/profile
+//= require profiles/basic_profiles
 //= require setting/share_profiles
 //= require setting/skill
 //= require setting/experience
 //= require jquery-ui
 //= require autocomplete-rails
 //= require setting/synchronize
+//= require gmaps-auto-complete
+//= require setting/address
 
 $.fn.get_input_data = function(){
   var data = {};
