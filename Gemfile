@@ -25,7 +25,6 @@ gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "dropzonejs-rails"
-gem "ffaker"
 gem "figaro"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "gentelella-rails"
@@ -45,7 +44,7 @@ gem "paranoia"
 gem "pg"
 gem "public_activity"
 gem "puma", "~> 3.0"
-gem "rails", "~> 5.0.2"
+gem "rails", "~> 5.0.7"
 gem "rails-assets-sweetalert2", source: "https://rails-assets.org"
 gem "rails-i18n"
 gem "rails-jquery-autocomplete"
@@ -62,10 +61,11 @@ gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "valid_url"
 gem "validates_timeliness"
+
 group :development, :test do
   gem "byebug", platform: :mri
   gem "factory_bot_rails"
-  gem "faker"
+  gem "ffaker"
   gem "pry-rails"
   gem "rack-mini-profiler", require: false
   gem "rspec-rails", "~> 3.5"
@@ -101,5 +101,3 @@ group :test do
   gem "simplecov", require: false
   gem "webmock"
 end
-
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
