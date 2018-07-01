@@ -57,7 +57,7 @@ namespace :db do
 
       puts "Assign skill to user"
       User.all.each do |user|
-        skills = Skill.order("Random()").limit(2).pluck(:id)
+        skills = Skill.order("RAND()").limit(2).pluck(:id)
         skills.each do |skill|
           SkillUser.create! user_id: user.id, skill_id: skill,
           years: rand(1..3)
@@ -75,7 +75,7 @@ namespace :db do
       puts "Assign language to trainee"
 
       User.trainee.each do |trainee|
-        language_ids = Language.order("Random()").limit(3).pluck :id
+        language_ids = Language.order("RAND()").limit(3).pluck :id
         language_ids.each do |language|
           UserLanguage.create! user_id: trainee.id, language_id: language,
             level: rand(0..2)
