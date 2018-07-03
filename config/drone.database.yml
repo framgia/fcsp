@@ -1,9 +1,9 @@
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: postgres
-  password: postgres
+  username: root
+  password:
   database: fcsp_test
   host: 127.0.0.1
