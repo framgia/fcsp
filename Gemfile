@@ -15,7 +15,7 @@ gem "acts-as-taggable-on"
 gem "acts_as_follower", github: "tcocca/acts_as_follower", branch: "master"
 gem "bootstrap-datepicker-rails"
 gem "bootstrap-kaminari-views"
-gem "bootstrap-sass", "~> 3.3.6"
+gem "bootstrap-sass"
 gem "cancancan"
 gem "carrierwave"
 gem "ckeditor"
@@ -92,7 +92,7 @@ group :test do
   gem "reek"
   gem "rspec-activemodel-mocks"
   gem "rspec-collection_matchers"
-  gem "rubocop", "0.47.1", require: false
+  gem "rubocop"
   gem "rubocop-checkstyle_formatter", require: false
   gem "scss_lint", require: false
   gem "scss_lint_reporter_checkstyle", require: false
