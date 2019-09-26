@@ -55,6 +55,7 @@
 //= require setting/share_profiles
 //= require setting/skill
 //= require setting/experience
+//= require setting/language
 //= require jquery-ui
 //= require autocomplete-rails
 //= require setting/synchronize
