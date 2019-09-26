@@ -1,0 +1,6 @@
+<% if @user_presenter.load_user_languages %>
+  <div>
+    <%= render partial: "languages/user_language",
+      collection: @user_presenter.load_user_languages, as: :user_language %>
+  </div>
+<% end %>

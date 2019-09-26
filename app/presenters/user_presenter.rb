@@ -28,4 +28,16 @@ class UserPresenter
   def load_experiences
     @user.work_experiences.order_by_created_at
   end
+
+  def new_language
+    Language.new
+  end
+
+  def new_user_language
+    @user.user_languages.build
+  end
+
+  def load_user_languages
+    @user.user_languages.includes :language
+  end
 end

@@ -21,12 +21,14 @@ Rails.application.routes.draw do
       patch :update_auto_synchronize
     end
     get :autocomplete_skill_name, on: :collection
+    get :autocomplete_language_name, on: :collection
   end
 
   resource :user_avatars, only: %i(create update)
   resource :user_covers, only: %i(create update)
   resources :info_users, only: %i(update)
-  resources :user_languages, except: :show
+  resources :user_languages, only: %i(update destroy)
+  resources :languages, only: %i(create)
   resources :skills, only: %i(index create)
   resources :skill_users, only: %i(update destroy)
   resources :work_experiences, only: %i(create update destroy)

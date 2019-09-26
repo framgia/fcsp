@@ -237,3 +237,16 @@
     </div>
   </div>
 </div>
+
+<div class="col_full">
+  <a class="edit-toggle">
+    <h3 class="orange-text"><%= t ".language" %></h3>
+    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+  </a>
+  <div id="create_language" class="form-edit-profile">
+    <%= render "languages/create_language"%>
+  </div>
+  <div class="current_language">
+    <%= render "languages/current_language"%>
+  </div>
+</div>

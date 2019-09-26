@@ -1,0 +1,44 @@
+@import 'variables/color';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.language-form {
+  margin-bottom: 5px;
+}
+
+.select-language {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid $gray-80;
+  height: 34px;
+  width: 100%;
+}
+
+.current_language {
+  margin-top: 20px;
+}
+
+.show-user-language {
+  margin: 0;
+}
+
+.edit-user-language {
+  background-color: $gray-ece;
+  box-shadow: 1px 2px 2px 1px $sliver;
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.user-language {
+  cursor: pointer;
+
+  .button-edit {
+    color: blue;
+    display: none;
+  }
+}
+
+.edit-language-button {
+  float: right;
+}
